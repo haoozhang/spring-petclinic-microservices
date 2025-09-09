@@ -1,5 +1,5 @@
 {
-  "azure/observability/spring-boot-actuator-to-azure-monitor.md": "expected",
-  "azure/security-identity-config/properties-secrets-to-azure-key-vault.md": "expected",
-  "azure/security-identity-config/spring-cloud-config-to-app-config-with-feature-flags.md": "expected"
+  "detect-spring-boot-actuator": "expected",
+  "detect-properties-secrets-to-azure-key-vault": "expected",
+  "detect-spring-cloud-config": "expected"
 }
