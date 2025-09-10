@@ -1,5 +1,7 @@
 {
   "detect-spring-boot-actuator": "expected",
   "detect-properties-secrets-to-azure-key-vault": "expected",
-  "detect-spring-cloud-config": "expected"
+  "detect-spring-cloud-config": "expected",
+  "detect-spring-cache": "expected",
+  "detect-jsr107-jcache": "expected"
 }
