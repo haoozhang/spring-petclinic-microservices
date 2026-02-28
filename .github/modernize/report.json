@@ -1,0 +1,186 @@
+{
+  "assessment": {
+    "tool": "Manual Code Analysis",
+    "note": "AppCAT MCP tools (appmod-precheck-assessment, appmod-run-assessment) were not available in this environment. This report is based on static code and configuration analysis. To run a full AppCAT assessment, configure the AppCAT MCP server and re-run the 'assessment' skill.",
+    "setupInstructions": {
+      "step1": "Install and configure the AppCAT MCP server",
+      "step2": "Ensure 'appmod-precheck-assessment' and 'appmod-run-assessment' MCP tools are available",
+      "step3": "Re-run the 'assessment' skill to generate a full AppCAT report",
+      "reference": "https://aka.ms/appcat"
+    },
+    "timestamp": "2026-02-28T08:14:12Z",
+    "project": {
+      "name": "spring-petclinic-microservices",
+      "version": "3.4.1",
+      "language": "Java",
+      "javaVersion": "17",
+      "buildTool": "Maven",
+      "framework": "Spring Boot 3.4.1",
+      "architecture": "Microservices"
+    },
+    "modules": [
+      {
+        "name": "spring-petclinic-config-server",
+        "description": "Centralized configuration server using Spring Cloud Config",
+        "port": 8888,
+        "dependencies": ["spring-cloud-config-server", "jolokia-core"]
+      },
+      {
+        "name": "spring-petclinic-discovery-server",
+        "description": "Service registry using Netflix Eureka",
+        "port": 8761,
+        "dependencies": ["spring-cloud-starter-netflix-eureka-server", "spring-cloud-starter-config"]
+      },
+      {
+        "name": "spring-petclinic-api-gateway",
+        "description": "API gateway with routing, circuit breaker, and frontend serving",
+        "port": 8080,
+        "dependencies": [
+          "spring-cloud-starter-gateway",
+          "spring-cloud-starter-circuitbreaker-reactor-resilience4j",
+          "spring-cloud-starter-netflix-eureka-client",
+          "spring-boot-starter-actuator",
+          "micrometer-registry-prometheus",
+          "caffeine",
+          "opentelemetry-exporter-zipkin",
+          "micrometer-tracing-bridge-brave"
+        ]
+      },
+      {
+        "name": "spring-petclinic-customers-service",
+        "description": "Manages pet owners and their pets",
+        "port": 8081,
+        "dependencies": [
+          "spring-boot-starter-data-jpa",
+          "spring-boot-starter-web",
+          "spring-cloud-starter-netflix-eureka-client",
+          "mysql-connector-j",
+          "hsqldb",
+          "micrometer-registry-prometheus",
+          "chaos-monkey-spring-boot",
+          "opentelemetry-exporter-zipkin"
+        ]
+      },
+      {
+        "name": "spring-petclinic-visits-service",
+        "description": "Manages veterinary visit records for pets",
+        "port": 8082,
+        "dependencies": [
+          "spring-boot-starter-data-jpa",
+          "spring-boot-starter-web",
+          "spring-cloud-starter-netflix-eureka-client",
+          "mysql-connector-j",
+          "hsqldb",
+          "micrometer-registry-prometheus",
+          "chaos-monkey-spring-boot",
+          "opentelemetry-exporter-zipkin"
+        ]
+      },
+      {
+        "name": "spring-petclinic-vets-service",
+        "description": "Manages veterinarian profiles and specialties with caching",
+        "port": 8083,
+        "dependencies": [
+          "spring-boot-starter-data-jpa",
+          "spring-boot-starter-web",
+          "spring-boot-starter-cache",
+          "spring-cloud-starter-netflix-eureka-client",
+          "mysql-connector-j",
+          "hsqldb",
+          "caffeine",
+          "micrometer-registry-prometheus",
+          "chaos-monkey-spring-boot",
+          "opentelemetry-exporter-zipkin"
+        ]
+      },
+      {
+        "name": "spring-petclinic-genai-service",
+        "description": "Generative AI chat assistant using Spring AI with OpenAI integration",
+        "port": 8084,
+        "dependencies": [
+          "spring-ai-openai-spring-boot-starter",
+          "spring-boot-starter-web",
+          "spring-boot-starter-data-jpa",
+          "spring-cloud-starter-netflix-eureka-client",
+          "mysql-connector-j",
+          "hsqldb",
+          "micrometer-registry-prometheus",
+          "chaos-monkey-spring-boot"
+        ]
+      },
+      {
+        "name": "spring-petclinic-admin-server",
+        "description": "Spring Boot Admin server for monitoring all microservices",
+        "port": 9090,
+        "dependencies": [
+          "spring-boot-admin-starter-server",
+          "spring-boot-admin-server-ui",
+          "spring-cloud-starter-netflix-eureka-client",
+          "caffeine",
+          "jolokia-core"
+        ]
+      }
+    ],
+    "infrastructure": {
+      "tracing": {
+        "technology": "Zipkin + OpenTelemetry",
+        "port": 9411,
+        "library": "micrometer-tracing-bridge-brave + opentelemetry-exporter-zipkin"
+      },
+      "metrics": {
+        "technology": "Prometheus + Micrometer",
+        "port": 9091,
+        "library": "micrometer-registry-prometheus"
+      },
+      "monitoring": {
+        "technology": "Grafana",
+        "port": 3030
+      },
+      "serviceDiscovery": {
+        "technology": "Netflix Eureka",
+        "port": 8761
+      },
+      "configManagement": {
+        "technology": "Spring Cloud Config",
+        "port": 8888
+      },
+      "database": {
+        "production": "MySQL",
+        "embedded": "HSQLDB (for local/test)"
+      },
+      "caching": {
+        "technology": "Caffeine"
+      },
+      "circuitBreaker": {
+        "technology": "Resilience4j"
+      }
+    },
+    "cloudReadiness": {
+      "containerization": "Docker Compose provided for all services",
+      "serviceDiscovery": "Netflix Eureka",
+      "centralizedConfig": "Spring Cloud Config Server",
+      "distributedTracing": "OpenTelemetry + Zipkin",
+      "metrics": "Micrometer + Prometheus",
+      "resiliency": "Resilience4j circuit breaker pattern",
+      "apiGateway": "Spring Cloud Gateway",
+      "aiIntegration": "Spring AI with OpenAI"
+    },
+    "potentialIssues": [
+      {
+        "severity": "medium",
+        "category": "Observability",
+        "description": "jolokia-core version 1.7.1 is used - consider upgrading to Jolokia 2.x for Java 17+ compatibility and security patches"
+      },
+      {
+        "severity": "low",
+        "category": "AI Integration",
+        "description": "spring-ai version 1.0.0-M4 (milestone) is used in genai-service - consider upgrading to a stable release"
+      },
+      {
+        "severity": "low",
+        "category": "Testing",
+        "description": "Embedded HSQLDB used for local/test environments; production workloads should use MySQL"
+      }
+    ]
+  }
+}
