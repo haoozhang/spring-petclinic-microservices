@@ -1,0 +1,44 @@
+{
+  "assessment": {
+    "status": "mcp_tools_required",
+    "projectType": "Java",
+    "message": "AppCAT assessment for Java projects requires MCP tools 'appmod-precheck-assessment' and 'appmod-run-assessment' to be configured.",
+    "setupInstructions": {
+      "description": "To run AppCAT assessment for this Java project, configure the following MCP tools in your environment:",
+      "tools": [
+        {
+          "name": "appmod-precheck-assessment",
+          "purpose": "Checks prerequisites and prepares the environment for AppCAT analysis"
+        },
+        {
+          "name": "appmod-run-assessment",
+          "purpose": "Executes AppCAT analysis and generates the assessment report"
+        }
+      ],
+      "steps": [
+        "1. Configure 'appmod-precheck-assessment' MCP tool in your MCP server settings",
+        "2. Configure 'appmod-run-assessment' MCP tool in your MCP server settings",
+        "3. Re-run the assessment skill once the MCP tools are available",
+        "4. The assessment report will be generated at .github/modernize/appcat/report.json"
+      ]
+    },
+    "projectInfo": {
+      "name": "spring-petclinic-microservices",
+      "version": "3.4.1",
+      "language": "Java",
+      "javaVersion": "17",
+      "framework": "Spring Boot 3.4.1",
+      "cloudFramework": "Spring Cloud 2024.0.0",
+      "modules": [
+        "spring-petclinic-config-server",
+        "spring-petclinic-discovery-server",
+        "spring-petclinic-api-gateway",
+        "spring-petclinic-customers-service",
+        "spring-petclinic-vets-service",
+        "spring-petclinic-visits-service",
+        "spring-petclinic-genai-service",
+        "spring-petclinic-admin-server"
+      ]
+    }
+  }
+}
