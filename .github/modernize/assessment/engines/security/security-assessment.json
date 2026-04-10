@@ -1,0 +1,135 @@
+{
+  "GeneratedAt": "2026-04-10T08:28:00.0000000Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 8,
+    "CveCount": 3,
+    "CweCount": 5,
+    "BySeverity": {
+      "mandatory": 3,
+      "potential": 2,
+      "optional": 3
+    },
+    "ByCategory": {
+      "CVE": 3,
+      "Code Quality": 2,
+      "Credentials & Secrets": 2,
+      "Injection Attacks": 1
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 54
+  },
+  "CveFindings": [
+    {
+      "Id": "CVE-2026-22739",
+      "Name": "Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-22739](https://github.com/advisories/GHSA-3qwq-q9vm-5j42): Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access\n\nSeverity: MANDATORY (high)\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n    Vulnerable range: >= 4.2.0, <= 4.2.4\n\nNote: No patched version available in the 4.2.x line at time of assessment. Consider upgrading to the 4.3.x line (patched at 4.3.2) or the 5.0.x line (patched at 5.0.2).",
+      "Files": [
+        "spring-petclinic-config-server/pom.xml:33"
+      ],
+      "Explanation": "[CVE-2026-22739](https://github.com/advisories/GHSA-3qwq-q9vm-5j42): Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access\n\nSeverity: MANDATORY (high)\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n    Vulnerable range: >= 4.2.0, <= 4.2.4\n\nNote: No patched version available in the 4.2.x line at time of assessment. Consider upgrading to the 4.3.x line (patched at 4.3.2) or the 5.0.x line (patched at 5.0.2)."
+    },
+    {
+      "Id": "CVE-2026-22733",
+      "Name": "Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-22733](https://github.com/advisories/GHSA-mgvc-8q2h-5pgc): Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints\n\nSeverity: MANDATORY (high)\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator:3.4.1 (declared at spring-petclinic-api-gateway/pom.xml:44, spring-petclinic-customers-service/pom.xml:27, spring-petclinic-genai-service/pom.xml:41, spring-petclinic-vets-service/pom.xml:35, spring-petclinic-visits-service/pom.xml:26)\n    Vulnerable range: >= 3.4.0, <= 3.4.13\n\nNote: No patched version available in the 3.4.x line at time of assessment. Consider upgrading to Spring Boot 3.5.12 or later.",
+      "Files": [
+        "spring-petclinic-api-gateway/pom.xml:44",
+        "spring-petclinic-customers-service/pom.xml:27",
+        "spring-petclinic-genai-service/pom.xml:41",
+        "spring-petclinic-vets-service/pom.xml:35",
+        "spring-petclinic-visits-service/pom.xml:26"
+      ],
+      "Explanation": "[CVE-2026-22733](https://github.com/advisories/GHSA-mgvc-8q2h-5pgc): Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints\n\nSeverity: MANDATORY (high)\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator:3.4.1 (declared at spring-petclinic-api-gateway/pom.xml:44, spring-petclinic-customers-service/pom.xml:27, spring-petclinic-genai-service/pom.xml:41, spring-petclinic-vets-service/pom.xml:35, spring-petclinic-visits-service/pom.xml:26)\n    Vulnerable range: >= 3.4.0, <= 3.4.13\n\nNote: No patched version available in the 3.4.x line at time of assessment. Consider upgrading to Spring Boot 3.5.12 or later."
+    },
+    {
+      "Id": "CVE-2026-22731",
+      "Name": "Spring Boot has an Authentication Bypass under Actuator Health groups paths",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-22731](https://github.com/advisories/GHSA-8hfc-fq58-r658): Spring Boot has an Authentication Bypass under Actuator Health groups paths\n\nSeverity: MANDATORY (high)\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator:3.4.1 (declared at spring-petclinic-api-gateway/pom.xml:44, spring-petclinic-customers-service/pom.xml:27, spring-petclinic-genai-service/pom.xml:41, spring-petclinic-vets-service/pom.xml:35, spring-petclinic-visits-service/pom.xml:26)\n    Vulnerable range: >= 3.4.0, <= 3.4.13\n\nNote: No patched version available in the 3.4.x line at time of assessment. Consider upgrading to Spring Boot 3.5.12 or later.",
+      "Files": [
+        "spring-petclinic-api-gateway/pom.xml:44",
+        "spring-petclinic-customers-service/pom.xml:27",
+        "spring-petclinic-genai-service/pom.xml:41",
+        "spring-petclinic-vets-service/pom.xml:35",
+        "spring-petclinic-visits-service/pom.xml:26"
+      ],
+      "Explanation": "[CVE-2026-22731](https://github.com/advisories/GHSA-8hfc-fq58-r658): Spring Boot has an Authentication Bypass under Actuator Health groups paths\n\nSeverity: MANDATORY (high)\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator:3.4.1 (declared at spring-petclinic-api-gateway/pom.xml:44, spring-petclinic-customers-service/pom.xml:27, spring-petclinic-genai-service/pom.xml:41, spring-petclinic-vets-service/pom.xml:35, spring-petclinic-visits-service/pom.xml:26)\n    Vulnerable range: >= 3.4.0, <= 3.4.13\n\nNote: No patched version available in the 3.4.x line at time of assessment. Consider upgrading to Spring Boot 3.5.12 or later."
+    }
+  ],
+  "CweFindings": [
+    {
+      "Id": "CWE-665",
+      "Name": "Improper Initialization",
+      "Category": "Code Quality",
+      "Severity": "potential",
+      "StoryPoint": 3,
+      "Description": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
+      "Files": [
+        "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java"
+      ],
+      "Explanation": "In VectorStoreController, the method convertListToJsonResource() (line 94) returns null when a JsonProcessingException occurs (line 108). The caller loadVetDataToVectorStoreOnStartup() uses the return value on line 76 (Resource vetsAsJson = convertListToJsonResource(vets)) and immediately passes it to new JsonReader(vetsAsJson) on line 77 without any null check. If JSON serialization fails, vetsAsJson will be null, causing a NullPointerException when JsonReader tries to access the resource, leading to an improperly initialized reader object."
+    },
+    {
+      "Id": "CWE-1057",
+      "Name": "Data Access Operations Outside of Expected Data Manager Component",
+      "Category": "Code Quality",
+      "Severity": "potential",
+      "StoryPoint": 5,
+      "Description": "The product uses a dedicated, central data manager component as required by design, but it contains code that performs data-access operations that do not use this data manager.",
+      "Files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetResource.java",
+        "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/web/VetResource.java",
+        "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java"
+      ],
+      "Explanation": "The REST controller classes (OwnerResource, PetResource, VetResource, VisitResource) directly inject and call JPA Repository interfaces (OwnerRepository, PetRepository, VetRepository, VisitRepository) instead of routing data access through a dedicated service layer. For example, OwnerResource (line 46) directly injects OwnerRepository and calls ownerRepository.save(), ownerRepository.findById(), and ownerRepository.findAll() (lines 61, 69, 77, 86, 90). This bypasses the expected data manager (service) component and couples the presentation layer directly to the data access layer."
+    },
+    {
+      "Id": "CWE-259",
+      "Name": "Use of Hard-coded Password",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+      "Files": [
+        "README.md",
+        "spring-petclinic-genai-service/src/main/resources/application.yml"
+      ],
+      "Explanation": "Two instances found: (1) README.md line 151 contains a docker run command with a hardcoded MySQL root password: 'docker run -e MYSQL_ROOT_PASSWORD=petclinic -e MYSQL_DATABASE=petclinic'. This documents using 'petclinic' as the database root password, which is a well-known default credential that should not be used in any environment. (2) application.yml line 25: 'api-key: ${OPENAI_API_KEY:demo}' uses 'demo' as a hardcoded fallback value for the OpenAI API key, allowing the application to silently continue with an invalid/placeholder credential if the environment variable is not set."
+    },
+    {
+      "Id": "CWE-798",
+      "Name": "Use of Hard-coded Credentials",
+      "Category": "Credentials & Secrets",
+      "Severity": "optional",
+      "StoryPoint": 5,
+      "Description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
+      "Files": [
+        "README.md",
+        "spring-petclinic-genai-service/src/main/resources/application.yml"
+      ],
+      "Explanation": "Same findings as CWE-259: (1) README.md line 151 hardcodes 'petclinic' as the MySQL root password and database name in a documented docker run command, establishing a well-known default credential for the database. (2) application.yml line 25 hardcodes 'demo' as the fallback value for ${OPENAI_API_KEY:demo}, meaning if the OPENAI_API_KEY environment variable is absent, the application uses a hardcoded placeholder credential that may expose API calls or cause silent failures."
+    },
+    {
+      "Id": "CWE-79",
+      "Name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+      "Category": "Injection Attacks",
+      "Severity": "optional",
+      "StoryPoint": 8,
+      "Description": "The product does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.",
+      "Files": [
+        "spring-petclinic-api-gateway/src/main/resources/static/scripts/genai/chat.js"
+      ],
+      "Explanation": "In chat.js, user-supplied chat input (line 39: appendMessage(query, 'user')) and AI server responses (line 52: appendMessage(responseText, 'bot')) are both rendered via messageElement.innerHTML = htmlContent (line 8) after passing through marked.parse() without sanitization. marked.parse() by default does not strip script tags or event handlers, so malicious input can execute arbitrary JavaScript. Additionally, chat history is persisted to localStorage as raw innerHTML (line 70) and restored via innerHTML (line 78), enabling stored XSS across page reloads."
+    }
+  ]
+}

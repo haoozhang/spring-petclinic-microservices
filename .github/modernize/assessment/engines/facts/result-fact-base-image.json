@@ -1,0 +1,25 @@
+{
+  "input_name": "Base Image",
+  "analysis_method": "LLM",
+  "status": "success",
+  "result": {
+    "finding": "The application services use eclipse-temurin:17 as the base image in a multi-stage Dockerfile. The build stage and final runtime stage both use eclipse-temurin:17 (Eclipse Temurin JDK/JRE 17 from Adoptium). Supporting infrastructure images use grafana/grafana:5.2.4 and prom/prometheus:v2.4.2.",
+    "confidence": "high",
+    "evidence": [
+      "docker/Dockerfile line 1: FROM eclipse-temurin:17 AS builder (build stage)",
+      "docker/Dockerfile line 8: FROM eclipse-temurin:17 (final runtime stage)",
+      "docker/grafana/Dockerfile line 1: FROM grafana/grafana:5.2.4",
+      "docker/prometheus/Dockerfile line 1: FROM prom/prometheus:v2.4.2",
+      "Multi-stage build pattern used for application services (builder + runtime stages)"
+    ],
+    "values": [
+      "eclipse-temurin:17 (application services — build and runtime stages)",
+      "grafana/grafana:5.2.4 (monitoring)",
+      "prom/prometheus:v2.4.2 (metrics)",
+      "Ubuntu-based (Eclipse Temurin 17 is built on Ubuntu)",
+      "Docker Hub registry (all images)"
+    ]
+  },
+  "execution_time_seconds": 2,
+  "timestamp": "2026-04-10T08:20:30Z"
+}
