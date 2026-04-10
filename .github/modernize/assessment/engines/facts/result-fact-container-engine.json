@@ -1,0 +1,25 @@
+{
+  "input_name": "Container Engine",
+  "analysis_method": "LLM",
+  "status": "success",
+  "result": {
+    "finding": "Docker is the primary container engine used, with Podman also explicitly supported as an alternative. Docker Compose is used for local multi-service orchestration. Images are built via a multi-stage Dockerfile using the Maven buildDocker profile with docker buildx for multi-platform support.",
+    "confidence": "high",
+    "evidence": [
+      "docker/Dockerfile — multi-stage Dockerfile using eclipse-temurin:17 base image",
+      "docker-compose.yml — Docker Compose file orchestrating all 9 services",
+      "pom.xml — <container.executable>docker</container.executable> with note that podman is also supported",
+      "README.md — documents both 'docker compose up' and 'podman-compose up' as startup options",
+      "README.md — documents -Dcontainer.executable=podman override for Podman builds",
+      "Maven buildDocker profile uses exec-maven-plugin to invoke the container executable with docker buildx --platform flags"
+    ],
+    "values": [
+      "Docker (primary)",
+      "Podman (supported alternative)",
+      "Docker Compose v2 (local orchestration)",
+      "docker buildx (multi-platform builds: linux/amd64, linux/arm64)"
+    ]
+  },
+  "execution_time_seconds": 3,
+  "timestamp": "2026-04-10T08:20:00Z"
+}
