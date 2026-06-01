@@ -1,0 +1,18 @@
+analysisCoverage: issue-only
+java:
+  assessmentDomains:
+  - cloud-readiness
+  analysisCoverage: issue-only
+  targetComputeServices:
+  - azure-container-apps
+  targetOS:
+  - windows
+  minimumCveSeverity: critical
+dotnet:
+  assessmentDomains:
+  - cloud-readiness
+  analysisCoverage: issue-only
+  targetComputeServices:
+  - Any
+  targetOS: []
+  minimumCveSeverity: high
