@@ -1,0 +1,4 @@
+analysisCoverage: issue-only
+java:
+  assessmentDomains: []
+  minimumCveSeverity: critical
