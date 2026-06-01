@@ -1,0 +1,335 @@
+{
+  "GeneratedAt": "2026-06-01T07:37:50.0000000Z",
+  "ProjectPath": ".",
+  "Summary": {
+    "TotalFindings": 26,
+    "CveCount": 26,
+    "CweCount": 0,
+    "BySeverity": {
+      "mandatory": 26,
+      "optional": 0,
+      "potential": 0
+    },
+    "ByCategory": {
+      "CVE": 26
+    },
+    "TotalRulesAssessed": 59,
+    "RulesPassed": 59
+  },
+  "CveFindings": [
+    {
+      "Id": "CVE-2016-1000027",
+      "Name": "Pivotal Spring Framework contains unsafe Java deserialization methods",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2016-1000027](https://github.com/advisories): Pivotal Spring Framework contains unsafe Java deserialization methods\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-web (< 6.0.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 6.0.0",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2016-1000027](https://github.com/advisories): Pivotal Spring Framework contains unsafe Java deserialization methods\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-web (< 6.0.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 6.0.0"
+    },
+    {
+      "Id": "CVE-2017-5929",
+      "Name": "QOS.ch Logback vulnerable to Deserialization of Untrusted Data",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2017-5929](https://github.com/advisories): QOS.ch Logback vulnerable to Deserialization of Untrusted Data\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - ch.qos.logback:logback-classic (< 1.2.0) (declared at pom.xml)\n  - ch.qos.logback:logback-core (< 1.2.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.2.0",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2017-5929](https://github.com/advisories): QOS.ch Logback vulnerable to Deserialization of Untrusted Data\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - ch.qos.logback:logback-classic (< 1.2.0) (declared at pom.xml)\n  - ch.qos.logback:logback-core (< 1.2.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.2.0"
+    },
+    {
+      "Id": "CVE-2019-17267",
+      "Name": "Improper Input Validation in jackson-databind",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2019-17267](https://github.com/advisories): Improper Input Validation in jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.8.11.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.8.11.5, 2.9.10",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2019-17267](https://github.com/advisories): Improper Input Validation in jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.8.11.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.8.11.5, 2.9.10"
+    },
+    {
+      "Id": "CVE-2019-17531",
+      "Name": "jackson-databind polymorphic typing issue",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2019-17531](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2019-17531](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1"
+    },
+    {
+      "Id": "CVE-2019-16943",
+      "Name": "jackson-databind polymorphic typing issue",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2019-16943](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2019-16943](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1"
+    },
+    {
+      "Id": "CVE-2019-16335",
+      "Name": "Polymorphic Typing issue in FasterXML jackson-databind",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2019-16335](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2019-16335](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10"
+    },
+    {
+      "Id": "CVE-2019-14540",
+      "Name": "Polymorphic Typing issue in FasterXML jackson-databind",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2019-14540](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2019-14540](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10"
+    },
+    {
+      "Id": "CVE-2019-14379",
+      "Name": "Deserialization of untrusted data in FasterXML jackson-databind",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2019-14379](https://github.com/advisories): Deserialization of untrusted data in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.9.2) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.6) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.6, 2.8.11.4, 2.9.9.2",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2019-14379](https://github.com/advisories): Deserialization of untrusted data in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.9.2) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.6) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.6, 2.8.11.4, 2.9.9.2"
+    },
+    {
+      "Id": "CVE-2013-7285",
+      "Name": "Command Injection in Xstream",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2013-7285](https://github.com/advisories): Command Injection in Xstream\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.thoughtworks.xstream:xstream (< 1.4.7) (declared at pom.xml)\n  - com.thoughtworks.xstream:xstream (= 1.4.10) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.4.11, 1.4.7",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2013-7285](https://github.com/advisories): Command Injection in Xstream\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.thoughtworks.xstream:xstream (< 1.4.7) (declared at pom.xml)\n  - com.thoughtworks.xstream:xstream (= 1.4.10) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.4.11, 1.4.7"
+    },
+    {
+      "Id": "CVE-2017-17485",
+      "Name": "jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2017-17485](https://github.com/advisories): jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.2) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.2, 2.8.11, 2.9.4",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2017-17485](https://github.com/advisories): jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.2) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.2, 2.8.11, 2.9.4"
+    },
+    {
+      "Id": "CVE-2018-7489",
+      "Name": "FasterXML jackson-databind allows unauthenticated remote code execution ",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2018-7489](https://github.com/advisories): FasterXML jackson-databind allows unauthenticated remote code execution \n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, <= 2.8.11.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.7.9.3) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.5, 2.7.9.3, 2.8.11.1, 2.9.5",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2018-7489](https://github.com/advisories): FasterXML jackson-databind allows unauthenticated remote code execution \n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, <= 2.8.11.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.7.9.3) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.5, 2.7.9.3, 2.8.11.1, 2.9.5"
+    },
+    {
+      "Id": "CVE-2017-7525",
+      "Name": "jackson-databind is vulnerable to a deserialization flaw",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2017-7525](https://github.com/advisories): jackson-databind is vulnerable to a deserialization flaw\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.9) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (<= 2.6.7.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, <= 2.7.9.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.1, 2.7.9.1, 2.8.9",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2017-7525](https://github.com/advisories): jackson-databind is vulnerable to a deserialization flaw\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.9) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (<= 2.6.7.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, <= 2.7.9.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.1, 2.7.9.1, 2.8.9"
+    },
+    {
+      "Id": "CVE-2022-22965",
+      "Name": "Remote Code Execution in Spring Framework",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2022-22965](https://github.com/advisories): Remote Code Execution in Spring Framework\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.12, 2.6.6, 5.2.20.RELEASE, 5.3.18",
+      "Files": [
+        "pom.xml",
+        "pom.xml:7"
+      ],
+      "Explanation": "[CVE-2022-22965](https://github.com/advisories): Remote Code Execution in Spring Framework\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.12, 2.6.6, 5.2.20.RELEASE, 5.3.18"
+    },
+    {
+      "Id": "CVE-2019-20444",
+      "Name": "HTTP Request Smuggling in Netty",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2019-20444](https://github.com/advisories): HTTP Request Smuggling in Netty\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.jboss.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty-codec-http (< 4.1.44) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.1.44",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2019-20444](https://github.com/advisories): HTTP Request Smuggling in Netty\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.jboss.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty-codec-http (< 4.1.44) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.1.44"
+    },
+    {
+      "Id": "CVE-2026-41901",
+      "Name": "Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-41901](https://github.com/advisories): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.4.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.5.RELEASE",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2026-41901](https://github.com/advisories): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.4.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.5.RELEASE"
+    },
+    {
+      "Id": "CVE-2026-40478",
+      "Name": "Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-40478](https://github.com/advisories): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2026-40478](https://github.com/advisories): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE"
+    },
+    {
+      "Id": "CVE-2026-40477",
+      "Name": "Improper restriction of the scope of accessible objects in Thymeleaf expressions",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-40477](https://github.com/advisories): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2026-40477](https://github.com/advisories): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE"
+    },
+    {
+      "Id": "CVE-2023-20873",
+      "Name": "Spring Boot Security Bypass with Wildcard Pattern Matching on Cloud Foundry",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2023-20873](https://github.com/advisories): Spring Boot Security Bypass with Wildcard Pattern Matching on Cloud Foundry\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 3.0.0, < 3.0.6) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.7.0, < 2.7.11) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.6.0, < 2.6.15) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (< 2.5.15) (declared at pom.xml:7)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.15, 2.6.15, 2.7.11, 3.0.6",
+      "Files": [
+        "pom.xml:7"
+      ],
+      "Explanation": "[CVE-2023-20873](https://github.com/advisories): Spring Boot Security Bypass with Wildcard Pattern Matching on Cloud Foundry\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 3.0.0, < 3.0.6) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.7.0, < 2.7.11) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.6.0, < 2.6.15) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (< 2.5.15) (declared at pom.xml:7)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.15, 2.6.15, 2.7.11, 3.0.6"
+    },
+    {
+      "Id": "CVE-2026-43512",
+      "Name": "Apache Tomcat - Digest authenticator will authenticate any unknown user",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-43512](https://github.com/advisories): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2026-43512](https://github.com/advisories): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118"
+    },
+    {
+      "Id": "CVE-2026-43515",
+      "Name": "Apache Tomcat - Security constraints not correctly applied",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-43515](https://github.com/advisories): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2026-43515](https://github.com/advisories): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118"
+    },
+    {
+      "Id": "CVE-2026-41293",
+      "Name": "Apache Tomcat - HTTP/2 request headers not validated",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2026-41293](https://github.com/advisories): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2026-41293](https://github.com/advisories): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118"
+    },
+    {
+      "Id": "CVE-2022-41853",
+      "Name": "HyperSQL DataBase vulnerable to remote code execution when processing untrusted input",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2022-41853](https://github.com/advisories): HyperSQL DataBase vulnerable to remote code execution when processing untrusted input\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.hsqldb:hsqldb (< 2.7.1) (declared at spring-petclinic-vets-service/pom.xml:79)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.1",
+      "Files": [
+        "spring-petclinic-vets-service/pom.xml:79"
+      ],
+      "Explanation": "[CVE-2022-41853](https://github.com/advisories): HyperSQL DataBase vulnerable to remote code execution when processing untrusted input\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.hsqldb:hsqldb (< 2.7.1) (declared at spring-petclinic-vets-service/pom.xml:79)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.1"
+    },
+    {
+      "Id": "CVE-2018-1275",
+      "Name": "Spring Framework has Improperly Implemented Security Check for Standard",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2018-1275](https://github.com/advisories): Spring Framework has Improperly Implemented Security Check for Standard\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2018-1275](https://github.com/advisories): Spring Framework has Improperly Implemented Security Check for Standard\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE"
+    },
+    {
+      "Id": "CVE-2018-1270",
+      "Name": "Spring Framework allows applications to expose STOMP over WebSocket endpoints",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2018-1270](https://github.com/advisories): Spring Framework allows applications to expose STOMP over WebSocket endpoints\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2018-1270](https://github.com/advisories): Spring Framework allows applications to expose STOMP over WebSocket endpoints\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE"
+    },
+    {
+      "Id": "CVE-2014-9390",
+      "Name": "JGit Improper Input Validation vulnerability",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2014-9390](https://github.com/advisories): JGit Improper Input Validation vulnerability\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.eclipse.jgit:org.eclipse.jgit (< 3.5.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.5.3",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2014-9390](https://github.com/advisories): JGit Improper Input Validation vulnerability\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.eclipse.jgit:org.eclipse.jgit (< 3.5.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.5.3"
+    },
+    {
+      "Id": "CVE-2016-3720",
+      "Name": "jackson-dataformat-xml vulnerable to XML external entity (XXE)",
+      "Category": "CVE",
+      "Severity": "mandatory",
+      "StoryPoint": 1,
+      "Description": "[CVE-2016-3720](https://github.com/advisories): jackson-dataformat-xml vulnerable to XML external entity (XXE)\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.dataformat:jackson-dataformat-xml (< 2.7.4) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.4",
+      "Files": [
+        "pom.xml"
+      ],
+      "Explanation": "[CVE-2016-3720](https://github.com/advisories): jackson-dataformat-xml vulnerable to XML external entity (XXE)\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.dataformat:jackson-dataformat-xml (< 2.7.4) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.4"
+    }
+  ],
+  "CweFindings": []
+}

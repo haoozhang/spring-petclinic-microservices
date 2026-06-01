@@ -1,0 +1,3765 @@
+{
+  "version": "1.0.0",
+  "producer": "Java AppCAT CLI",
+  "metadata": {
+    "analysisStartTime": "2026-06-01T07:30:30.717Z",
+    "analysisEndTime": "2026-06-01T07:31:29.720Z",
+    "privacyMode": "Protected",
+    "privacyModeHelpUrl": "https://aka.ms/appmod-privacy-mode",
+    "targetIds": [
+      "azure-container-apps"
+    ],
+    "targetDisplayNames": [
+      "Azure Container Apps"
+    ],
+    "capabilities": [
+      "openjdk25"
+    ],
+    "os": [
+      "linux",
+      "windows"
+    ],
+    "id": "20260601073030",
+    "name": "Report_20260601073030",
+    "status": "completed",
+    "domains": [
+      "cloud-readiness"
+    ],
+    "mode": "issue-only",
+    "minimumCveSeverity": "critical"
+  },
+  "summary": {
+    "totalProjects": 1,
+    "totalIssues": 16,
+    "totalIncidents": 110,
+    "totalEffort": 416,
+    "charts": {
+      "severity": {
+        "mandatory": 37,
+        "optional": 32,
+        "potential": 41,
+        "information": 0
+      },
+      "category": {
+        "database-migration": 5,
+        "embedded-cache-management": 9,
+        "file-system-management": 5,
+        "hardcoded-credential": 2,
+        "jakarta-migration": 11,
+        "local-resource-access": 1,
+        "logging-management": 15,
+        "remote-communication": 44,
+        "spring-migration": 18
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": ".",
+      "issues": 16,
+      "storyPoints": 416,
+      "properties": {
+        "appName": "spring-petclinic-microservices",
+        "jdkVersion": "17",
+        "frameworks": [
+          "Spring Boot",
+          "Spring Cloud",
+          "Spring"
+        ],
+        "languages": [
+          "Java",
+          "Dockerfile"
+        ],
+        "tools": [
+          "Maven"
+        ]
+      },
+      "incidents": [
+        {
+          "ruleId": "azure-database-mysql-01000",
+          "incidentId": "b57fdf78-95b3-4629-9fed-c1a95d35940e",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 56,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "azure-database-mysql-01000",
+          "incidentId": "689a20c8-0b4a-4fa7-bd5c-649d27cd6f11",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 85,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "azure-database-mysql-01000",
+          "incidentId": "df1744bc-c46c-4e3f-ad7b-72138b3b27bb",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 64,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "azure-database-mysql-01000",
+          "incidentId": "a046b021-225f-4593-b72e-2681d391a72b",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 99,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "azure-database-mysql-01000",
+          "incidentId": "40784a2c-765a-4739-b075-bc4a79d94460",
+          "location": "",
+          "locationKind": "",
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "d54c58a5-85fe-4a20-8b2d-ac584771919d",
+          "location": "spring-petclinic-config-server/pom.xml",
+          "locationKind": "File",
+          "line": 33,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "e4c1f694-f3e2-4a1a-b0d9-e740070a2d96",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 45,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "a6753b0c-d21c-4d4e-9267-17efc614f63d",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 64,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "a4c32798-1949-4f12-bf61-d758d76f490b",
+          "location": "spring-petclinic-discovery-server/pom.xml",
+          "locationKind": "File",
+          "line": 37,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "5bf17f29-0305-44e1-a240-f381d643e92e",
+          "location": "spring-petclinic-api-gateway/pom.xml",
+          "locationKind": "File",
+          "line": 63,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "aaea1d61-57b2-46e9-af58-3b7fa6757813",
+          "location": "spring-petclinic-admin-server/pom.xml",
+          "locationKind": "File",
+          "line": 32,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "2cd0b50b-6b68-4f59-9a91-76c5eba4fa32",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 46,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-config-server-01000",
+          "incidentId": "240a9f14-b4cf-4a71-b7e0-d15e5e732e86",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 54,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 8,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 8,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-port-01000",
+          "incidentId": "65ec7dd7-2e5f-4176-8ec5-1b2918e85c08",
+          "location": "spring-petclinic-config-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 1,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-restricted-config-01000",
+          "incidentId": "de3d31aa-c578-4f09-9b8e-253805215dfe",
+          "location": "spring-petclinic-config-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 1,
+          "column": 0,
+          "targets": {
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-02000",
+          "incidentId": "52db4182-91ea-46fa-a769-92e87abb7004",
+          "location": "spring-petclinic-discovery-server/pom.xml",
+          "locationKind": "File",
+          "line": 33,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-02000",
+          "incidentId": "802d2053-bd3c-4127-887b-67af80d666e7",
+          "location": "spring-petclinic-api-gateway/pom.xml",
+          "locationKind": "File",
+          "line": 67,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-02000",
+          "incidentId": "0a592419-3817-4bf4-bfa9-de4db6d10f3f",
+          "location": "spring-petclinic-admin-server/pom.xml",
+          "locationKind": "File",
+          "line": 36,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-02000",
+          "incidentId": "7c4e8353-381a-473b-aabc-dd5574006c80",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 50,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-02000",
+          "incidentId": "893a21e3-b96d-42be-bf71-3698f0940250",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 58,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-02000",
+          "incidentId": "b36595a0-62b6-46ec-aa33-0aee09334426",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 49,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-02000",
+          "incidentId": "f653787c-0503-401a-88c7-4189fedf7df3",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 68,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 2,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 2,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "spring-boot-to-azure-eureka-03000",
+          "incidentId": "92909678-1902-4b38-b7f3-52e3dae419b4",
+          "location": "spring-petclinic-discovery-server/pom.xml",
+          "locationKind": "File",
+          "line": 33,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=azure/springboot"
+          ]
+        },
+        {
+          "ruleId": "local-storage-00001",
+          "incidentId": "26794538-44ee-4a57-a178-435b0a33b3e6",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+          "locationKind": "File",
+          "line": 22,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "3d33e83e-a89e-4963-87f7-b9cf74e7295b",
+          "location": "docker/grafana/provisioning/datasources/all.yml",
+          "locationKind": "File",
+          "line": 10,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "dc0712d1-ff1b-4e8b-826a-fa1af37dd524",
+          "location": "docker-compose.yml",
+          "locationKind": "File",
+          "line": 10,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "1a78e322-b9ca-469b-bf42-6f3c4229ec51",
+          "location": "docker-compose.yml",
+          "locationKind": "File",
+          "line": 25,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "b654b1df-0a8a-4e56-82e3-319a695f28b8",
+          "location": "spring-petclinic-admin-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "3f5cb465-c9a2-4aeb-bf20-a5196e89cbd9",
+          "location": "spring-petclinic-admin-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 13,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "a6d9ab92-4f75-4a62-b6f0-0b09c5bbb6c2",
+          "location": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+          "locationKind": "File",
+          "line": 37,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "475b3c03-5275-41bd-a300-7512f0da4522",
+          "location": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "locationKind": "File",
+          "line": 34,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "5bce483c-092a-4eda-aac1-ebd5e6a5754c",
+          "location": "spring-petclinic-api-gateway/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "020810de-8c1f-494b-9231-343c16cba255",
+          "location": "spring-petclinic-api-gateway/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 50,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "fb618233-7773-45ba-84b6-4e90e4d199b3",
+          "location": "spring-petclinic-config-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 7,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "5a0eba4d-8d36-4af5-965d-450f9755df10",
+          "location": "spring-petclinic-config-server/src/test/resources/application.yml",
+          "locationKind": "File",
+          "line": 6,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "c5cd4d48-8106-4832-941b-77a3379c2b9d",
+          "location": "spring-petclinic-customers-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "558643e6-35eb-4373-8b1c-c0a206e91d49",
+          "location": "spring-petclinic-customers-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 13,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "6f879224-e7ca-4456-9c5f-c5a567f842d1",
+          "location": "spring-petclinic-discovery-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "613068bc-e86c-44bb-a9ea-ac0f9fdd83e7",
+          "location": "spring-petclinic-discovery-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 20,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "71d1ad0d-25d6-4f11-b6a3-dfceacc2e03f",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/AIDataProvider.java",
+          "locationKind": "File",
+          "line": 27,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "9bc8ddf8-f10f-48ec-a527-aaadfb35282d",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+          "locationKind": "File",
+          "line": 67,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "7e5dfbdc-bac2-4127-9579-59174c5d4c51",
+          "location": "spring-petclinic-genai-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 9,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "1ad9c759-b921-412c-a598-82465e651389",
+          "location": "spring-petclinic-genai-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 45,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "e0fcbb73-fedc-4097-8091-105c013c7e86",
+          "location": "spring-petclinic-vets-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "3c39e595-06c9-4c3a-9c54-16bb92f7d405",
+          "location": "spring-petclinic-vets-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 16,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "859d2960-fa4a-4499-8bd8-bd0457472705",
+          "location": "spring-petclinic-visits-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "hardcoded-urls-00001",
+          "incidentId": "2cc02ef1-2f5a-45c6-b228-5e1c26c71e17",
+          "location": "spring-petclinic-visits-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 13,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-database-00002",
+          "incidentId": "050c411d-5c48-43ca-8a4f-e29ef0bab590",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 31,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-database-00002",
+          "incidentId": "bb7da519-fbbd-427a-865c-fc8822045db8",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 43,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-database-00002",
+          "incidentId": "64ff482f-bcad-4e68-a0ad-8468e24191e3",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 30,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-database-00002",
+          "incidentId": "53b5f5df-6961-44aa-89a1-a96b8d34eac5",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 49,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "localhost-00004",
+          "incidentId": "5742282c-b049-4014-93d5-75a020c54c95",
+          "location": "docker/prometheus/prometheus.yml",
+          "locationKind": "File",
+          "line": 12,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "e88f7d4c-c60c-4882-a242-420b727d70a8",
+          "location": "spring-petclinic-discovery-server/pom.xml",
+          "locationKind": "File",
+          "line": 33,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "138c918a-d43b-4ac7-8d7a-46cc5957feee",
+          "location": "spring-petclinic-api-gateway/pom.xml",
+          "locationKind": "File",
+          "line": 48,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "609fd086-2bc7-4a13-b669-2760ceee1b5b",
+          "location": "spring-petclinic-admin-server/pom.xml",
+          "locationKind": "File",
+          "line": 40,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "5529cfc3-0bce-4a95-b356-48f4ce60d5e4",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 50,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "95be87a4-ea43-4e8e-ab3c-c3238a06bd1a",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 39,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "13f6287d-3853-49af-8464-5162c4331ada",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 49,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "73022655-59ff-4ad1-88fb-70ec223654c4",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 45,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "f6ad5db0-441d-4f5a-b4ce-ebc675fb7288",
+          "location": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/system/CacheConfig.java",
+          "locationKind": "File",
+          "line": 18,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "embedded-cache-15000",
+          "incidentId": "1f48d6cb-257f-46fc-b31b-6993c0f881b1",
+          "location": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/web/VetResource.java",
+          "locationKind": "File",
+          "line": 20,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "local-storage-00005",
+          "incidentId": "efa53a61-4221-43c8-b822-083275548066",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+          "locationKind": "File",
+          "line": 25,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "local-storage-00005",
+          "incidentId": "4d97c2d5-be31-496f-ab5f-2d8d210147dc",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+          "locationKind": "File",
+          "line": 24,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "local-storage-00005",
+          "incidentId": "ec2f4220-f72a-452e-a25e-5434140bf81d",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+          "locationKind": "File",
+          "line": 26,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "local-storage-00005",
+          "incidentId": "46025f8b-18c5-4b55-8841-b407b2920aee",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+          "locationKind": "File",
+          "line": 27,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "7ca66fc5-eebb-449e-8935-3a41c232483a",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 120,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "77315d7f-8570-4626-bcb5-dac34d5d0099",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 124,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "01838273-43c7-449d-b76d-acc3f98b5cf6",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 112,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "33936ab1-3ae2-460d-91c2-530bd412759b",
+          "location": "spring-petclinic-api-gateway/pom.xml",
+          "locationKind": "File",
+          "line": 97,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "370041c6-59bc-44b8-8849-7e8a55b83d0c",
+          "location": "spring-petclinic-api-gateway/pom.xml",
+          "locationKind": "File",
+          "line": 101,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "e24d5ded-a0ea-42c9-85ce-ba8b3efed66b",
+          "location": "spring-petclinic-api-gateway/pom.xml",
+          "locationKind": "File",
+          "line": 89,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "39641a82-22f8-4dda-ac5c-fb99d62e45aa",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 86,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "5fd6ffb3-4c4e-4a3f-9ce6-e8eb3f954f37",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 78,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "2c3b2667-6a54-4ca5-90c9-96c1071d81e5",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 90,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "a6211406-c4e7-4eda-a8dd-c1c5eb6c90bb",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 106,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "be874d24-9408-44c6-8603-a7c71a3a55cc",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 98,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "60b2c385-7c9c-4a34-9384-4f1c9baf9ab1",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 110,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "03bf54ed-c61a-4da0-b8df-fa54bbea3d65",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 77,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "6877fca5-c0cb-4b68-aae8-fe3a4a5f94f3",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 85,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "logging-0005",
+          "incidentId": "b5c5e93c-f85f-415c-b7b6-64268673312e",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 89,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "b6b6bfab-8119-4430-a276-0ebc5a270e17",
+          "location": "docker/grafana/provisioning/datasources/all.yml",
+          "locationKind": "File",
+          "line": 10,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "b2b326e0-6e52-48d7-afb9-c8d1b142dbd7",
+          "location": "docker-compose.yml",
+          "locationKind": "File",
+          "line": 10,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "42c7ad41-dea2-47ee-a8c1-53e73ddb9b96",
+          "location": "docker-compose.yml",
+          "locationKind": "File",
+          "line": 25,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "60fcc550-ed42-4864-b73d-d3d8766d3a47",
+          "location": "spring-petclinic-admin-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "8fd2067b-c985-44dc-b9e9-1268bdd57297",
+          "location": "spring-petclinic-admin-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 13,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "24586a14-8aa5-457c-b2ae-4facf19cd6bb",
+          "location": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+          "locationKind": "File",
+          "line": 37,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "17d9eb2f-b05e-4af2-b82d-e6d6039fed1d",
+          "location": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "locationKind": "File",
+          "line": 34,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "29b37a3a-2a13-4676-8c5d-659117338d67",
+          "location": "spring-petclinic-api-gateway/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "46eaa0cb-e11e-4ccc-b521-167949b117a7",
+          "location": "spring-petclinic-api-gateway/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 50,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "68c73fb3-3e6a-48a9-b4f1-5d31588854a2",
+          "location": "spring-petclinic-customers-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "f1a83a00-1219-43be-8d7c-859da7bacba0",
+          "location": "spring-petclinic-customers-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 13,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "e6022b9c-fecc-45d1-806d-4da3ed0eed39",
+          "location": "spring-petclinic-discovery-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "15570c3d-c234-4472-98d2-afc4f999f5d8",
+          "location": "spring-petclinic-discovery-server/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 20,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "4985d36c-18d6-4abc-8975-25f7914eb535",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/AIDataProvider.java",
+          "locationKind": "File",
+          "line": 27,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "fc8a43a7-c789-46b5-88fa-ca0e78634c67",
+          "location": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+          "locationKind": "File",
+          "line": 67,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "b9f51c99-bd18-4dba-8ac4-511232234578",
+          "location": "spring-petclinic-genai-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 9,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "7d63bc45-e70d-4e09-a4f6-c4106d83865d",
+          "location": "spring-petclinic-genai-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 45,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "254c58fb-2ec8-4989-97c1-1846f09b8d54",
+          "location": "spring-petclinic-vets-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "1c631a09-253a-49ea-8c74-d9085d86c8c3",
+          "location": "spring-petclinic-vets-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 16,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "db57f78b-8d00-4e15-bb8f-b32c1cac2df9",
+          "location": "spring-petclinic-visits-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 5,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "unsecure-network-protocol-00000",
+          "incidentId": "d7db52df-d4e4-4611-a1a7-06e2e8a400ff",
+          "location": "spring-petclinic-visits-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 13,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 3,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-service-00002",
+          "incidentId": "bb7052d9-3702-41d1-9a69-d17f678c9e05",
+          "location": "spring-petclinic-visits-service/pom.xml",
+          "locationKind": "File",
+          "line": 49,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-service-00002",
+          "incidentId": "e904ce5e-ab2c-45f3-b7d2-6c04f14d62aa",
+          "location": "spring-petclinic-genai-service/pom.xml",
+          "locationKind": "File",
+          "line": 68,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-service-00002",
+          "incidentId": "0c584339-d8a3-4e2b-ad81-f74c4e2a0714",
+          "location": "spring-petclinic-discovery-server/pom.xml",
+          "locationKind": "File",
+          "line": 33,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-service-00002",
+          "incidentId": "05c3406f-2547-4cea-9bf0-c17eb0a74c28",
+          "location": "spring-petclinic-api-gateway/pom.xml",
+          "locationKind": "File",
+          "line": 67,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-service-00002",
+          "incidentId": "80684263-e6aa-455d-ace1-8b0e96a5ab3a",
+          "location": "spring-petclinic-admin-server/pom.xml",
+          "locationKind": "File",
+          "line": 36,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-service-00002",
+          "incidentId": "200822b5-e252-467e-98d0-1a2b65330ddf",
+          "location": "spring-petclinic-customers-service/pom.xml",
+          "locationKind": "File",
+          "line": 50,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "jakarta-service-00002",
+          "incidentId": "fc0a385d-7907-4796-ac3a-1455c2acd079",
+          "location": "spring-petclinic-vets-service/pom.xml",
+          "locationKind": "File",
+          "line": 58,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "potential"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "potential"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "cra-hardcoded-credential-config-03000",
+          "incidentId": "3f2a97ca-e512-4bd0-b36a-d56839411bba",
+          "location": "spring-petclinic-genai-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 17,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        },
+        {
+          "ruleId": "cra-hardcoded-credential-config-03000",
+          "incidentId": "f9385835-cbd5-4c30-964b-468150f53d51",
+          "location": "spring-petclinic-genai-service/src/main/resources/application.yml",
+          "locationKind": "File",
+          "line": 25,
+          "column": 0,
+          "targets": {
+            "azure-aks": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-appservice": {
+              "effort": 5,
+              "severity": "mandatory"
+            },
+            "azure-container-apps": {
+              "effort": 5,
+              "severity": "mandatory"
+            }
+          },
+          "labels": [
+            "type=violation",
+            "ruleset=cloud-readiness"
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "azure-database-mysql-01000": {
+      "id": "azure-database-mysql-01000",
+      "description": "To migrate a Java application that uses a MySQL database to Azure, you can follow these recommendations:\n\n * Use a managed **Azure Database for MySQL**: For that create a managed MySQL database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.\n\n * **Migrate** the existing MySQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.\n\n * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for MySQL. Update the connection string, hostname, port, username, and password information accordingly.\n\n * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying MySQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.\n\n * Implement **security** measures: Apply security best practices to protect your Java application and the MySQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.\n\n * **Backup** your data: Azure Database for MySQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.",
+      "title": "MySQL database found",
+      "severity": "potential",
+      "effort": 5,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/azure/mysql",
+          "title": "Azure Database for MySQL documentation"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/dms",
+          "title": "Azure Database Migration Service documentation"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/azure-monitor",
+          "title": "Azure Monitor documentation"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/defender-for-cloud",
+          "title": "Microsoft Defender for Cloud"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/mysql/single-server/concepts-backup",
+          "title": "Backup and restore in Azure Database for MySQL"
+        }
+      ],
+      "labels": [
+        "target=azure-appservice",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "source",
+        "domain=cloud-readiness",
+        "category=database-migration",
+        "database",
+        "mysql",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "cra-hardcoded-credential-config-03000": {
+      "id": "cra-hardcoded-credential-config-03000",
+      "description": "**EU Cyber Resilience Act (Annex I, Part I, Section 2(b))** requires a secure by default configuration and protection against unauthorized access.\n\nCredentials (passwords, API keys, connection strings with embedded passwords) found in configuration files may be exposed through source control, deployment artifacts, or unauthorized file access.\n\n**Recommended actions:**\n* Use a secrets management service (e.g., Azure Key Vault, HashiCorp Vault) to externalize all secrets.\n* Use environment variable references in configuration: `${DB_PASSWORD}` or `${env.DB_PASSWORD}`.\n* Use Spring Cloud Config with encrypted values or Spring Cloud Vault.\n* Ensure configuration files with secrets are excluded from version control (`.gitignore`).",
+      "title": "CRA: Hard-coded credentials in configuration files",
+      "severity": "mandatory",
+      "effort": 5,
+      "links": [
+        {
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj",
+          "title": "EU Cyber Resilience Act - Regulation (EU) 2024/2847"
+        },
+        {
+          "url": "https://cwe.mitre.org/data/definitions/260.html",
+          "title": "CWE-260 - Password in Configuration File"
+        }
+      ],
+      "labels": [
+        "source",
+        "domain=cloud-readiness",
+        "category=hardcoded-credential",
+        "security",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "embedded-cache-15000": {
+      "id": "embedded-cache-15000",
+      "description": "The application embeds the Spring Boot Cache library.\n\nAn embedded cache library is problematic because state information might not be persisted to a backing service.\n\nRecommendation: Use a cache backing service.",
+      "title": "Caching - Spring Boot Cache library",
+      "severity": "mandatory",
+      "effort": 5,
+      "labels": [
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "source",
+        "domain=cloud-readiness",
+        "category=embedded-cache-management",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "hardcoded-urls-00001": {
+      "id": "hardcoded-urls-00001",
+      "description": "This patterns verifies in source code and configuration files the presence of hardcoded URLs using the HTTP protocol (HTTP/HTTPS). This URL would need to be replaced by the new resource's URL during the Cloud migration, if any change occured.",
+      "title": "Avoid using hardcoded URLs (HTTP protocol) in source code",
+      "severity": "optional",
+      "effort": 3,
+      "labels": [
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "source",
+        "domain=cloud-readiness",
+        "category=remote-communication",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "jakarta-database-00002": {
+      "id": "jakarta-database-00002",
+      "description": "The application depends on **Jakarta Persistence (JPA)** APIs (`jakarta.persistence.*` or legacy `javax.persistence.*`), which are used for object-relational mapping (ORM) and database interaction in Jakarta EE or Java EE applications.\n\nWhen migrating to Azure:\n- Ensure that the database connection, JPA provider (e.g., Hibernate, EclipseLink), and dialect are compatible with your target Azure database service.\n- Recommended database services include **Azure Database for PostgreSQL**, **Azure Database for MySQL**, or **Azure SQL Database**.\n- For containerized deployments, these JPA-based applications can run on **Azure Kubernetes Service (AKS)** or **Azure App Service for Linux/Windows**.\n- If using **Spring Data JPA**, verify that connection pool settings and environment variables are properly configured for the cloud environment.\n- Consider leveraging **Azure Key Vault** for secure storage of database credentials and connection strings.",
+      "title": "Detects usage of Jakarta Persistence (JPA) APIs",
+      "severity": "potential",
+      "effort": 5,
+      "links": [
+        {
+          "url": "https://jakarta.ee/specifications/persistence/",
+          "title": "Jakarta Persistence Specification"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/data-stores-getting-started#common-database-scenarios",
+          "title": "Prepare to choose a data store in Azure"
+        }
+      ],
+      "labels": [
+        "source=java",
+        "source=java-ee",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "domain=cloud-readiness",
+        "category=jakarta-migration",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "jakarta-service-00002": {
+      "id": "jakarta-service-00002",
+      "description": "The application depends on **Jakarta RESTful Web Services (JAX-RS)** (`jakarta.ws.rs.*` or legacy `javax.ws.rs.*`) APIs, \nwhich provide a standard way to develop RESTful APIs and microservices in Jakarta EE or Java EE applications.\n\nWhen migrating to Azure:\n- If the application runs in a Jakarta EE or MicroProfile runtime (such as Payara, WildFly, Open Liberty, or TomEE), it can be hosted on **Azure App Service for Java**, or containerized and deployed to **Azure Kubernetes Service (AKS)**.\n- For microservice-oriented deployments, **Azure Container Apps** is recommended for scalable, managed environments.\n- Ensure externalized configuration (e.g., base URLs, environment variables) via **Azure App Configuration** or **Key Vault**.\n- Integrate authentication and authorization with **Azure Active Directory (Entra ID)** or use OAuth 2.0 / OpenID Connect standards for API security.\n- For monitoring and tracing, consider **Azure Application Insights** to capture API telemetry, latency, and request traces.\n- Use HTTPS endpoints and secure connection strings when exposing APIs publicly.",
+      "title": "Detects usage of Jakarta RESTful Web Services (JAX-RS) APIs",
+      "severity": "potential",
+      "effort": 5,
+      "links": [
+        {
+          "url": "https://jakarta.ee/specifications/restful-ws/",
+          "title": "Jakarta RESTful Web Services Specification"
+        }
+      ],
+      "labels": [
+        "source=java",
+        "source=java-ee",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "domain=cloud-readiness",
+        "category=jakarta-migration",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "local-storage-00001": {
+      "id": "local-storage-00001",
+      "description": "When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.\n An application running inside a container could lose access to a file in local storage.\n\n The following recommendations depend on the function of the file in local storage:\n * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.\n \n * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.\n\n * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.\n\n * **Caching**: Use Azure Cache for Redis as a cache backing service.\n\n * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.",
+      "title": "File system - Java IO",
+      "severity": "mandatory",
+      "effort": 3,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/azure/storage",
+          "title": "Azure Storage documentation"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files",
+          "title": "Create an Azure Files volume mount in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/container-apps/storage-mounts",
+          "title": "Use storage mounts in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs",
+          "title": "Azure Monitor Logs overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/azure-cache-for-redis",
+          "title": "Azure Cache for Redis documentation"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/azure-app-configuration",
+          "title": "Azure App Configuration documentation"
+        }
+      ],
+      "labels": [
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "capability=containerization",
+        "source",
+        "domain=cloud-readiness",
+        "category=file-system-management",
+        "storage",
+        "containerization",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "local-storage-00005": {
+      "id": "local-storage-00005",
+      "description": "When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.\n An application running inside a container could lose access to a file in local storage.\n\n The following recommendations depend on the function of the file in local storage:\n\n * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.\n \n * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.\n\n * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.\n\n * **Caching**: Use Azure Cache for Redis as a cache backing service.\n\n * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.",
+      "title": "File system - Java NIO",
+      "severity": "mandatory",
+      "effort": 3,
+      "labels": [
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "capability=containerization",
+        "source",
+        "domain=cloud-readiness",
+        "category=file-system-management",
+        "storage",
+        "containerization",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "localhost-00004": {
+      "id": "localhost-00004",
+      "description": "The app is trying to use localhost, please try to migrate the resource to cloud",
+      "title": "Localhost Usage",
+      "severity": "optional",
+      "effort": 3,
+      "labels": [
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "capability=containerization",
+        "source",
+        "domain=cloud-readiness",
+        "category=local-resource-access",
+        "localhost",
+        "containerization",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "logging-0005": {
+      "id": "logging-0005",
+      "description": "The application embeds the Zipkin framework for distributed tracing. In Azure, Azure Monitor (workspace-based Application Insights) with OpenTelemetry is the preferred approach for end-to-end observability.\n\nRecommendations:\n* Evaluate removing or phasing out Zipkin dependencies where feasible.\n* Adopt the OpenTelemetry SDK or agent with the Azure Monitor exporter; many Azure services support auto-instrumentation.\n* Use W3C Trace Context and emit structured JSON logs to improve correlation across traces, logs, and metrics in Azure Monitor Logs.",
+      "title": "Embedded framework - Zipkin",
+      "severity": "potential",
+      "effort": 3,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/azure/azure-monitor/",
+          "title": "Azure Monitor"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/observability",
+          "title": "Observability in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/azure-monitor/app/distributed-trace-data",
+          "title": "Distributed Tracing"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable",
+          "title": "Enable OpenTelemetry for Azure Monitor"
+        }
+      ],
+      "labels": [
+        "source",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "domain=cloud-readiness",
+        "category=logging-management",
+        "logging",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "spring-boot-to-azure-config-server-01000": {
+      "id": "spring-boot-to-azure-config-server-01000",
+      "description": "The application uses Spring Cloud Config for centralized configuration management. Consider migrating to Azure App Configuration.\nAzure App Configuration provides a managed, centralized store for application settings and feature flags, with Spring integration for Spring Boot applications.\nYou will need to replace the Spring Cloud Config Server backend (and its repository/credentials) with Azure App Configuration, update client configuration to use the App Configuration integration, and migrate configuration keys and access control to Azure.",
+      "title": "Spring Cloud Config usage detected",
+      "severity": "optional",
+      "effort": 8,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/azure/azure-app-configuration/overview",
+          "title": "What is Azure App Configuration?"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/azure-app-configuration/quickstart-java-spring-app",
+          "title": "Use Azure App Configuration with Spring Boot"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/developer/java/spring-framework/configuration-properties-azure-app-configuration",
+          "title": "Azure App Configuration with Spring Boot (Spring Cloud Azure)"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-azure-kubernetes-service?tabs=extension",
+          "title": "Use Azure App Configuration in Azure Kubernetes Service"
+        }
+      ],
+      "labels": [
+        "source=spring-cloud-config",
+        "target=azure-appservice",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "os=windows",
+        "os=linux",
+        "domain=cloud-readiness",
+        "category=spring-migration"
+      ]
+    },
+    "spring-boot-to-azure-eureka-02000": {
+      "id": "spring-boot-to-azure-eureka-02000",
+      "description": "The application embeds the Eureka client. If you are migrating to Azure Container Apps, the connection info of Eureka can be injected upon app start.\n\n Find any explicit configurations of config server connection info:\n\n If configured in **configuration files**: they will be ignored and overrided by Azure Container Apps.\n\n If configured in **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.",
+      "title": "Embedded framework - Eureka Client",
+      "severity": "potential",
+      "effort": 2,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/java-eureka-server?tabs=azure-cli",
+          "title": "Connect to a managed Eureka Server for Spring in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/java-eureka-server-highly-available",
+          "title": "Create a highly available Eureka server component cluster in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/java-admin-eureka-integration",
+          "title": "Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-cloud-to-azure-container-apps#remove-restricted-configurations",
+          "title": "Remove restricted configurations"
+        }
+      ],
+      "labels": [
+        "target=azure-appservice",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "source",
+        "domain=cloud-readiness",
+        "category=spring-migration",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "spring-boot-to-azure-eureka-03000": {
+      "id": "spring-boot-to-azure-eureka-03000",
+      "description": "The application embeds the Eureka server. If you are migrating to Azure Container Apps, the managed Eureka Server can be used. The managed Eureka Server is a fully managed service that can be hosted for you.",
+      "title": "Embedded framework - Eureka Server",
+      "severity": "potential",
+      "effort": 5,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/java-eureka-server?tabs=azure-cli",
+          "title": "Connect to a managed Eureka Server for Spring in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/java-eureka-server-highly-available",
+          "title": "Create a highly available Eureka server component cluster in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/java-admin-eureka-integration",
+          "title": "Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-cloud-to-azure-container-apps#remove-restricted-configurations",
+          "title": "Remove restricted configurations"
+        }
+      ],
+      "labels": [
+        "target=azure-appservice",
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "source",
+        "domain=cloud-readiness",
+        "category=spring-migration",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "spring-boot-to-azure-port-01000": {
+      "id": "spring-boot-to-azure-port-01000",
+      "description": "The application is setting the server port. To migrate a Java application that sets the server port to Azure Container Apps:\n\n * **Azure Container Apps allows you to expose port according to your Azure Container Apps resource configuration. For instance, a Spring Boot application listens to port of 8080 by default, but it can be set with server.port or environment variable SERVER_PORT as you need.",
+      "title": "Server port configuration found",
+      "severity": "potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-container-apps#identify-any-clients-relying-on-a-non-standard-port",
+          "title": "Identify any clients relying on a non-standard port"
+        }
+      ],
+      "labels": [
+        "source=springboot",
+        "target=azure-aks",
+        "target=azure-appservice",
+        "target=azure-container-apps",
+        "domain=cloud-readiness",
+        "category=spring-migration",
+        "port",
+        "server port",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "spring-boot-to-azure-restricted-config-01000": {
+      "id": "spring-boot-to-azure-restricted-config-01000",
+      "description": "The application uses restricted configurations for Azure Container Apps.\n These properties can be automatically injected into your application environment by Azure Container Apps to access managed Config Server and managed Eureka Server.\n Please remove them from your application, including configuration files, config server files, command line parameters, Java system attributes, and environment variables.\n\n If configured in **configuration files**: they will be ignored and overrided by Azure Container Apps.\n \n If configured in **Config Server files**, **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.",
+      "title": "Restricted configurations found",
+      "severity": "potential",
+      "effort": 2,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-container-apps#remove-restricted-configurations",
+          "title": "Migrate Spring Boot applications to Azure Container Apps - Remove restricted configurations"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/container-apps/java-config-server?tabs=azure-cli",
+          "title": "Connect to a managed Config Server for Spring in Azure Container Apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/azure/container-apps/java-eureka-server?tabs=azure-cli",
+          "title": "Connect to a managed Eureka Server for Spring in Azure Container Apps"
+        }
+      ],
+      "labels": [
+        "target=azure-container-apps",
+        "source=springboot",
+        "domain=cloud-readiness",
+        "category=spring-migration",
+        "os=windows",
+        "os=linux"
+      ]
+    },
+    "unsecure-network-protocol-00000": {
+      "id": "unsecure-network-protocol-00000",
+      "description": "Using secured protocols such as HTTPS and SFTP (over HTTP and FTP) should now be the norm as applications are more and more exposed and interconnected. \nThis CloudReady patterns looks for unescured URI in the source code or deprecated URI libraries. \nIdeally, URLs should be replaced in your source code by secured protocols HTTPS and SFTP (and ensure the infrastructure implements these protocols for the resources your application calls, uses or references).",
+      "title": "Use of unsecured network protocols or URI libraries",
+      "severity": "mandatory",
+      "effort": 3,
+      "links": [
+        {
+          "url": "https://developers.google.com/web/fundamentals/security/encrypt-in-transit/why-https",
+          "title": "Why HTTPS matters"
+        },
+        {
+          "url": "https://www.ssh.com/ssh/sftp/",
+          "title": "SSH File Transfer Protocol (SFTP): Get SFTP client & server"
+        }
+      ],
+      "labels": [
+        "target=azure-aks",
+        "target=azure-container-apps",
+        "target=azure-appservice",
+        "capability=containerization",
+        "source",
+        "domain=cloud-readiness",
+        "category=remote-communication",
+        "containerization",
+        "os=windows",
+        "os=linux"
+      ]
+    }
+  },
+  "security": [
+    {
+      "id": "CVE-2016-1000027",
+      "title": "Pivotal Spring Framework contains unsafe Java deserialization methods",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2016-1000027](https://github.com/advisories): Pivotal Spring Framework contains unsafe Java deserialization methods\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-web (< 6.0.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 6.0.0",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2016-1000027](https://github.com/advisories): Pivotal Spring Framework contains unsafe Java deserialization methods\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-web (< 6.0.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 6.0.0"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2017-5929",
+      "title": "QOS.ch Logback vulnerable to Deserialization of Untrusted Data",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2017-5929](https://github.com/advisories): QOS.ch Logback vulnerable to Deserialization of Untrusted Data\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - ch.qos.logback:logback-classic (< 1.2.0) (declared at pom.xml)\n  - ch.qos.logback:logback-core (< 1.2.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.2.0",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2017-5929](https://github.com/advisories): QOS.ch Logback vulnerable to Deserialization of Untrusted Data\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - ch.qos.logback:logback-classic (< 1.2.0) (declared at pom.xml)\n  - ch.qos.logback:logback-core (< 1.2.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.2.0"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2019-17267",
+      "title": "Improper Input Validation in jackson-databind",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2019-17267](https://github.com/advisories): Improper Input Validation in jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.8.11.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.8.11.5, 2.9.10",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2019-17267](https://github.com/advisories): Improper Input Validation in jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.8.11.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.8.11.5, 2.9.10"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2019-17531",
+      "title": "jackson-databind polymorphic typing issue",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2019-17531](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2019-17531](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2019-16943",
+      "title": "jackson-databind polymorphic typing issue",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2019-16943](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2019-16943](https://github.com/advisories): jackson-databind polymorphic typing issue\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10.1) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10.1"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2019-16335",
+      "title": "Polymorphic Typing issue in FasterXML jackson-databind",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2019-16335](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2019-16335](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2019-14540",
+      "title": "Polymorphic Typing issue in FasterXML jackson-databind",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2019-14540](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2019-14540](https://github.com/advisories): Polymorphic Typing issue in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.10) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.8.11.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.3, 2.8.11.5, 2.9.10"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2019-14379",
+      "title": "Deserialization of untrusted data in FasterXML jackson-databind",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2019-14379](https://github.com/advisories): Deserialization of untrusted data in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.9.2) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.6) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.6, 2.8.11.4, 2.9.9.2",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2019-14379](https://github.com/advisories): Deserialization of untrusted data in FasterXML jackson-databind\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.9.2) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.6) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.6, 2.8.11.4, 2.9.9.2"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2013-7285",
+      "title": "Command Injection in Xstream",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2013-7285](https://github.com/advisories): Command Injection in Xstream\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.thoughtworks.xstream:xstream (< 1.4.7) (declared at pom.xml)\n  - com.thoughtworks.xstream:xstream (= 1.4.10) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.4.11, 1.4.7",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2013-7285](https://github.com/advisories): Command Injection in Xstream\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.thoughtworks.xstream:xstream (< 1.4.7) (declared at pom.xml)\n  - com.thoughtworks.xstream:xstream (= 1.4.10) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 1.4.11, 1.4.7"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2017-17485",
+      "title": "jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2017-17485](https://github.com/advisories): jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.2) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.2, 2.8.11, 2.9.4",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2017-17485](https://github.com/advisories): jackson-databind vulnerable to remote code execution due to incorrect deserialization and blocklist bypass\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.4) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.11) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.7.9.2) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.9.2, 2.8.11, 2.9.4"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2018-7489",
+      "title": "FasterXML jackson-databind allows unauthenticated remote code execution ",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2018-7489](https://github.com/advisories): FasterXML jackson-databind allows unauthenticated remote code execution \n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, <= 2.8.11.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.7.9.3) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.5, 2.7.9.3, 2.8.11.1, 2.9.5",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2018-7489](https://github.com/advisories): FasterXML jackson-databind allows unauthenticated remote code execution \n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.9.0, < 2.9.5) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, <= 2.8.11.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, < 2.7.9.3) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (< 2.6.7.5) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.5, 2.7.9.3, 2.8.11.1, 2.9.5"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2017-7525",
+      "title": "jackson-databind is vulnerable to a deserialization flaw",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2017-7525](https://github.com/advisories): jackson-databind is vulnerable to a deserialization flaw\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.9) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (<= 2.6.7.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, <= 2.7.9.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.1, 2.7.9.1, 2.8.9",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2017-7525](https://github.com/advisories): jackson-databind is vulnerable to a deserialization flaw\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.8.0, < 2.8.9) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (<= 2.6.7.0) (declared at pom.xml)\n  - com.fasterxml.jackson.core:jackson-databind (>= 2.7.0, <= 2.7.9.0) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.6.7.1, 2.7.9.1, 2.8.9"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2022-22965",
+      "title": "Remote Code Execution in Spring Framework",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2022-22965](https://github.com/advisories): Remote Code Execution in Spring Framework\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.12, 2.6.6, 5.2.20.RELEASE, 5.3.18",
+      "evidence": {
+        "files": [
+          "pom.xml",
+          "pom.xml:7"
+        ],
+        "explanation": "[CVE-2022-22965](https://github.com/advisories): Remote Code Execution in Spring Framework\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-beans (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework:spring-webmvc (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-web (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-web (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-webflux (>= 5.3.0, < 5.3.18) (declared at pom.xml)\n  - org.springframework.boot:spring-boot-starter-webflux (< 2.5.12) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-starter-webflux (>= 2.6.0, < 2.6.6) (declared at pom.xml:7)\n  - org.springframework:spring-beans (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webmvc (< 5.2.20.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-webflux (< 5.2.20.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.12, 2.6.6, 5.2.20.RELEASE, 5.3.18"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2019-20444",
+      "title": "HTTP Request Smuggling in Netty",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2019-20444](https://github.com/advisories): HTTP Request Smuggling in Netty\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.jboss.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty-codec-http (< 4.1.44) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.1.44",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2019-20444](https://github.com/advisories): HTTP Request Smuggling in Netty\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.jboss.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty (< 4.0.0) (declared at pom.xml)\n  - io.netty:netty-codec-http (< 4.1.44) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.1.44"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41901",
+      "title": "Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41901](https://github.com/advisories): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.4.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.5.RELEASE",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41901](https://github.com/advisories): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.4.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.4.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.5.RELEASE"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40478",
+      "title": "Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40478](https://github.com/advisories): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-40478](https://github.com/advisories): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40477",
+      "title": "Improper restriction of the scope of accessible objects in Thymeleaf expressions",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40477](https://github.com/advisories): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-40477](https://github.com/advisories): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring5 (<= 3.1.3.RELEASE) (declared at pom.xml)\n  - org.thymeleaf:thymeleaf-spring6 (<= 3.1.3.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.1.4.RELEASE"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2023-20873",
+      "title": "Spring Boot Security Bypass with Wildcard Pattern Matching on Cloud Foundry",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2023-20873](https://github.com/advisories): Spring Boot Security Bypass with Wildcard Pattern Matching on Cloud Foundry\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 3.0.0, < 3.0.6) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.7.0, < 2.7.11) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.6.0, < 2.6.15) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (< 2.5.15) (declared at pom.xml:7)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.15, 2.6.15, 2.7.11, 3.0.6",
+      "evidence": {
+        "files": [
+          "pom.xml:7"
+        ],
+        "explanation": "[CVE-2023-20873](https://github.com/advisories): Spring Boot Security Bypass with Wildcard Pattern Matching on Cloud Foundry\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 3.0.0, < 3.0.6) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.7.0, < 2.7.11) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (>= 2.6.0, < 2.6.15) (declared at pom.xml:7)\n  - org.springframework.boot:spring-boot-actuator-autoconfigure (< 2.5.15) (declared at pom.xml:7)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.5.15, 2.6.15, 2.7.11, 3.0.6"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-43512",
+      "title": "Apache Tomcat - Digest authenticator will authenticate any unknown user",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-43512](https://github.com/advisories): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-43512](https://github.com/advisories): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-43515",
+      "title": "Apache Tomcat - Security constraints not correctly applied",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-43515](https://github.com/advisories): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-43515](https://github.com/advisories): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41293",
+      "title": "Apache Tomcat - HTTP/2 request headers not validated",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41293](https://github.com/advisories): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41293](https://github.com/advisories): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat.embed:tomcat-embed-core (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (< 9.0.118) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 10.1.0-M1, < 10.1.55) (declared at pom.xml)\n  - org.apache.tomcat:tomcat-catalina (>= 11.0.0-M1, < 11.0.22) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 10.1.55, 11.0.22, 9.0.118"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2022-41853",
+      "title": "HyperSQL DataBase vulnerable to remote code execution when processing untrusted input",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2022-41853](https://github.com/advisories): HyperSQL DataBase vulnerable to remote code execution when processing untrusted input\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.hsqldb:hsqldb (< 2.7.1) (declared at spring-petclinic-vets-service/pom.xml:79)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.1",
+      "evidence": {
+        "files": [
+          "spring-petclinic-vets-service/pom.xml:79"
+        ],
+        "explanation": "[CVE-2022-41853](https://github.com/advisories): HyperSQL DataBase vulnerable to remote code execution when processing untrusted input\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.hsqldb:hsqldb (< 2.7.1) (declared at spring-petclinic-vets-service/pom.xml:79)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.1"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2018-1275",
+      "title": "Spring Framework has Improperly Implemented Security Check for Standard",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2018-1275](https://github.com/advisories): Spring Framework has Improperly Implemented Security Check for Standard\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2018-1275](https://github.com/advisories): Spring Framework has Improperly Implemented Security Check for Standard\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2018-1270",
+      "title": "Spring Framework allows applications to expose STOMP over WebSocket endpoints",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2018-1270](https://github.com/advisories): Spring Framework allows applications to expose STOMP over WebSocket endpoints\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2018-1270](https://github.com/advisories): Spring Framework allows applications to expose STOMP over WebSocket endpoints\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework:spring-messaging (>= 5.0.0.RELEASE, < 5.0.5.RELEASE) (declared at pom.xml)\n  - org.springframework:spring-messaging (< 4.3.16.RELEASE) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 4.3.16.RELEASE, 5.0.5.RELEASE"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2014-9390",
+      "title": "JGit Improper Input Validation vulnerability",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2014-9390](https://github.com/advisories): JGit Improper Input Validation vulnerability\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.eclipse.jgit:org.eclipse.jgit (< 3.5.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.5.3",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2014-9390](https://github.com/advisories): JGit Improper Input Validation vulnerability\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.eclipse.jgit:org.eclipse.jgit (< 3.5.3) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 3.5.3"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2016-3720",
+      "title": "jackson-dataformat-xml vulnerable to XML external entity (XXE)",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2016-3720](https://github.com/advisories): jackson-dataformat-xml vulnerable to XML external entity (XXE)\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.dataformat:jackson-dataformat-xml (< 2.7.4) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.4",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2016-3720](https://github.com/advisories): jackson-dataformat-xml vulnerable to XML external entity (XXE)\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - com.fasterxml.jackson.dataformat:jackson-dataformat-xml (< 2.7.4) (declared at pom.xml)\n\nRecommended fix:\n  - Upgrade affected dependencies to patched versions such as 2.7.4"
+      },
+      "storyPoint": 1
+    }
+  ]
+}
