@@ -1,0 +1,7 @@
+analysisCoverage: issue-only
+java:
+  assessmentDomains: []
+  analysisCoverage: issue-only
+  targetComputeServices: []
+  targetOS: []
+  minimumCveSeverity: medium

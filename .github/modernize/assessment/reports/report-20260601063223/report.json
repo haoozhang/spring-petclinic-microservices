@@ -1,0 +1,1122 @@
+{
+  "version": "1.0.0",
+  "producer": "Java AppCAT CLI",
+  "metadata": {
+    "analysisStartTime": "2026-06-01T06:32:23.440Z",
+    "analysisEndTime": "2026-06-01T06:32:32.101Z",
+    "privacyMode": "Protected",
+    "privacyModeHelpUrl": "https://aka.ms/appmod-privacy-mode",
+    "targetIds": [],
+    "targetDisplayNames": [],
+    "capabilities": [
+      "openjdk25"
+    ],
+    "os": [],
+    "id": "20260601063223",
+    "name": "Report_20260601063223",
+    "status": "completed",
+    "domains": [],
+    "mode": "issue-only",
+    "minimumCveSeverity": "medium"
+  },
+  "summary": {
+    "totalProjects": 1,
+    "totalIssues": 0,
+    "totalIncidents": 0,
+    "totalEffort": 0,
+    "charts": {
+      "severity": {
+        "mandatory": 0,
+        "optional": 0,
+        "potential": 0,
+        "information": 0
+      },
+      "category": {}
+    }
+  },
+  "projects": [
+    {
+      "path": ".",
+      "issues": 0,
+      "storyPoints": 0,
+      "properties": {
+        "appName": "spring-petclinic-microservices",
+        "jdkVersion": "17",
+        "frameworks": [
+          "Spring Boot",
+          "Spring Cloud",
+          "Spring"
+        ],
+        "languages": [
+          "Java",
+          "Dockerfile"
+        ],
+        "tools": [
+          "Maven"
+        ]
+      },
+      "incidents": []
+    }
+  ],
+  "rules": {},
+  "security": [
+    {
+      "id": "GHSA-72hv-8253-57qq",
+      "title": "jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[GHSA-72hv-8253-57qq](https://github.com/advisories/GHSA-72hv-8253-57qq): jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - tools.jackson.core:jackson-core >= 3.0.0, < 3.1.0 (transitive dependency)\n    Recommended fix: upgrade to 3.1.0 or later\n  - com.fasterxml.jackson.core:jackson-core >= 2.0.0, <= 2.18.5 (transitive dependency)\n    Recommended fix: upgrade to 2.18.6 or later\n  - com.fasterxml.jackson.core:jackson-core >= 2.19.0, < 2.21.1 (transitive dependency)\n    Recommended fix: upgrade to 2.21.1 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[GHSA-72hv-8253-57qq](https://github.com/advisories/GHSA-72hv-8253-57qq): jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - tools.jackson.core:jackson-core >= 3.0.0, < 3.1.0 (transitive dependency)\n    Recommended fix: upgrade to 3.1.0 or later\n  - com.fasterxml.jackson.core:jackson-core >= 2.0.0, <= 2.18.5 (transitive dependency)\n    Recommended fix: upgrade to 2.18.6 or later\n  - com.fasterxml.jackson.core:jackson-core >= 2.19.0, < 2.21.1 (transitive dependency)\n    Recommended fix: upgrade to 2.21.1 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-11226",
+      "title": "QOS.CH logback-core is vulnerable to Arbitrary Code Execution through file processing",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-11226](https://github.com/advisories/GHSA-25qh-j22f-pwp8): QOS.CH logback-core is vulnerable to Arbitrary Code Execution through file processing\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - ch.qos.logback:logback-core >= 1.4.0, < 1.5.19 (transitive dependency)\n    Recommended fix: upgrade to 1.5.19 or later\n  - ch.qos.logback:logback-core < 1.3.16 (transitive dependency)\n    Recommended fix: upgrade to 1.3.16 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-11226](https://github.com/advisories/GHSA-25qh-j22f-pwp8): QOS.CH logback-core is vulnerable to Arbitrary Code Execution through file processing\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - ch.qos.logback:logback-core >= 1.4.0, < 1.5.19 (transitive dependency)\n    Recommended fix: upgrade to 1.5.19 or later\n  - ch.qos.logback:logback-core < 1.3.16 (transitive dependency)\n    Recommended fix: upgrade to 1.3.16 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2024-12798",
+      "title": "QOS.CH logback-core Expression Language Injection vulnerability",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2024-12798](https://github.com/advisories/GHSA-pr98-23f8-jwxv): QOS.CH logback-core Expression Language Injection vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - ch.qos.logback:logback-core >= 1.4.0, < 1.5.13 (transitive dependency)\n    Recommended fix: upgrade to 1.5.13 or later\n  - ch.qos.logback:logback-core < 1.3.15 (transitive dependency)\n    Recommended fix: upgrade to 1.3.15 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2024-12798](https://github.com/advisories/GHSA-pr98-23f8-jwxv): QOS.CH logback-core Expression Language Injection vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - ch.qos.logback:logback-core >= 1.4.0, < 1.5.13 (transitive dependency)\n    Recommended fix: upgrade to 1.5.13 or later\n  - ch.qos.logback:logback-core < 1.3.15 (transitive dependency)\n    Recommended fix: upgrade to 1.3.15 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-48924",
+      "title": "Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-48924](https://github.com/advisories/GHSA-j288-q9x7-2f5v): Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.commons:commons-lang3 >= 3.0, < 3.18.0 (transitive dependency)\n    Recommended fix: upgrade to 3.18.0 or later\n  - commons-lang:commons-lang >= 2.0, <= 2.6 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-48924](https://github.com/advisories/GHSA-j288-q9x7-2f5v): Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.commons:commons-lang3 >= 3.0, < 3.18.0 (transitive dependency)\n    Recommended fix: upgrade to 3.18.0 or later\n  - commons-lang:commons-lang >= 2.0, <= 2.6 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2024-47072",
+      "title": "XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2024-47072](https://github.com/advisories/GHSA-hfq9-hggm-c56q): XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream\n\nSeverity: HIGH\n\nAffected dependencies:\n  - com.thoughtworks.xstream:xstream < 1.4.21 (transitive dependency)\n    Recommended fix: upgrade to 1.4.21 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2024-47072](https://github.com/advisories/GHSA-hfq9-hggm-c56q): XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream\n\nSeverity: HIGH\n\nAffected dependencies:\n  - com.thoughtworks.xstream:xstream < 1.4.21 (transitive dependency)\n    Recommended fix: upgrade to 1.4.21 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42587",
+      "title": "Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-42587](https://github.com/advisories/GHSA-f6hv-jmp6-3vwv): Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http2 >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later\n  - io.netty:netty-codec-http2 <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42587](https://github.com/advisories/GHSA-f6hv-jmp6-3vwv): Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http2 >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later\n  - io.netty:netty-codec-http2 <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42585",
+      "title": "Netty vulnerable to HTTP Request Smuggling due to malformed Transfer-Encoding",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-42585](https://github.com/advisories/GHSA-38f8-5428-x5cv): Netty vulnerable to HTTP Request Smuggling due to malformed Transfer-Encoding\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42585](https://github.com/advisories/GHSA-38f8-5428-x5cv): Netty vulnerable to HTTP Request Smuggling due to malformed Transfer-Encoding\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42584",
+      "title": "Netty has HttpClientCodec response desynchronization",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-42584](https://github.com/advisories/GHSA-57rv-r2g8-2cj3): Netty has HttpClientCodec response desynchronization\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42584](https://github.com/advisories/GHSA-57rv-r2g8-2cj3): Netty has HttpClientCodec response desynchronization\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42583",
+      "title": "Netty Lz4FrameDecoder is vulnerable to resource exhaustion ",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-42583](https://github.com/advisories/GHSA-mj4r-2hfc-f8p6): Netty Lz4FrameDecoder is vulnerable to resource exhaustion \n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-compression <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42583](https://github.com/advisories/GHSA-mj4r-2hfc-f8p6): Netty Lz4FrameDecoder is vulnerable to resource exhaustion \n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-compression <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42581",
+      "title": "Netty HTTP/1.0 TE+CL Coexistence Bypasses Smuggling Sanitization",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-42581](https://github.com/advisories/GHSA-xxqh-mfjm-7mv9): Netty HTTP/1.0 TE+CL Coexistence Bypasses Smuggling Sanitization\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42581](https://github.com/advisories/GHSA-xxqh-mfjm-7mv9): Netty HTTP/1.0 TE+CL Coexistence Bypasses Smuggling Sanitization\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42580",
+      "title": "Netty vulnerable to HTTP Request Smuggling due to incorrect chunk size parsing",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-42580](https://github.com/advisories/GHSA-m4cv-j2px-7723): Netty vulnerable to HTTP Request Smuggling due to incorrect chunk size parsing\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42580](https://github.com/advisories/GHSA-m4cv-j2px-7723): Netty vulnerable to HTTP Request Smuggling due to incorrect chunk size parsing\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42579",
+      "title": "Netty has a DNS Codec Input Validation Bypass (Encoder + Decoder)",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-42579](https://github.com/advisories/GHSA-cm33-6792-r9fm): Netty has a DNS Codec Input Validation Bypass (Encoder + Decoder)\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-dns >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-dns <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42579](https://github.com/advisories/GHSA-cm33-6792-r9fm): Netty has a DNS Codec Input Validation Bypass (Encoder + Decoder)\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-dns >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later\n  - io.netty:netty-codec-dns <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41417",
+      "title": "Netty: Start-Line Injection in DefaultHttpRequest.setUri() Allows HTTP Request Smuggling and RTSP Request Injection",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-41417](https://github.com/advisories/GHSA-v8h7-rr48-vmmv): Netty: Start-Line Injection in DefaultHttpRequest.setUri() Allows HTTP Request Smuggling and RTSP Request Injection\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41417](https://github.com/advisories/GHSA-v8h7-rr48-vmmv): Netty: Start-Line Injection in DefaultHttpRequest.setUri() Allows HTTP Request Smuggling and RTSP Request Injection\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http <= 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.133.Final or later\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, <= 4.2.12.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.13.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-33871",
+      "title": "Netty HTTP/2 CONTINUATION Frame Flood DoS via Zero-Byte Frame Bypass",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-33871](https://github.com/advisories/GHSA-w9fj-cfpg-grvv): Netty HTTP/2 CONTINUATION Frame Flood DoS via Zero-Byte Frame Bypass\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http2 < 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.132.Final or later\n  - io.netty:netty-codec-http2 >= 4.2.0.Alpha1, < 4.2.10.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.11.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-33871](https://github.com/advisories/GHSA-w9fj-cfpg-grvv): Netty HTTP/2 CONTINUATION Frame Flood DoS via Zero-Byte Frame Bypass\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http2 < 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.132.Final or later\n  - io.netty:netty-codec-http2 >= 4.2.0.Alpha1, < 4.2.10.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.11.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-33870",
+      "title": "Netty: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-33870](https://github.com/advisories/GHSA-pwqr-wmgm-9rr8): Netty: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http < 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.132.Final or later\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, < 4.2.10.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.10.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-33870](https://github.com/advisories/GHSA-pwqr-wmgm-9rr8): Netty: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http < 4.1.132.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.132.Final or later\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, < 4.2.10.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.10.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-67735",
+      "title": "Netty has a CRLF Injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-67735](https://github.com/advisories/GHSA-84h7-rjj3-6jx4): Netty has a CRLF Injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, < 4.2.8.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.8.Final or later\n  - io.netty:netty-codec-http < 4.1.129.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.129.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-67735](https://github.com/advisories/GHSA-84h7-rjj3-6jx4): Netty has a CRLF Injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-http >= 4.2.0.Alpha1, < 4.2.8.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.8.Final or later\n  - io.netty:netty-codec-http < 4.1.129.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.129.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-58057",
+      "title": "Netty's decoders vulnerable to DoS via zip bomb style attack",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-58057](https://github.com/advisories/GHSA-3p8m-j85q-pgmj): Netty's decoders vulnerable to DoS via zip bomb style attack\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-compression >= 4.2.0.Alpha1, < 4.2.5.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.5.Final or later\n  - io.netty:netty-codec < 4.1.125.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.125.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-58057](https://github.com/advisories/GHSA-3p8m-j85q-pgmj): Netty's decoders vulnerable to DoS via zip bomb style attack\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-codec-compression >= 4.2.0.Alpha1, < 4.2.5.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.5.Final or later\n  - io.netty:netty-codec < 4.1.125.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.125.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-55163",
+      "title": "Netty affected by MadeYouReset HTTP/2 DDoS vulnerability",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-55163](https://github.com/advisories/GHSA-prj3-ccx8-p6x4): Netty affected by MadeYouReset HTTP/2 DDoS vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http2 >= 4.2.0.Alpha1, <= 4.2.3.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.4.Final or later\n  - io.netty:netty-codec-http2 <= 4.1.123.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.124.Final or later\n  - io.grpc:grpc-netty-shaded < 1.75.0 (transitive dependency)\n    Recommended fix: upgrade to 1.75.0 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-55163](https://github.com/advisories/GHSA-prj3-ccx8-p6x4): Netty affected by MadeYouReset HTTP/2 DDoS vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-codec-http2 >= 4.2.0.Alpha1, <= 4.2.3.Final (transitive dependency)\n    Recommended fix: upgrade to 4.2.4.Final or later\n  - io.netty:netty-codec-http2 <= 4.1.123.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.124.Final or later\n  - io.grpc:grpc-netty-shaded < 1.75.0 (transitive dependency)\n    Recommended fix: upgrade to 1.75.0 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-25193",
+      "title": "Denial of Service attack on windows app using Netty",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-25193](https://github.com/advisories/GHSA-389x-839f-4rhx): Denial of Service attack on windows app using Netty\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-common < 4.1.118.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.118.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-25193](https://github.com/advisories/GHSA-389x-839f-4rhx): Denial of Service attack on windows app using Netty\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.netty:netty-common < 4.1.118.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.118.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-45292",
+      "title": "OpenTelemetry Java SDK has Unbounded Memory Allocation in W3C Baggage Propagation",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-45292](https://github.com/advisories/GHSA-rcgg-9c38-7xpx): OpenTelemetry Java SDK has Unbounded Memory Allocation in W3C Baggage Propagation\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.opentelemetry:opentelemetry-api <= 1.61.0 (transitive dependency)\n    Recommended fix: upgrade to 1.62.0 or later\n  - io.opentelemetry:opentelemetry-extension-trace-propagators <= 1.61.0 (transitive dependency)\n    Recommended fix: upgrade to 1.62.0 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-45292](https://github.com/advisories/GHSA-rcgg-9c38-7xpx): OpenTelemetry Java SDK has Unbounded Memory Allocation in W3C Baggage Propagation\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.opentelemetry:opentelemetry-api <= 1.61.0 (transitive dependency)\n    Recommended fix: upgrade to 1.62.0 or later\n  - io.opentelemetry:opentelemetry-extension-trace-propagators <= 1.61.0 (transitive dependency)\n    Recommended fix: upgrade to 1.62.0 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-22227",
+      "title": "Reactor Netty HTTP is vulnerable to credential leaks during chained redirects",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-22227](https://github.com/advisories/GHSA-4q2v-9p7v-3v22): Reactor Netty HTTP is vulnerable to credential leaks during chained redirects\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.projectreactor.netty:reactor-netty-http >= 1.3.0-M1, < 1.3.0-M5 (transitive dependency)\n    Recommended fix: upgrade to 1.3.0-M5 or later\n  - io.projectreactor.netty:reactor-netty-http < 1.2.8 (transitive dependency)\n    Recommended fix: upgrade to 1.2.8 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-22227](https://github.com/advisories/GHSA-4q2v-9p7v-3v22): Reactor Netty HTTP is vulnerable to credential leaks during chained redirects\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - io.projectreactor.netty:reactor-netty-http >= 1.3.0-M1, < 1.3.0-M5 (transitive dependency)\n    Recommended fix: upgrade to 1.3.0-M5 or later\n  - io.projectreactor.netty:reactor-netty-http < 1.2.8 (transitive dependency)\n    Recommended fix: upgrade to 1.2.8 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-24970",
+      "title": "SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-24970](https://github.com/advisories/GHSA-4g8c-wm8x-jfhw): SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-handler >= 4.1.91.Final, <= 4.1.117.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.118.Final or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-24970](https://github.com/advisories/GHSA-4g8c-wm8x-jfhw): SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine\n\nSeverity: HIGH\n\nAffected dependencies:\n  - io.netty:netty-handler >= 4.1.91.Final, <= 4.1.117.Final (transitive dependency)\n    Recommended fix: upgrade to 4.1.118.Final or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2020-36843",
+      "title": "Ed25519 Signature Malleability in ed25519-java Due to Missing Scalar Range Check",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2020-36843](https://github.com/advisories/GHSA-p53j-g8pw-4w5f): Ed25519 Signature Malleability in ed25519-java Due to Missing Scalar Range Check\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - net.i2p.crypto:eddsa <= 0.3.0 (transitive dependency)\n  - net.i2p:i2p < 0.9.39 (transitive dependency)\n    Recommended fix: upgrade to 0.9.39 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2020-36843](https://github.com/advisories/GHSA-p53j-g8pw-4w5f): Ed25519 Signature Malleability in ed25519-java Due to Missing Scalar Range Check\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - net.i2p.crypto:eddsa <= 0.3.0 (transitive dependency)\n  - net.i2p:i2p < 0.9.39 (transitive dependency)\n    Recommended fix: upgrade to 0.9.39 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41284",
+      "title": "Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41284](https://github.com/advisories/GHSA-gx5v-xp9w-j4cg): Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41284](https://github.com/advisories/GHSA-gx5v-xp9w-j4cg): Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-43512",
+      "title": "Apache Tomcat - Digest authenticator will authenticate any unknown user",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-43512](https://github.com/advisories/GHSA-h6fc-48rj-7qqh): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-43512](https://github.com/advisories/GHSA-h6fc-48rj-7qqh): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-43513",
+      "title": "Apache Tomcat: LockOutRealm treats user names as case-sensitive",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-43513](https://github.com/advisories/GHSA-5mp6-jrq3-r938): Apache Tomcat: LockOutRealm treats user names as case-sensitive\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-43513](https://github.com/advisories/GHSA-5mp6-jrq3-r938): Apache Tomcat: LockOutRealm treats user names as case-sensitive\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-43515",
+      "title": "Apache Tomcat - Security constraints not correctly applied",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-43515](https://github.com/advisories/GHSA-5m62-pw8w-7w9f): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-43515](https://github.com/advisories/GHSA-5m62-pw8w-7w9f): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41293",
+      "title": "Apache Tomcat - HTTP/2 request headers not validated",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41293](https://github.com/advisories/GHSA-r29c-68gh-xp6x): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41293](https://github.com/advisories/GHSA-r29c-68gh-xp6x): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-42498",
+      "title": "Apache Tomcat - WebSocket authentication header exposure",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-42498](https://github.com/advisories/GHSA-fv25-8xcx-gqjc): Apache Tomcat - WebSocket authentication header exposure\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-42498](https://github.com/advisories/GHSA-fv25-8xcx-gqjc): Apache Tomcat - WebSocket authentication header exposure\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.118 (transitive dependency)\n    Recommended fix: upgrade to 9.0.118 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.55 (transitive dependency)\n    Recommended fix: upgrade to 10.1.55 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.22 (transitive dependency)\n    Recommended fix: upgrade to 11.0.22 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-34483",
+      "title": "Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-34483](https://github.com/advisories/GHSA-rv64-5gf8-9qq8): Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 9.0.40, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat:tomcat >= 9.0.40, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.40, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-34483](https://github.com/advisories/GHSA-rv64-5gf8-9qq8): Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 9.0.40, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat:tomcat >= 9.0.40, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.40, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-34487",
+      "title": "Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-34487](https://github.com/advisories/GHSA-x4m4-345f-5h5g): Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 9.0.13, < 9.0.117 (transitive dependency)\n    Recommended fix: upgrade to 9.0.117 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat:tomcat >= 9.0.13, < 9.0.117 (transitive dependency)\n    Recommended fix: upgrade to 9.0.117 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.13, < 9.0.117 (transitive dependency)\n    Recommended fix: upgrade to 9.0.117 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-34487](https://github.com/advisories/GHSA-x4m4-345f-5h5g): Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 9.0.13, < 9.0.117 (transitive dependency)\n    Recommended fix: upgrade to 9.0.117 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat:tomcat >= 9.0.13, < 9.0.117 (transitive dependency)\n    Recommended fix: upgrade to 9.0.117 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.13, < 9.0.117 (transitive dependency)\n    Recommended fix: upgrade to 9.0.117 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.54 (transitive dependency)\n    Recommended fix: upgrade to 10.1.54 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.21 (transitive dependency)\n    Recommended fix: upgrade to 11.0.21 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-25854",
+      "title": "Apache Tomcat has an Open Redirect vulnerability",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-25854](https://github.com/advisories/GHSA-9m3c-qcxr-9x87): Apache Tomcat has an Open Redirect vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.53 (transitive dependency)\n    Recommended fix: upgrade to 10.1.53 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.20 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.53 (transitive dependency)\n    Recommended fix: upgrade to 10.1.53 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.20 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.53 (transitive dependency)\n    Recommended fix: upgrade to 10.1.53 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.20 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.30, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat >= 8.5.30, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.30, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-25854](https://github.com/advisories/GHSA-9m3c-qcxr-9x87): Apache Tomcat has an Open Redirect vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.53 (transitive dependency)\n    Recommended fix: upgrade to 10.1.53 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.20 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.53 (transitive dependency)\n    Recommended fix: upgrade to 10.1.53 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.20 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.53 (transitive dependency)\n    Recommended fix: upgrade to 10.1.53 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.20 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.30, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat >= 8.5.30, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.30, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-24880",
+      "title": "Apache Tomcat has an HTTP Request/Response Smuggling vulnerability",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-24880](https://github.com/advisories/GHSA-563x-q5rq-57qp): Apache Tomcat has an HTTP Request/Response Smuggling vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 7.0.0, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M1, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, <= 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 7.0.0, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, <= 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-24880](https://github.com/advisories/GHSA-563x-q5rq-57qp): Apache Tomcat has an HTTP Request/Response Smuggling vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 7.0.0, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M1, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, <= 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 7.0.0, < 9.0.116 (transitive dependency)\n    Recommended fix: upgrade to 9.0.116 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, <= 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.20 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-24734",
+      "title": "Apache Tomcat has an Improper Input Validation vulnerability",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-24734](https://github.com/advisories/GHSA-mgp5-rv84-w37q): Apache Tomcat has an Improper Input Validation vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, < 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.18 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M7, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat:tomcat-coyote >= 9.0.83, < 9.0.115 (transitive dependency)\n    Recommended fix: upgrade to 9.0.115 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.18 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M7, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.83, < 9.0.115 (transitive dependency)\n    Recommended fix: upgrade to 9.0.115 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-24734](https://github.com/advisories/GHSA-mgp5-rv84-w37q): Apache Tomcat has an Improper Input Validation vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, < 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.18 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M7, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat:tomcat-coyote >= 9.0.83, < 9.0.115 (transitive dependency)\n    Recommended fix: upgrade to 9.0.115 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.18 (transitive dependency)\n    Recommended fix: upgrade to 11.0.18 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M7, < 10.1.52 (transitive dependency)\n    Recommended fix: upgrade to 10.1.52 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.83, < 9.0.115 (transitive dependency)\n    Recommended fix: upgrade to 9.0.115 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-66614",
+      "title": "Apache Tomcat - Client certificate verification bypass",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-66614](https://github.com/advisories/GHSA-fpj8-gq4v-p354): Apache Tomcat - Client certificate verification bypass\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.15 (transitive dependency)\n    Recommended fix: upgrade to 11.0.15 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.50 (transitive dependency)\n    Recommended fix: upgrade to 10.1.50 or later\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.113 (transitive dependency)\n    Recommended fix: upgrade to 9.0.113 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.15 (transitive dependency)\n    Recommended fix: upgrade to 11.0.15 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.50 (transitive dependency)\n    Recommended fix: upgrade to 10.1.50 or later\n  - org.apache.tomcat:tomcat < 9.0.113 (transitive dependency)\n    Recommended fix: upgrade to 9.0.113 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.15 (transitive dependency)\n    Recommended fix: upgrade to 11.0.15 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.50 (transitive dependency)\n    Recommended fix: upgrade to 10.1.50 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.113 (transitive dependency)\n    Recommended fix: upgrade to 9.0.113 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-66614](https://github.com/advisories/GHSA-fpj8-gq4v-p354): Apache Tomcat - Client certificate verification bypass\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.15 (transitive dependency)\n    Recommended fix: upgrade to 11.0.15 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.50 (transitive dependency)\n    Recommended fix: upgrade to 10.1.50 or later\n  - org.apache.tomcat.embed:tomcat-embed-core < 9.0.113 (transitive dependency)\n    Recommended fix: upgrade to 9.0.113 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.15 (transitive dependency)\n    Recommended fix: upgrade to 11.0.15 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.50 (transitive dependency)\n    Recommended fix: upgrade to 10.1.50 or later\n  - org.apache.tomcat:tomcat < 9.0.113 (transitive dependency)\n    Recommended fix: upgrade to 9.0.113 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.15 (transitive dependency)\n    Recommended fix: upgrade to 11.0.15 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.50 (transitive dependency)\n    Recommended fix: upgrade to 10.1.50 or later\n  - org.apache.tomcat:tomcat-catalina < 9.0.113 (transitive dependency)\n    Recommended fix: upgrade to 9.0.113 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-24400",
+      "title": "AssertJ has XML External Entity (XXE) vulnerability when parsing untrusted XML via isXmlEqualTo assertion",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-24400](https://github.com/advisories/GHSA-rqfh-9r24-8c9r): AssertJ has XML External Entity (XXE) vulnerability when parsing untrusted XML via isXmlEqualTo assertion\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.assertj:assertj-core >= 1.4.0, <= 3.27.6 (declared at spring-petclinic-customers-service/pom.xml:110)\n    Recommended fix: upgrade to 3.27.7 or later",
+      "evidence": {
+        "files": [
+          "spring-petclinic-customers-service/pom.xml:110"
+        ],
+        "explanation": "[CVE-2026-24400](https://github.com/advisories/GHSA-rqfh-9r24-8c9r): AssertJ has XML External Entity (XXE) vulnerability when parsing untrusted XML via isXmlEqualTo assertion\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.assertj:assertj-core >= 1.4.0, <= 3.27.6 (declared at spring-petclinic-customers-service/pom.xml:110)\n    Recommended fix: upgrade to 3.27.7 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-55752",
+      "title": "Apache Tomcat Vulnerable to Relative Path Traversal",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-55752](https://github.com/advisories/GHSA-wmwf-9ccg-fff5): Apache Tomcat Vulnerable to Relative Path Traversal\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.11 (transitive dependency)\n    Recommended fix: upgrade to 11.0.11 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.45 (transitive dependency)\n    Recommended fix: upgrade to 10.1.45 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.11 (transitive dependency)\n    Recommended fix: upgrade to 11.0.11 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.45 (transitive dependency)\n    Recommended fix: upgrade to 10.1.45 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.11 (transitive dependency)\n    Recommended fix: upgrade to 11.0.11 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.45 (transitive dependency)\n    Recommended fix: upgrade to 10.1.45 or later\n  - org.apache.tomcat:tomcat >= 9.0.0-M11, < 9.0.109 (transitive dependency)\n    Recommended fix: upgrade to 9.0.109 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0-M11, < 9.0.109 (transitive dependency)\n    Recommended fix: upgrade to 9.0.109 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0-M11, < 9.0.109 (transitive dependency)\n    Recommended fix: upgrade to 9.0.109 or later\n  - org.apache.tomcat:tomcat >= 8.5.6, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat:tomcat-catalina >= 8.5.6, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.6, <= 8.5.100 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-55752](https://github.com/advisories/GHSA-wmwf-9ccg-fff5): Apache Tomcat Vulnerable to Relative Path Traversal\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.11 (transitive dependency)\n    Recommended fix: upgrade to 11.0.11 or later\n  - org.apache.tomcat:tomcat >= 10.1.0-M1, < 10.1.45 (transitive dependency)\n    Recommended fix: upgrade to 10.1.45 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.11 (transitive dependency)\n    Recommended fix: upgrade to 11.0.11 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.45 (transitive dependency)\n    Recommended fix: upgrade to 10.1.45 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.11 (transitive dependency)\n    Recommended fix: upgrade to 11.0.11 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.45 (transitive dependency)\n    Recommended fix: upgrade to 10.1.45 or later\n  - org.apache.tomcat:tomcat >= 9.0.0-M11, < 9.0.109 (transitive dependency)\n    Recommended fix: upgrade to 9.0.109 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0-M11, < 9.0.109 (transitive dependency)\n    Recommended fix: upgrade to 9.0.109 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0-M11, < 9.0.109 (transitive dependency)\n    Recommended fix: upgrade to 9.0.109 or later\n  - org.apache.tomcat:tomcat >= 8.5.6, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat:tomcat-catalina >= 8.5.6, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.6, <= 8.5.100 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-48989",
+      "title": "Apache Tomcat Improper Resource Shutdown or Release vulnerability",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-48989](https://github.com/advisories/GHSA-gqp3-2cvr-x8m3): Apache Tomcat Improper Resource Shutdown or Release vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, < 11.0.10 (transitive dependency)\n    Recommended fix: upgrade to 11.0.10 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M1, < 10.1.44 (transitive dependency)\n    Recommended fix: upgrade to 10.1.44 or later\n  - org.apache.tomcat:tomcat-coyote >= 9.0.0.M1, < 9.0.108 (transitive dependency)\n    Recommended fix: upgrade to 9.0.108 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.10 (transitive dependency)\n    Recommended fix: upgrade to 11.0.10 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.44 (transitive dependency)\n    Recommended fix: upgrade to 10.1.44 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.108 (transitive dependency)\n    Recommended fix: upgrade to 9.0.108 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-48989](https://github.com/advisories/GHSA-gqp3-2cvr-x8m3): Apache Tomcat Improper Resource Shutdown or Release vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, < 11.0.10 (transitive dependency)\n    Recommended fix: upgrade to 11.0.10 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M1, < 10.1.44 (transitive dependency)\n    Recommended fix: upgrade to 10.1.44 or later\n  - org.apache.tomcat:tomcat-coyote >= 9.0.0.M1, < 9.0.108 (transitive dependency)\n    Recommended fix: upgrade to 9.0.108 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.10 (transitive dependency)\n    Recommended fix: upgrade to 11.0.10 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.44 (transitive dependency)\n    Recommended fix: upgrade to 10.1.44 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.108 (transitive dependency)\n    Recommended fix: upgrade to 9.0.108 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-53506",
+      "title": "Apache Tomcat Coyote vulnerable to Denial of Service via excessive HTTP/2 streams",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-53506](https://github.com/advisories/GHSA-25xr-qj8w-c4vf): Apache Tomcat Coyote vulnerable to Denial of Service via excessive HTTP/2 streams\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat:tomcat-coyote >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat:tomcat-coyote >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-53506](https://github.com/advisories/GHSA-25xr-qj8w-c4vf): Apache Tomcat Coyote vulnerable to Denial of Service via excessive HTTP/2 streams\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat:tomcat-coyote >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat:tomcat-coyote >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-52520",
+      "title": "Apache Tomcat Catalina is vulnerable to DoS attack through bypassing of size limits",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-52520](https://github.com/advisories/GHSA-wr62-c79q-cv37): Apache Tomcat Catalina is vulnerable to DoS attack through bypassing of size limits\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-52520](https://github.com/advisories/GHSA-wr62-c79q-cv37): Apache Tomcat Catalina is vulnerable to DoS attack through bypassing of size limits\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.9 (transitive dependency)\n    Recommended fix: upgrade to 11.0.9 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.43 (transitive dependency)\n    Recommended fix: upgrade to 10.1.43 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.107 (transitive dependency)\n    Recommended fix: upgrade to 9.0.107 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-49124",
+      "title": "Apache Tomcat installer for Windows has an untrusted search path vulnerability",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-49124](https://github.com/advisories/GHSA-42wg-hm62-jcwg): Apache Tomcat installer for Windows has an untrusted search path vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.8 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0, < 10.1.42 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.23, < 9.0.106 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.8 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat >= 10.1.0, < 10.1.42 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat >= 9.0.23, < 9.0.106 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.8 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0, < 10.1.42 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.23, < 9.0.106 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-49124](https://github.com/advisories/GHSA-42wg-hm62-jcwg): Apache Tomcat installer for Windows has an untrusted search path vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.8 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0, < 10.1.42 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.23, < 9.0.106 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat >= 11.0.0-M1, < 11.0.8 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat >= 10.1.0, < 10.1.42 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat >= 9.0.23, < 9.0.106 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.8 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0, < 10.1.42 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.23, < 9.0.106 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-49125",
+      "title": "Apache Tomcat - Security constraint bypass for pre/post-resources",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-49125](https://github.com/advisories/GHSA-wc4r-xq3c-5cf3): Apache Tomcat - Security constraint bypass for pre/post-resources\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-49125](https://github.com/advisories/GHSA-wc4r-xq3c-5cf3): Apache Tomcat - Security constraint bypass for pre/post-resources\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-48988",
+      "title": "Apache Tomcat - DoS in multipart upload",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-48988](https://github.com/advisories/GHSA-h3gc-qfqq-6h8f): Apache Tomcat - DoS in multipart upload\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-48988](https://github.com/advisories/GHSA-h3gc-qfqq-6h8f): Apache Tomcat - DoS in multipart upload\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, <= 11.0.7 (transitive dependency)\n    Recommended fix: upgrade to 11.0.8 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, <= 10.1.41 (transitive dependency)\n    Recommended fix: upgrade to 10.1.42 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, <= 9.0.105 (transitive dependency)\n    Recommended fix: upgrade to 9.0.106 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-31650",
+      "title": "Apache Tomcat Denial of Service via invalid HTTP priority header",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-31650](https://github.com/advisories/GHSA-3p2h-wqq4-wf4h): Apache Tomcat Denial of Service via invalid HTTP priority header\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 9.0.76, <= 9.0.102 (transitive dependency)\n    Recommended fix: upgrade to 9.0.104 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.10, < 10.1.40 (transitive dependency)\n    Recommended fix: upgrade to 10.1.40 or later\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M2, < 11.0.6 (transitive dependency)\n    Recommended fix: upgrade to 11.0.6 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.76, <= 9.0.102 (transitive dependency)\n    Recommended fix: upgrade to 9.0.104 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.10, < 10.1.40 (transitive dependency)\n    Recommended fix: upgrade to 10.1.40 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M2, < 11.0.6 (transitive dependency)\n    Recommended fix: upgrade to 11.0.6 or later\n  - org.apache.tomcat:tomcat-coyote >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-31650](https://github.com/advisories/GHSA-3p2h-wqq4-wf4h): Apache Tomcat Denial of Service via invalid HTTP priority header\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-coyote >= 9.0.76, <= 9.0.102 (transitive dependency)\n    Recommended fix: upgrade to 9.0.104 or later\n  - org.apache.tomcat:tomcat-coyote >= 10.1.10, < 10.1.40 (transitive dependency)\n    Recommended fix: upgrade to 10.1.40 or later\n  - org.apache.tomcat:tomcat-coyote >= 11.0.0-M2, < 11.0.6 (transitive dependency)\n    Recommended fix: upgrade to 11.0.6 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.76, <= 9.0.102 (transitive dependency)\n    Recommended fix: upgrade to 9.0.104 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.10, < 10.1.40 (transitive dependency)\n    Recommended fix: upgrade to 10.1.40 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M2, < 11.0.6 (transitive dependency)\n    Recommended fix: upgrade to 11.0.6 or later\n  - org.apache.tomcat:tomcat-coyote >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-27820",
+      "title": "Apache HttpClient disables domain checks",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-27820](https://github.com/advisories/GHSA-73m2-qfq3-56cx): Apache HttpClient disables domain checks\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.httpcomponents.client5:httpclient5 >= 5.4-alpha1, < 5.4.3 (transitive dependency)\n    Recommended fix: upgrade to 5.4.3 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-27820](https://github.com/advisories/GHSA-73m2-qfq3-56cx): Apache HttpClient disables domain checks\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.apache.httpcomponents.client5:httpclient5 >= 5.4-alpha1, < 5.4.3 (transitive dependency)\n    Recommended fix: upgrade to 5.4.3 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-24813",
+      "title": "Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-24813](https://github.com/advisories/GHSA-83qj-6fr2-vhqg): Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.3 (transitive dependency)\n    Recommended fix: upgrade to 11.0.3 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.35 (transitive dependency)\n    Recommended fix: upgrade to 10.1.35 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, < 9.0.99 (transitive dependency)\n    Recommended fix: upgrade to 9.0.99 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.3 (transitive dependency)\n    Recommended fix: upgrade to 11.0.3 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.35 (transitive dependency)\n    Recommended fix: upgrade to 10.1.35 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.99 (transitive dependency)\n    Recommended fix: upgrade to 9.0.99 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-24813](https://github.com/advisories/GHSA-83qj-6fr2-vhqg): Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat:tomcat-catalina >= 11.0.0-M1, < 11.0.3 (transitive dependency)\n    Recommended fix: upgrade to 11.0.3 or later\n  - org.apache.tomcat:tomcat-catalina >= 10.1.0-M1, < 10.1.35 (transitive dependency)\n    Recommended fix: upgrade to 10.1.35 or later\n  - org.apache.tomcat:tomcat-catalina >= 9.0.0.M1, < 9.0.99 (transitive dependency)\n    Recommended fix: upgrade to 9.0.99 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 11.0.0-M1, < 11.0.3 (transitive dependency)\n    Recommended fix: upgrade to 11.0.3 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 10.1.0-M1, < 10.1.35 (transitive dependency)\n    Recommended fix: upgrade to 10.1.35 or later\n  - org.apache.tomcat.embed:tomcat-embed-core >= 9.0.0.M1, < 9.0.99 (transitive dependency)\n    Recommended fix: upgrade to 9.0.99 or later\n  - org.apache.tomcat:tomcat-catalina >= 8.5.0, <= 8.5.100 (transitive dependency)\n  - org.apache.tomcat.embed:tomcat-embed-core >= 8.5.0, <= 8.5.100 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2024-57699",
+      "title": "Netplex Json-smart Uncontrolled Recursion vulnerability",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2024-57699](https://github.com/advisories/GHSA-pq2g-wx69-c263): Netplex Json-smart Uncontrolled Recursion vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - net.minidev:json-smart >= 2.5.0, < 2.5.2 (transitive dependency)\n    Recommended fix: upgrade to 2.5.2 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2024-57699](https://github.com/advisories/GHSA-pq2g-wx69-c263): Netplex Json-smart Uncontrolled Recursion vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - net.minidev:json-smart >= 2.5.0, < 2.5.2 (transitive dependency)\n    Recommended fix: upgrade to 2.5.2 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2020-13956",
+      "title": "Cross-site scripting in Apache HttpClient",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2020-13956](https://github.com/advisories/GHSA-7r82-7xv7-xcpj): Cross-site scripting in Apache HttpClient\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.httpcomponents:httpclient < 4.5.13 (transitive dependency)\n    Recommended fix: upgrade to 4.5.13 or later\n  - org.apache.httpcomponents:httpclient >= 5.0.0, < 5.0.3 (transitive dependency)\n    Recommended fix: upgrade to 5.0.3 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2020-13956](https://github.com/advisories/GHSA-7r82-7xv7-xcpj): Cross-site scripting in Apache HttpClient\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.apache.httpcomponents:httpclient < 4.5.13 (transitive dependency)\n    Recommended fix: upgrade to 4.5.13 or later\n  - org.apache.httpcomponents:httpclient >= 5.0.0, < 5.0.3 (transitive dependency)\n    Recommended fix: upgrade to 5.0.3 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-5598",
+      "title": "Bouncy Castle Has Covert Timing Channel Vulnerability",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-5598](https://github.com/advisories/GHSA-p93r-85wp-75v3): Bouncy Castle Has Covert Timing Channel Vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.bouncycastle:bcprov-jdk15to18 >= 1.71, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk14 >= 1.71, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk18on >= 1.71, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-5598](https://github.com/advisories/GHSA-p93r-85wp-75v3): Bouncy Castle Has Covert Timing Channel Vulnerability\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.bouncycastle:bcprov-jdk15to18 >= 1.71, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk14 >= 1.71, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk18on >= 1.71, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-0636",
+      "title": "Bouncy Castle has an LDAP injection",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-0636](https://github.com/advisories/GHSA-c3fc-8qff-9hwx): Bouncy Castle has an LDAP injection\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.bouncycastle:bcprov-jdk14 >= 1.74, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk15to18 >= 1.74, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk18on >= 1.74, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-0636](https://github.com/advisories/GHSA-c3fc-8qff-9hwx): Bouncy Castle has an LDAP injection\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.bouncycastle:bcprov-jdk14 >= 1.74, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk15to18 >= 1.74, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later\n  - org.bouncycastle:bcprov-jdk18on >= 1.74, < 1.84 (transitive dependency)\n    Recommended fix: upgrade to 1.84 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-12383",
+      "title": "Eclipse Jersey has a Race Condition",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-12383](https://github.com/advisories/GHSA-7p63-w6x9-6gr7): Eclipse Jersey has a Race Condition\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.glassfish.jersey.core:jersey-client = 2.45 (transitive dependency)\n    Recommended fix: upgrade to 2.46 or later\n  - org.glassfish.jersey.core:jersey-client = 3.0.16 (transitive dependency)\n    Recommended fix: upgrade to 3.0.17 or later\n  - org.glassfish.jersey.core:jersey-client = 3.1.9 (transitive dependency)\n    Recommended fix: upgrade to 3.1.10 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-12383](https://github.com/advisories/GHSA-7p63-w6x9-6gr7): Eclipse Jersey has a Race Condition\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.glassfish.jersey.core:jersey-client = 2.45 (transitive dependency)\n    Recommended fix: upgrade to 2.46 or later\n  - org.glassfish.jersey.core:jersey-client = 3.0.16 (transitive dependency)\n    Recommended fix: upgrade to 3.0.17 or later\n  - org.glassfish.jersey.core:jersey-client = 3.1.9 (transitive dependency)\n    Recommended fix: upgrade to 3.1.10 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-4949",
+      "title": "Eclipse JGit XML External Entity (XXE) Vulnerability",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-4949](https://github.com/advisories/GHSA-vrpq-qp53-qv56): Eclipse JGit XML External Entity (XXE) Vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.eclipse.jgit:org.eclipse.jgit >= 7.2.0.202503040940-r, < 7.2.1.202505142326-r (transitive dependency)\n    Recommended fix: upgrade to 7.2.1.202505142326-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 7.1.0.202411261347-r, < 7.1.1.202505221757-r (transitive dependency)\n    Recommended fix: upgrade to 7.1.1.202505221757-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 7.0.0.202409031743-r, < 7.0.1.202505221510-r (transitive dependency)\n    Recommended fix: upgrade to 7.0.1.202505221510-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 6.1.0.202203080745-r, < 6.10.1.202505221210-r (transitive dependency)\n    Recommended fix: upgrade to 6.10.1.202505221210-r or later\n  - org.eclipse.jgit:org.eclipse.jgit < 5.13.4.202507202350-r (transitive dependency)\n    Recommended fix: upgrade to 5.13.4.202507202350-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 6.0.0.202110060947-m1, < 6.0.0.202111291000-r (transitive dependency)\n    Recommended fix: upgrade to 6.0.0.202111291000-r or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-4949](https://github.com/advisories/GHSA-vrpq-qp53-qv56): Eclipse JGit XML External Entity (XXE) Vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.eclipse.jgit:org.eclipse.jgit >= 7.2.0.202503040940-r, < 7.2.1.202505142326-r (transitive dependency)\n    Recommended fix: upgrade to 7.2.1.202505142326-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 7.1.0.202411261347-r, < 7.1.1.202505221757-r (transitive dependency)\n    Recommended fix: upgrade to 7.1.1.202505221757-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 7.0.0.202409031743-r, < 7.0.1.202505221510-r (transitive dependency)\n    Recommended fix: upgrade to 7.0.1.202505221510-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 6.1.0.202203080745-r, < 6.10.1.202505221210-r (transitive dependency)\n    Recommended fix: upgrade to 6.10.1.202505221210-r or later\n  - org.eclipse.jgit:org.eclipse.jgit < 5.13.4.202507202350-r (transitive dependency)\n    Recommended fix: upgrade to 5.13.4.202507202350-r or later\n  - org.eclipse.jgit:org.eclipse.jgit >= 6.0.0.202110060947-m1, < 6.0.0.202111291000-r (transitive dependency)\n    Recommended fix: upgrade to 6.0.0.202111291000-r or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40973",
+      "title": "Spring Boot accepts predictable temp directory without ownership verification",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40973](https://github.com/advisories/GHSA-wwpq-f5c3-7hvx): Spring Boot accepts predictable temp directory without ownership verification\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot >= 4.0.0, < 4.0.6 (transitive dependency)\n    Recommended fix: upgrade to 4.0.6 or later\n  - org.springframework.boot:spring-boot >= 3.5.0, < 3.5.14 (transitive dependency)\n    Recommended fix: upgrade to 3.5.14 or later\n  - org.springframework.boot:spring-boot >= 3.4.0, <= 3.4.15 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.3.0, <= 3.3.18 (transitive dependency)\n  - org.springframework.boot:spring-boot <= 2.7.32 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-40973](https://github.com/advisories/GHSA-wwpq-f5c3-7hvx): Spring Boot accepts predictable temp directory without ownership verification\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot >= 4.0.0, < 4.0.6 (transitive dependency)\n    Recommended fix: upgrade to 4.0.6 or later\n  - org.springframework.boot:spring-boot >= 3.5.0, < 3.5.14 (transitive dependency)\n    Recommended fix: upgrade to 3.5.14 or later\n  - org.springframework.boot:spring-boot >= 3.4.0, <= 3.4.15 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.3.0, <= 3.3.18 (transitive dependency)\n  - org.springframework.boot:spring-boot <= 2.7.32 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40972",
+      "title": "Spring Boot DevTools remote secret comparison is vulnerable to timing attacks",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40972](https://github.com/advisories/GHSA-56v8-86gj-66jp): Spring Boot DevTools remote secret comparison is vulnerable to timing attacks\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-devtools >= 4.0.0, < 4.0.6 (declared at spring-petclinic-api-gateway/pom.xml:33)\n    Recommended fix: upgrade to 4.0.6 or later\n  - org.springframework.boot:spring-boot-devtools >= 3.5.0, < 3.5.14 (declared at spring-petclinic-api-gateway/pom.xml:33)\n    Recommended fix: upgrade to 3.5.14 or later\n  - org.springframework.boot:spring-boot-devtools >= 3.4.0, <= 3.4.15 (declared at spring-petclinic-api-gateway/pom.xml:33)\n  - org.springframework.boot:spring-boot-devtools >= 3.3.0, <= 3.3.18 (declared at spring-petclinic-api-gateway/pom.xml:33)\n  - org.springframework.boot:spring-boot-devtools <= 2.7.32 (declared at spring-petclinic-api-gateway/pom.xml:33)",
+      "evidence": {
+        "files": [
+          "spring-petclinic-api-gateway/pom.xml:33"
+        ],
+        "explanation": "[CVE-2026-40972](https://github.com/advisories/GHSA-56v8-86gj-66jp): Spring Boot DevTools remote secret comparison is vulnerable to timing attacks\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-devtools >= 4.0.0, < 4.0.6 (declared at spring-petclinic-api-gateway/pom.xml:33)\n    Recommended fix: upgrade to 4.0.6 or later\n  - org.springframework.boot:spring-boot-devtools >= 3.5.0, < 3.5.14 (declared at spring-petclinic-api-gateway/pom.xml:33)\n    Recommended fix: upgrade to 3.5.14 or later\n  - org.springframework.boot:spring-boot-devtools >= 3.4.0, <= 3.4.15 (declared at spring-petclinic-api-gateway/pom.xml:33)\n  - org.springframework.boot:spring-boot-devtools >= 3.3.0, <= 3.3.18 (declared at spring-petclinic-api-gateway/pom.xml:33)\n  - org.springframework.boot:spring-boot-devtools <= 2.7.32 (declared at spring-petclinic-api-gateway/pom.xml:33)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-22733",
+      "title": "Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-22733](https://github.com/advisories/GHSA-mgvc-8q2h-5pgc): Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator >= 4.0.0-M1, < 4.0.4 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 4.0.4 or later\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.5.0, < 3.5.12 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 3.5.12 or later\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.4.0, <= 3.4.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.0.0, <= 3.3.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n  - org.springframework.boot:spring-boot-starter-actuator <= 2.7.18 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)",
+      "evidence": {
+        "files": [
+          "spring-petclinic-api-gateway/pom.xml:43",
+          "spring-petclinic-customers-service/pom.xml:26",
+          "spring-petclinic-genai-service/pom.xml:40",
+          "spring-petclinic-vets-service/pom.xml:34",
+          "spring-petclinic-visits-service/pom.xml:25"
+        ],
+        "explanation": "[CVE-2026-22733](https://github.com/advisories/GHSA-mgvc-8q2h-5pgc): Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator >= 4.0.0-M1, < 4.0.4 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 4.0.4 or later\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.5.0, < 3.5.12 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 3.5.12 or later\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.4.0, <= 3.4.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.0.0, <= 3.3.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n  - org.springframework.boot:spring-boot-starter-actuator <= 2.7.18 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-22731",
+      "title": "Spring Boot has an Authentication Bypass under Actuator Health groups paths",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-22731](https://github.com/advisories/GHSA-8hfc-fq58-r658): Spring Boot has an Authentication Bypass under Actuator Health groups paths\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.4.0, <= 3.4.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.5.0, < 3.5.12 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 3.5.12 or later\n  - org.springframework.boot:spring-boot-starter-actuator >= 4.0.0-M1, < 4.0.4 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 4.0.4 or later",
+      "evidence": {
+        "files": [
+          "spring-petclinic-api-gateway/pom.xml:43",
+          "spring-petclinic-customers-service/pom.xml:26",
+          "spring-petclinic-genai-service/pom.xml:40",
+          "spring-petclinic-vets-service/pom.xml:34",
+          "spring-petclinic-visits-service/pom.xml:25"
+        ],
+        "explanation": "[CVE-2026-22731](https://github.com/advisories/GHSA-8hfc-fq58-r658): Spring Boot has an Authentication Bypass under Actuator Health groups paths\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.4.0, <= 3.4.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n  - org.springframework.boot:spring-boot-starter-actuator >= 3.5.0, < 3.5.12 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 3.5.12 or later\n  - org.springframework.boot:spring-boot-starter-actuator >= 4.0.0-M1, < 4.0.4 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)\n    Recommended fix: upgrade to 4.0.4 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-22235",
+      "title": "Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-22235](https://github.com/advisories/GHSA-rc42-6c7j-7h5r): Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot <= 2.7.24.2 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.1.0, <= 3.1.15.2 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.2.0, <= 3.2.13.2 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.3.0, <= 3.3.10 (transitive dependency)\n    Recommended fix: upgrade to 3.3.11 or later\n  - org.springframework.boot:spring-boot >= 3.4.0, <= 3.4.4 (transitive dependency)\n    Recommended fix: upgrade to 3.4.5 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-22235](https://github.com/advisories/GHSA-rc42-6c7j-7h5r): Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.boot:spring-boot <= 2.7.24.2 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.1.0, <= 3.1.15.2 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.2.0, <= 3.2.13.2 (transitive dependency)\n  - org.springframework.boot:spring-boot >= 3.3.0, <= 3.3.10 (transitive dependency)\n    Recommended fix: upgrade to 3.3.11 or later\n  - org.springframework.boot:spring-boot >= 3.4.0, <= 3.4.4 (transitive dependency)\n    Recommended fix: upgrade to 3.4.5 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41004",
+      "title": "Spring Cloud Config Server Logged Sensitive Information",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-41004](https://github.com/advisories/GHSA-j6hh-h3cf-c2hf): Spring Cloud Config Server Logged Sensitive Information\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 3.1.0, <= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.1.0, <= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, <= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.3 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0, <= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.3 or later",
+      "evidence": {
+        "files": [
+          "spring-petclinic-config-server/pom.xml:32"
+        ],
+        "explanation": "[CVE-2026-41004](https://github.com/advisories/GHSA-j6hh-h3cf-c2hf): Spring Cloud Config Server Logged Sensitive Information\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 3.1.0, <= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.1.0, <= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, <= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.3 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0, <= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.3 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40982",
+      "title": "Spring Cloud Config vulnerable to Path Traversal",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40982](https://github.com/advisories/GHSA-6g23-24mc-hx6x): Spring Cloud Config vulnerable to Path Traversal\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 3.1.0, <= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.1.0, <= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, <= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.3 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0, <= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.3 or later",
+      "evidence": {
+        "files": [
+          "spring-petclinic-config-server/pom.xml:32"
+        ],
+        "explanation": "[CVE-2026-40982](https://github.com/advisories/GHSA-6g23-24mc-hx6x): Spring Cloud Config vulnerable to Path Traversal\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 3.1.0, <= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.1.0, <= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, <= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.3 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0, <= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.3 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41002",
+      "title": "Spring Cloud Config Server Susceptible To TOCTOU Attack",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41002](https://github.com/advisories/GHSA-86wq-234q-r6wg): Spring Cloud Config Server Susceptible To TOCTOU Attack\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 3.1.0, <= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.1.0, <= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, <= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.3 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0, <= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.3 or later",
+      "evidence": {
+        "files": [
+          "spring-petclinic-config-server/pom.xml:32"
+        ],
+        "explanation": "[CVE-2026-41002](https://github.com/advisories/GHSA-86wq-234q-r6wg): Spring Cloud Config Server Susceptible To TOCTOU Attack\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 3.1.0, <= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.1.0, <= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, <= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.3 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0, <= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.3 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-22739",
+      "title": "Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-22739](https://github.com/advisories/GHSA-3qwq-q9vm-5j42): Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, < 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.2 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0-M1, < 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.2 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.4 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.0.0, <= 4.1.7 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server <= 3.1.10 (declared at spring-petclinic-config-server/pom.xml:32)",
+      "evidence": {
+        "files": [
+          "spring-petclinic-config-server/pom.xml:32"
+        ],
+        "explanation": "[CVE-2026-22739](https://github.com/advisories/GHSA-3qwq-q9vm-5j42): Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server >= 4.3.0, < 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 4.3.2 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 5.0.0-M1, < 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)\n    Recommended fix: upgrade to 5.0.2 or later\n  - org.springframework.cloud:spring-cloud-config-server >= 4.2.0, <= 4.2.4 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server >= 4.0.0, <= 4.1.7 (declared at spring-petclinic-config-server/pom.xml:32)\n  - org.springframework.cloud:spring-cloud-config-server <= 3.1.10 (declared at spring-petclinic-config-server/pom.xml:32)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-41253",
+      "title": "Spring Cloud Gateway Server Webflux is vulnerable to Expression Language Injection",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-41253](https://github.com/advisories/GHSA-fwxx-wv44-7qfg): Spring Cloud Gateway Server Webflux is vulnerable to Expression Language Injection\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.3.0, < 4.3.2 (transitive dependency)\n    Recommended fix: upgrade to 4.3.2 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.2.0, < 4.2.6 (transitive dependency)\n    Recommended fix: upgrade to 4.2.6 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.0.0, <= 4.1.9 (transitive dependency)\n  - org.springframework.cloud:spring-cloud-gateway-server <= 3.1.10 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-41253](https://github.com/advisories/GHSA-fwxx-wv44-7qfg): Spring Cloud Gateway Server Webflux is vulnerable to Expression Language Injection\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.3.0, < 4.3.2 (transitive dependency)\n    Recommended fix: upgrade to 4.3.2 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.2.0, < 4.2.6 (transitive dependency)\n    Recommended fix: upgrade to 4.2.6 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.0.0, <= 4.1.9 (transitive dependency)\n  - org.springframework.cloud:spring-cloud-gateway-server <= 3.1.10 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-41249",
+      "title": "Spring Framework annotation detection mechanism may result in improper authorization",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-41249](https://github.com/advisories/GHSA-jmp9-x22r-554x): Spring Framework annotation detection mechanism may result in improper authorization\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework:spring-core >= 5.3.0, <= 5.3.44 (transitive dependency)\n  - org.springframework:spring-core >= 6.0.0, <= 6.1.22 (transitive dependency)\n  - org.springframework:spring-core >= 6.2.0, <= 6.2.10 (transitive dependency)\n    Recommended fix: upgrade to 6.2.11 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-41249](https://github.com/advisories/GHSA-jmp9-x22r-554x): Spring Framework annotation detection mechanism may result in improper authorization\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework:spring-core >= 5.3.0, <= 5.3.44 (transitive dependency)\n  - org.springframework:spring-core >= 6.0.0, <= 6.1.22 (transitive dependency)\n  - org.springframework:spring-core >= 6.2.0, <= 6.2.10 (transitive dependency)\n    Recommended fix: upgrade to 6.2.11 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-41235",
+      "title": "Spring Cloud Gateway Server Forwards Headers from Untrusted Proxies",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-41235](https://github.com/advisories/GHSA-6j2q-c73v-97c5): Spring Cloud Gateway Server Forwards Headers from Untrusted Proxies\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.2.0, < 4.2.3 (transitive dependency)\n    Recommended fix: upgrade to 4.2.3 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.1.0, < 4.1.8 (transitive dependency)\n    Recommended fix: upgrade to 4.1.8 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.0.0, <= 4.0.9 (transitive dependency)\n  - org.springframework.cloud:spring-cloud-gateway-server < 3.1.10 (transitive dependency)\n    Recommended fix: upgrade to 3.1.10 or later\n  - org.springframework.cloud:spring-cloud-gateway-server-mvc >= 4.1.7, < 4.2.3 (transitive dependency)\n    Recommended fix: upgrade to 4.2.3 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-41235](https://github.com/advisories/GHSA-6j2q-c73v-97c5): Spring Cloud Gateway Server Forwards Headers from Untrusted Proxies\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.2.0, < 4.2.3 (transitive dependency)\n    Recommended fix: upgrade to 4.2.3 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.1.0, < 4.1.8 (transitive dependency)\n    Recommended fix: upgrade to 4.1.8 or later\n  - org.springframework.cloud:spring-cloud-gateway-server >= 4.0.0, <= 4.0.9 (transitive dependency)\n  - org.springframework.cloud:spring-cloud-gateway-server < 3.1.10 (transitive dependency)\n    Recommended fix: upgrade to 3.1.10 or later\n  - org.springframework.cloud:spring-cloud-gateway-server-mvc >= 4.1.7, < 4.2.3 (transitive dependency)\n    Recommended fix: upgrade to 4.2.3 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-22228",
+      "title": "Spring Security Does Not Enforce Password Length",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-22228](https://github.com/advisories/GHSA-mg83-c7gq-rv5c): Spring Security Does Not Enforce Password Length\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.security:spring-security-crypto >= 6.3.0, < 6.3.8 (transitive dependency)\n    Recommended fix: upgrade to 6.3.8 or later\n  - org.springframework.security:spring-security-crypto >= 6.4.0, < 6.4.4 (transitive dependency)\n    Recommended fix: upgrade to 6.4.4 or later\n  - org.springframework.security:spring-security-crypto >= 6.2.0, <= 6.2.9 (transitive dependency)\n    Recommended fix: upgrade to 6.2.10 or later\n  - org.springframework.security:spring-security-crypto >= 6.1.0, <= 6.1.13 (transitive dependency)\n    Recommended fix: upgrade to 6.1.14 or later\n  - org.springframework.security:spring-security-crypto >= 6.0.0, <= 6.0.15 (transitive dependency)\n    Recommended fix: upgrade to 6.0.16 or later\n  - org.springframework.security:spring-security-crypto >= 5.8.0, <= 5.8.17 (transitive dependency)\n    Recommended fix: upgrade to 5.8.18 or later\n  - org.springframework.security:spring-security-crypto <= 5.7.15 (transitive dependency)\n    Recommended fix: upgrade to 5.7.16 or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-22228](https://github.com/advisories/GHSA-mg83-c7gq-rv5c): Spring Security Does Not Enforce Password Length\n\nSeverity: HIGH\n\nAffected dependencies:\n  - org.springframework.security:spring-security-crypto >= 6.3.0, < 6.3.8 (transitive dependency)\n    Recommended fix: upgrade to 6.3.8 or later\n  - org.springframework.security:spring-security-crypto >= 6.4.0, < 6.4.4 (transitive dependency)\n    Recommended fix: upgrade to 6.4.4 or later\n  - org.springframework.security:spring-security-crypto >= 6.2.0, <= 6.2.9 (transitive dependency)\n    Recommended fix: upgrade to 6.2.10 or later\n  - org.springframework.security:spring-security-crypto >= 6.1.0, <= 6.1.13 (transitive dependency)\n    Recommended fix: upgrade to 6.1.14 or later\n  - org.springframework.security:spring-security-crypto >= 6.0.0, <= 6.0.15 (transitive dependency)\n    Recommended fix: upgrade to 6.0.16 or later\n  - org.springframework.security:spring-security-crypto >= 5.8.0, <= 5.8.17 (transitive dependency)\n    Recommended fix: upgrade to 5.8.18 or later\n  - org.springframework.security:spring-security-crypto <= 5.7.15 (transitive dependency)\n    Recommended fix: upgrade to 5.7.16 or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41901",
+      "title": "Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41901](https://github.com/advisories/GHSA-c9ph-gxww-7744): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf <= 3.1.4.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.5.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring5 <= 3.1.4.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.5.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring6 <= 3.1.4.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.5.RELEASE or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41901](https://github.com/advisories/GHSA-c9ph-gxww-7744): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf <= 3.1.4.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.5.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring5 <= 3.1.4.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.5.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring6 <= 3.1.4.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.5.RELEASE or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-22745",
+      "title": "Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-22745](https://github.com/advisories/GHSA-6p4f-wcwh-5vvm): Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-webflux >= 7.0.0, <= 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.7 or later\n  - org.springframework:spring-webflux >= 6.2.0, <= 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.18 or later\n  - org.springframework:spring-webflux >= 6.1.0, <= 6.1.26 (transitive dependency)\n  - org.springframework:spring-webflux <= 5.3.47 (transitive dependency)\n  - org.springframework:spring-webmvc >= 7.0.0, <= 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.7 or later\n  - org.springframework:spring-webmvc >= 6.2.0, <= 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.18 or later\n  - org.springframework:spring-webmvc >= 6.1.0, <= 6.1.26 (transitive dependency)\n  - org.springframework:spring-webmvc <= 5.3.47 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-22745](https://github.com/advisories/GHSA-6p4f-wcwh-5vvm): Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-webflux >= 7.0.0, <= 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.7 or later\n  - org.springframework:spring-webflux >= 6.2.0, <= 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.18 or later\n  - org.springframework:spring-webflux >= 6.1.0, <= 6.1.26 (transitive dependency)\n  - org.springframework:spring-webflux <= 5.3.47 (transitive dependency)\n  - org.springframework:spring-webmvc >= 7.0.0, <= 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.7 or later\n  - org.springframework:spring-webmvc >= 6.2.0, <= 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.18 or later\n  - org.springframework:spring-webmvc >= 6.1.0, <= 6.1.26 (transitive dependency)\n  - org.springframework:spring-webmvc <= 5.3.47 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40478",
+      "title": "Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40478](https://github.com/advisories/GHSA-xjw8-8c5c-9r79): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring5 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring6 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-40478](https://github.com/advisories/GHSA-xjw8-8c5c-9r79): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring5 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring6 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40477",
+      "title": "Improper restriction of the scope of accessible objects in Thymeleaf expressions",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40477](https://github.com/advisories/GHSA-r4v4-5mwr-2fwr): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring5 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring6 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-40477](https://github.com/advisories/GHSA-r4v4-5mwr-2fwr): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring5 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later\n  - org.thymeleaf:thymeleaf-spring6 <= 3.1.3.RELEASE (transitive dependency)\n    Recommended fix: upgrade to 3.1.4.RELEASE or later"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-22737",
+      "title": "Spring Framework Improper Path Limitation with Script View Templates",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2026-22737](https://github.com/advisories/GHSA-4773-3jfm-qmx3): Spring Framework Improper Path Limitation with Script View Templates\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-webmvc >= 7.0.0-M1, < 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.6 or later\n  - org.springframework:spring-webmvc >= 6.2.0, < 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.17 or later\n  - org.springframework:spring-webmvc >= 6.0.0, <= 6.1.21 (transitive dependency)\n  - org.springframework:spring-webmvc >= 5.3.0, <= 5.3.39 (transitive dependency)\n  - org.springframework:spring-webflux >= 7.0.0-M1, < 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.6 or later\n  - org.springframework:spring-webflux >= 6.2.0, < 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.17 or later\n  - org.springframework:spring-webflux >= 6.0.0, <= 6.1.21 (transitive dependency)\n  - org.springframework:spring-webflux >= 5.3.0, <= 5.3.39 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-22737](https://github.com/advisories/GHSA-4773-3jfm-qmx3): Spring Framework Improper Path Limitation with Script View Templates\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-webmvc >= 7.0.0-M1, < 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.6 or later\n  - org.springframework:spring-webmvc >= 6.2.0, < 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.17 or later\n  - org.springframework:spring-webmvc >= 6.0.0, <= 6.1.21 (transitive dependency)\n  - org.springframework:spring-webmvc >= 5.3.0, <= 5.3.39 (transitive dependency)\n  - org.springframework:spring-webflux >= 7.0.0-M1, < 7.0.6 (transitive dependency)\n    Recommended fix: upgrade to 7.0.6 or later\n  - org.springframework:spring-webflux >= 6.2.0, < 6.2.17 (transitive dependency)\n    Recommended fix: upgrade to 6.2.17 or later\n  - org.springframework:spring-webflux >= 6.0.0, <= 6.1.21 (transitive dependency)\n  - org.springframework:spring-webflux >= 5.3.0, <= 5.3.39 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-41242",
+      "title": "Spring Framework MVC Applications Path Traversal Vulnerability",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-41242](https://github.com/advisories/GHSA-r936-gwx5-v52f): Spring Framework MVC Applications Path Traversal Vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-webmvc >= 6.2.0, < 6.2.10 (transitive dependency)\n    Recommended fix: upgrade to 6.2.10 or later\n  - org.springframework:spring-webmvc >= 6.1.0, <= 6.1.21 (transitive dependency)\n  - org.springframework:spring-webmvc >= 6.0.0, <= 6.0.29 (transitive dependency)\n  - org.springframework:spring-webmvc >= 5.3.0, <= 5.3.43 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-41242](https://github.com/advisories/GHSA-r936-gwx5-v52f): Spring Framework MVC Applications Path Traversal Vulnerability\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-webmvc >= 6.2.0, < 6.2.10 (transitive dependency)\n    Recommended fix: upgrade to 6.2.10 or later\n  - org.springframework:spring-webmvc >= 6.1.0, <= 6.1.21 (transitive dependency)\n  - org.springframework:spring-webmvc >= 6.0.0, <= 6.0.29 (transitive dependency)\n  - org.springframework:spring-webmvc >= 5.3.0, <= 5.3.43 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-41234",
+      "title": "Spring Framework vulnerable to a reflected file download (RFD)",
+      "category": "CVE",
+      "severity": "optional",
+      "description": "[CVE-2025-41234](https://github.com/advisories/GHSA-6r3c-xf4w-jxjm): Spring Framework vulnerable to a reflected file download (RFD)\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-web >= 6.2.0, < 6.2.8 (transitive dependency)\n    Recommended fix: upgrade to 6.2.8 or later\n  - org.springframework:spring-web >= 6.1.0, < 6.1.21 (transitive dependency)\n    Recommended fix: upgrade to 6.1.21 or later\n  - org.springframework:spring-web >= 6.0.5, <= 6.0.23 (transitive dependency)",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-41234](https://github.com/advisories/GHSA-6r3c-xf4w-jxjm): Spring Framework vulnerable to a reflected file download (RFD)\n\nSeverity: MEDIUM\n\nAffected dependencies:\n  - org.springframework:spring-web >= 6.2.0, < 6.2.8 (transitive dependency)\n    Recommended fix: upgrade to 6.2.8 or later\n  - org.springframework:spring-web >= 6.1.0, < 6.1.21 (transitive dependency)\n    Recommended fix: upgrade to 6.1.21 or later\n  - org.springframework:spring-web >= 6.0.5, <= 6.0.23 (transitive dependency)"
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CWE-477",
+      "title": "Use of Obsolete Function",
+      "category": "Code Quality",
+      "severity": "optional",
+      "description": "The code uses deprecated or obsolete functions, which suggests that the code has not been actively reviewed or maintained.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Pet.java"
+        ],
+        "explanation": "In Pet.java, the field birthDate (line 46) is declared as java.util.Date, an obsolete class that has been superseded by the java.time API (java.time.LocalDate) since Java 8. The @Temporal(TemporalType.DATE) + java.util.Date pattern is considered a legacy approach; modern JPA applications use java.time.LocalDate directly. The getBirthDate() (line 77) and setBirthDate() (line 97) methods also expose this obsolete type."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CWE-259",
+      "title": "Use of Hard-coded Password",
+      "category": "Credentials & Secrets",
+      "severity": "optional",
+      "description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-genai-service/src/main/resources/application.yml"
+        ],
+        "explanation": "In application.yml (line 25), the OpenAI API key is configured as '${OPENAI_API_KEY:demo}'. The Spring property placeholder syntax ':demo' means that if the environment variable OPENAI_API_KEY is not set, the literal value 'demo' is used as the API key for outbound communication to the OpenAI service. This constitutes a hard-coded fallback credential embedded in the configuration file."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-798",
+      "title": "Use of Hard-coded Credentials",
+      "category": "Credentials & Secrets",
+      "severity": "optional",
+      "description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-genai-service/src/main/resources/application.yml"
+        ],
+        "explanation": "In application.yml (line 25), the OpenAI API key property 'spring.ai.openai.api-key' is set to '${OPENAI_API_KEY:demo}'. The default value 'demo' is a hard-coded credential embedded directly in the application configuration. When the OPENAI_API_KEY environment variable is absent (e.g., in a development or misconfigured environment), the application falls back to using 'demo' as the API key for outbound calls to the OpenAI API."
+      },
+      "storyPoint": 5
+    }
+  ]
+}
