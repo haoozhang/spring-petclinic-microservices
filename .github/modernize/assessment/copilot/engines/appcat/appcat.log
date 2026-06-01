@@ -1,0 +1,236 @@
+time="2026-06-01T03:44:01Z" level=info msg="running analysis for input: /tmp/workspace/haoozhang/spring-petclinic-microservices"
+time="2026-06-01T03:44:01Z" level=info msg="creating provider config"
+time="2026-06-01T03:44:01Z" level=info msg="setting provider from provider config" provider=java
+time="2026-06-01T03:44:01Z" level=info msg="setting provider from provider config" provider=builtin
+time="2026-06-01T03:44:01Z" level=info msg="collecting application properties"
+time="2026-06-01T03:44:01Z" level=info msg="loading rules for analysis" rules=/home/runner/.appcat/rulesets
+time="2026-06-01T03:44:02Z" level=info msg="starting provider" provider=java
+time="2026-06-01T03:44:06Z" level=info msg="starting provider" provider=builtin
+time="2026-06-01T03:44:06Z" level=info msg="evaluating rules for violations. see analysis.log for more info"
+time="2026-06-01T03:44:09Z" level=info msg="[1/207] processed rule" ruleID=hardcoded-ip-address
+time="2026-06-01T03:44:09Z" level=info msg="[2/207] processed rule" ruleID=azure-aws-config-credential-01000
+time="2026-06-01T03:44:09Z" level=info msg="[3/207] processed rule" ruleID=azure-aws-config-region-02000
+time="2026-06-01T03:44:10Z" level=info msg="[4/207] processed rule" ruleID=azure-aws-config-sqs-04004
+time="2026-06-01T03:44:10Z" level=info msg="[5/207] processed rule" ruleID=azure-cache-redis-01000
+time="2026-06-01T03:44:11Z" level=info msg="[6/207] processed rule" ruleID=azure-database-config-mongodb-02000
+time="2026-06-01T03:44:12Z" level=info msg="[7/207] processed rule" ruleID=azure-file-system-02000
+time="2026-06-01T03:44:12Z" level=info msg="[8/207] processed rule" ruleID=azure-file-system-03000
+time="2026-06-01T03:44:14Z" level=info msg="[9/207] processed rule" ruleID=azure-java-version-01000
+time="2026-06-01T03:44:15Z" level=info msg="[10/207] processed rule" ruleID=azure-java-version-02000
+time="2026-06-01T03:44:15Z" level=info msg="progressive report updated"
+time="2026-06-01T03:44:16Z" level=info msg="[11/207] processed rule" ruleID=azure-keystore-certificates-01000
+time="2026-06-01T03:44:30Z" level=info msg="[12/207] processed rule" ruleID=azure-aws-config-s3-03001
+time="2026-06-01T03:44:30Z" level=info msg="[13/207] processed rule" ruleID=azure-aws-config-sqs-04002
+time="2026-06-01T03:44:30Z" level=info msg="[14/207] processed rule" ruleID=azure-message-queue-config-rabbitmq-01000
+time="2026-06-01T03:44:30Z" level=info msg="[15/207] processed rule" ruleID=azure-message-queue-config-artemis-01000
+time="2026-06-01T03:44:30Z" level=info msg="[16/207] processed rule" ruleID=azure-aws-config-sqs-04000
+time="2026-06-01T03:44:30Z" level=info msg="[17/207] processed rule" ruleID=aws-lambda-to-azure-functions-01000
+time="2026-06-01T03:44:30Z" level=info msg="[18/207] processed rule" ruleID=azure-message-queue-config-kafka-01000
+time="2026-06-01T03:44:30Z" level=info msg="[19/207] processed rule" ruleID=azure-message-queue-spring-jms-rabbitmq-01000
+time="2026-06-01T03:44:33Z" level=info msg="[20/207] processed rule" ruleID=azure-message-queue-amqp-02000
+time="2026-06-01T03:44:33Z" level=info msg="[21/207] processed rule" ruleID=azure-message-queue-ibm-jms-01000
+time="2026-06-01T03:44:33Z" level=info msg="[22/207] processed rule" ruleID=amazon-sns-to-azure-servicebus-01000
+time="2026-06-01T03:44:33Z" level=info msg="[23/207] processed rule" ruleID=azure-message-queue-activemq-01000
+time="2026-06-01T03:44:46Z" level=info msg="[24/207] processed rule" ruleID=azure-aws-config-sqs-04001
+time="2026-06-01T03:44:46Z" level=info msg="[25/207] processed rule" ruleID=amazon-kinesis-to-azure-eventhubs-01000
+time="2026-06-01T03:44:46Z" level=info msg="[26/207] processed rule" ruleID=apache-pulsar-to-azure-eventhubs-01000
+time="2026-06-01T03:44:46Z" level=info msg="[27/207] processed rule" ruleID=azure-aws-config-sqs-04003
+time="2026-06-01T03:44:46Z" level=info msg="[28/207] processed rule" ruleID=azure-aws-config-secret-manager-05000
+time="2026-06-01T03:44:47Z" level=info msg="[29/207] processed rule" ruleID=tibco-ems-jms-to-azure-servicebus-jms-01000
+time="2026-06-01T03:44:47Z" level=info msg="[30/207] processed rule" ruleID=spring-boot-to-azure-config-server-01000
+time="2026-06-01T03:44:47Z" level=info msg="[31/207] processed rule" ruleID=spring-boot-to-azure-eureka-01000
+time="2026-06-01T03:44:47Z" level=info msg="progressive report updated"
+time="2026-06-01T03:44:47Z" level=info msg="[32/207] processed rule" ruleID=azure-keystore-certificates-02000
+time="2026-06-01T03:44:47Z" level=info msg="[33/207] processed rule" ruleID=azure-message-queue-rabbitmq-01000
+time="2026-06-01T03:44:47Z" level=info msg="[34/207] processed rule" ruleID=spring-boot-to-azure-port-01000
+time="2026-06-01T03:44:47Z" level=info msg="[35/207] processed rule" ruleID=spring-boot-to-azure-restricted-config-01000
+time="2026-06-01T03:44:47Z" level=info msg="[36/207] processed rule" ruleID=quartz-scheduler-to-azure-functions-01000
+time="2026-06-01T03:44:47Z" level=info msg="[37/207] processed rule" ruleID=spring-batch-to-azure-durable-functions-01000
+time="2026-06-01T03:44:47Z" level=info msg="[38/207] processed rule" ruleID=spring-boot-to-azure-spring-boot-version-01000
+time="2026-06-01T03:44:47Z" level=info msg="[39/207] processed rule" ruleID=spring-boot-to-azure-spring-boot-version-02000
+time="2026-06-01T03:44:47Z" level=info msg="[40/207] processed rule" ruleID=spring-boot-to-azure-spring-cloud-version-01000
+time="2026-06-01T03:44:47Z" level=info msg="[41/207] processed rule" ruleID=spring-boot-to-azure-spring-cloud-version-02000
+time="2026-06-01T03:44:47Z" level=info msg="[42/207] processed rule" ruleID=solace-pubsubplus-to-azure-servicebus-01000
+time="2026-06-01T03:44:47Z" level=info msg="[43/207] processed rule" ruleID=azure-message-queue-java-ee-rabbitmq-amqp-01000
+time="2026-06-01T03:44:47Z" level=info msg="[44/207] processed rule" ruleID=azure-aws-config-s3-03000
+time="2026-06-01T03:44:47Z" level=info msg="[45/207] processed rule" ruleID=azure-aws-config-s3-03002
+time="2026-06-01T03:44:48Z" level=info msg="[46/207] processed rule" ruleID=azure-system-config-01000
+time="2026-06-01T03:44:48Z" level=info msg="progressive report updated"
+time="2026-06-01T03:44:48Z" level=info msg="[47/207] processed rule" ruleID=azure-tas-binding-01000
+time="2026-06-01T03:44:49Z" level=info msg="[48/207] processed rule" ruleID=spring-boot-to-azure-eureka-02000
+time="2026-06-01T03:44:49Z" level=info msg="[49/207] processed rule" ruleID=database-reliability-01000
+time="2026-06-01T03:44:49Z" level=info msg="[50/207] processed rule" ruleID=azure-database-microsoft-mongodb-05000
+time="2026-06-01T03:44:49Z" level=info msg="[51/207] processed rule" ruleID=azure-database-microsoft-cassandra-04000
+time="2026-06-01T03:44:49Z" level=info msg="[52/207] processed rule" ruleID=spring-boot-to-azure-eureka-03000
+time="2026-06-01T03:44:49Z" level=info msg="[53/207] processed rule" ruleID=ibm-db2-to-azure-postgresql-01000
+time="2026-06-01T03:44:49Z" level=info msg="[54/207] processed rule" ruleID=azure-database-microsoft-sql-03000
+time="2026-06-01T03:44:49Z" level=info msg="[55/207] processed rule" ruleID=azure-database-microsoft-mariadb-06000
+time="2026-06-01T03:44:49Z" level=info msg="[56/207] processed rule" ruleID=firebird-to-azure-postgresql-01000
+time="2026-06-01T03:44:49Z" level=info msg="[57/207] processed rule" ruleID=sqlite-to-azure-postgresql-01000
+time="2026-06-01T03:44:49Z" level=info msg="[58/207] processed rule" ruleID=apm-00001
+time="2026-06-01T03:44:49Z" level=info msg="[59/207] processed rule" ruleID=spring-boot-to-azure-key-vault-01000
+time="2026-06-01T03:44:49Z" level=info msg="[60/207] processed rule" ruleID=auth-00000
+time="2026-06-01T03:44:49Z" level=info msg="[61/207] processed rule" ruleID=auth-01000
+time="2026-06-01T03:44:49Z" level=info msg="[62/207] processed rule" ruleID=spring-boot-to-azure-openfeign-01000
+time="2026-06-01T03:44:49Z" level=info msg="[63/207] processed rule" ruleID=auth-02000
+time="2026-06-01T03:44:49Z" level=info msg="[64/207] processed rule" ruleID=auth-03000
+time="2026-06-01T03:44:49Z" level=info msg="[65/207] processed rule" ruleID=auth-04000
+time="2026-06-01T03:44:49Z" level=info msg="[66/207] processed rule" ruleID=apm-00002
+time="2026-06-01T03:44:49Z" level=info msg="[67/207] processed rule" ruleID=openliberty-database-00002
+time="2026-06-01T03:44:49Z" level=info msg="[68/207] processed rule" ruleID=azure-database-microsoft-oracle-07000
+time="2026-06-01T03:44:49Z" level=info msg="[69/207] processed rule" ruleID=openliberty-database-00005
+time="2026-06-01T03:44:49Z" level=info msg="progressive report updated"
+time="2026-06-01T03:44:49Z" level=info msg="[70/207] processed rule" ruleID=azure-database-mysql-01000
+time="2026-06-01T03:44:49Z" level=info msg="[71/207] processed rule" ruleID=azure-database-postgresql-02000
+time="2026-06-01T03:44:50Z" level=info msg="progressive report updated"
+time="2026-06-01T03:44:52Z" level=info msg="[72/207] processed rule" ruleID=openliberty-database-00004
+time="2026-06-01T03:44:52Z" level=info msg="[73/207] processed rule" ruleID=openliberty-database-00006
+time="2026-06-01T03:44:52Z" level=info msg="[74/207] processed rule" ruleID=openliberty-database-00007
+time="2026-06-01T03:44:53Z" level=info msg="[75/207] processed rule" ruleID=openliberty-filesystem-00003
+time="2026-06-01T03:44:53Z" level=info msg="[76/207] processed rule" ruleID=openliberty-filesystem-00004
+time="2026-06-01T03:44:53Z" level=info msg="[77/207] processed rule" ruleID=apm-00003
+time="2026-06-01T03:44:53Z" level=info msg="[78/207] processed rule" ruleID=openliberty-jms-00002
+time="2026-06-01T03:44:53Z" level=info msg="[79/207] processed rule" ruleID=openliberty-jms-00003
+time="2026-06-01T03:44:55Z" level=info msg="[80/207] processed rule" ruleID=openliberty-filesystem-00001
+time="2026-06-01T03:44:55Z" level=info msg="[81/207] processed rule" ruleID=openliberty-jms-00006
+time="2026-06-01T03:44:56Z" level=info msg="[82/207] processed rule" ruleID=openliberty-jms-00005
+time="2026-06-01T03:44:56Z" level=info msg="[83/207] processed rule" ruleID=openliberty-database-00003
+time="2026-06-01T03:44:56Z" level=info msg="[84/207] processed rule" ruleID=openliberty-database-00001
+time="2026-06-01T03:44:56Z" level=info msg="[85/207] processed rule" ruleID=openliberty-jms-00001
+time="2026-06-01T03:44:56Z" level=info msg="[86/207] processed rule" ruleID=spring-framework-version-02000
+time="2026-06-01T03:44:56Z" level=info msg="[87/207] processed rule" ruleID=jakarta-ee-version-01000
+time="2026-06-01T03:44:56Z" level=info msg="[88/207] processed rule" ruleID=spring-framework-version-01000
+time="2026-06-01T03:44:56Z" level=info msg="progressive report updated"
+time="2026-06-01T03:44:56Z" level=info msg="[89/207] processed rule" ruleID=google-firestore-to-azure-cosmosdb-01000
+time="2026-06-01T03:44:56Z" level=info msg="[90/207] processed rule" ruleID=google-cloud-bigtable-to-azure-cosmosdb-01000
+time="2026-06-01T03:44:56Z" level=info msg="[91/207] processed rule" ruleID=google-pubsub-to-azure-service-bus-01000
+time="2026-06-01T03:44:57Z" level=info msg="[92/207] processed rule" ruleID=openliberty-database-00009
+time="2026-06-01T03:44:57Z" level=info msg="[93/207] processed rule" ruleID=java-ldap-to-msft-entra-id-01000
+time="2026-06-01T03:44:57Z" level=info msg="[94/207] processed rule" ruleID=google-cloud-storage-to-azure-blob-storage-01000
+time="2026-06-01T03:44:57Z" level=info msg="[95/207] processed rule" ruleID=google-cloud-functions-to-azure-functions-01000
+time="2026-06-01T03:44:57Z" level=info msg="[96/207] processed rule" ruleID=google-cloud-spanner-to-azure-postgresql-01000
+time="2026-06-01T03:44:57Z" level=info msg="[97/207] processed rule" ruleID=embedded-cache-01000
+time="2026-06-01T03:44:57Z" level=info msg="[98/207] processed rule" ruleID=embedded-cache-02000
+time="2026-06-01T03:44:57Z" level=info msg="[99/207] processed rule" ruleID=embedded-cache-03000
+time="2026-06-01T03:44:57Z" level=info msg="[100/207] processed rule" ruleID=embedded-cache-04000
+time="2026-06-01T03:44:57Z" level=info msg="[101/207] processed rule" ruleID=embedded-cache-05000
+time="2026-06-01T03:44:57Z" level=info msg="[102/207] processed rule" ruleID=sybase-ase-to-azure-database-01000
+time="2026-06-01T03:44:57Z" level=info msg="[103/207] processed rule" ruleID=embedded-cache-07000
+time="2026-06-01T03:44:57Z" level=info msg="[104/207] processed rule" ruleID=embedded-cache-08000
+time="2026-06-01T03:44:57Z" level=info msg="[105/207] processed rule" ruleID=embedded-cache-09000
+time="2026-06-01T03:44:57Z" level=info msg="[106/207] processed rule" ruleID=embedded-cache-10000
+time="2026-06-01T03:44:57Z" level=info msg="[107/207] processed rule" ruleID=embedded-cache-11000
+time="2026-06-01T03:44:57Z" level=info msg="[108/207] processed rule" ruleID=embedded-cache-12000
+time="2026-06-01T03:44:57Z" level=info msg="[109/207] processed rule" ruleID=embedded-cache-13000
+time="2026-06-01T03:44:57Z" level=info msg="[110/207] processed rule" ruleID=embedded-cache-14000
+time="2026-06-01T03:44:57Z" level=info msg="[111/207] processed rule" ruleID=embedded-cache-06000
+time="2026-06-01T03:44:57Z" level=info msg="[112/207] processed rule" ruleID=embedded-cache-16000
+time="2026-06-01T03:44:58Z" level=info msg="[113/207] processed rule" ruleID=embedded-cache-15000
+time="2026-06-01T03:44:58Z" level=info msg="[114/207] processed rule" ruleID=java-rmi-00000
+time="2026-06-01T03:44:58Z" level=info msg="[115/207] processed rule" ruleID=java-rmi-00001
+time="2026-06-01T03:44:58Z" level=info msg="[116/207] processed rule" ruleID=java-corba-00000
+time="2026-06-01T03:44:58Z" level=info msg="[117/207] processed rule" ruleID=azure-password-01000
+time="2026-06-01T03:44:58Z" level=info msg="[118/207] processed rule" ruleID=openliberty-database-00008
+time="2026-06-01T03:44:58Z" level=info msg="[119/207] processed rule" ruleID=java-rpc-00000
+time="2026-06-01T03:44:58Z" level=info msg="progressive report updated"
+time="2026-06-01T03:44:58Z" level=info msg="[120/207] processed rule" ruleID=local-storage-00001
+time="2026-06-01T03:44:58Z" level=info msg="[121/207] processed rule" ruleID=local-storage-00002
+time="2026-06-01T03:44:59Z" level=info msg="[122/207] processed rule" ruleID=local-storage-00003
+time="2026-06-01T03:44:59Z" level=info msg="[123/207] processed rule" ruleID=jni-native-code-00000
+time="2026-06-01T03:44:59Z" level=info msg="progressive report updated"
+time="2026-06-01T03:45:00Z" level=info msg="[124/207] processed rule" ruleID=jni-native-code-00001
+time="2026-06-01T03:45:00Z" level=info msg="[125/207] processed rule" ruleID=openliberty-filesystem-00002
+time="2026-06-01T03:45:00Z" level=info msg="[126/207] processed rule" ruleID=local-storage-00005
+time="2026-06-01T03:45:00Z" level=info msg="[127/207] processed rule" ruleID=local-storage-00006
+time="2026-06-01T03:45:01Z" level=info msg="[128/207] processed rule" ruleID=openliberty-logging-00001
+time="2026-06-01T03:45:01Z" level=info msg="progressive report updated"
+time="2026-06-01T03:45:01Z" level=info msg="[129/207] processed rule" ruleID=openliberty-logging-00002
+time="2026-06-01T03:45:01Z" level=info msg="[130/207] processed rule" ruleID=logging-0000
+time="2026-06-01T03:45:01Z" level=info msg="[131/207] processed rule" ruleID=logging-0001
+time="2026-06-01T03:45:02Z" level=info msg="[132/207] processed rule" ruleID=jca-00000
+time="2026-06-01T03:45:02Z" level=info msg="[133/207] processed rule" ruleID=logging-0003
+time="2026-06-01T03:45:02Z" level=info msg="[134/207] processed rule" ruleID=logging-0004
+time="2026-06-01T03:45:02Z" level=info msg="[135/207] processed rule" ruleID=logging-0005
+time="2026-06-01T03:45:02Z" level=info msg="progressive report updated"
+time="2026-06-01T03:45:02Z" level=info msg="[136/207] processed rule" ruleID=google-gcr-to-azure-acr-01000
+time="2026-06-01T03:45:02Z" level=info msg="[137/207] processed rule" ruleID=local-storage-00004
+time="2026-06-01T03:45:02Z" level=info msg="[138/207] processed rule" ruleID=openliberty-jms-00004
+time="2026-06-01T03:45:02Z" level=info msg="[139/207] processed rule" ruleID=socket-communication-00001
+time="2026-06-01T03:45:03Z" level=info msg="[140/207] processed rule" ruleID=web-10000
+time="2026-06-01T03:45:03Z" level=info msg="[141/207] processed rule" ruleID=web-11000
+time="2026-06-01T03:45:03Z" level=info msg="[142/207] processed rule" ruleID=session-00001
+time="2026-06-01T03:45:03Z" level=info msg="[143/207] processed rule" ruleID=socket-communication-00000
+time="2026-06-01T03:45:03Z" level=info msg="[144/207] processed rule" ruleID=unsecure-network-protocol-00000
+time="2026-06-01T03:45:03Z" level=info msg="[145/207] processed rule" ruleID=hardcoded-urls-00001
+time="2026-06-01T03:45:03Z" level=info msg="[146/207] processed rule" ruleID=hardcoded-urls-00002
+time="2026-06-01T03:45:03Z" level=info msg="[147/207] processed rule" ruleID=localhost-00004
+time="2026-06-01T03:45:03Z" level=info msg="progressive report updated"
+time="2026-06-01T03:45:03Z" level=info msg="[148/207] processed rule" ruleID=windows-registry-00000
+time="2026-06-01T03:45:03Z" level=info msg="[149/207] processed rule" ruleID=localhost-http-00001
+time="2026-06-01T03:45:03Z" level=info msg="[150/207] processed rule" ruleID=localhost-jdbc-00002
+time="2026-06-01T03:45:03Z" level=info msg="[151/207] processed rule" ruleID=localhost-ws-00003
+time="2026-06-01T03:45:04Z" level=info msg="[152/207] processed rule" ruleID=logging-0002
+time="2026-06-01T03:45:04Z" level=info msg="[153/207] processed rule" ruleID=ant-build-tool-00001
+time="2026-06-01T03:45:04Z" level=info msg="progressive report updated"
+time="2026-06-01T03:45:05Z" level=info msg="[154/207] processed rule" ruleID=dockerfile-00000
+time="2026-06-01T03:45:05Z" level=info msg="[155/207] processed rule" ruleID=jakarta-auth-00001
+time="2026-06-01T03:45:05Z" level=info msg="[156/207] processed rule" ruleID=jakarta-database-00001
+time="2026-06-01T03:45:05Z" level=info msg="[157/207] processed rule" ruleID=jakarta-database-00002
+time="2026-06-01T03:45:05Z" level=info msg="[158/207] processed rule" ruleID=jakarta-database-00003
+time="2026-06-01T03:45:05Z" level=info msg="[159/207] processed rule" ruleID=jakarta-service-00001
+time="2026-06-01T03:45:05Z" level=info msg="[160/207] processed rule" ruleID=external-config-00000
+time="2026-06-01T03:45:05Z" level=info msg="[161/207] processed rule" ruleID=jakarta-service-00002
+time="2026-06-01T03:45:06Z" level=info msg="[162/207] processed rule" ruleID=webform-auth-00000
+time="2026-06-01T03:45:06Z" level=info msg="progressive report updated"
+time="2026-06-01T03:45:06Z" level=info msg="[163/207] processed rule" ruleID=dockerfile-00010
+time="2026-06-01T03:45:06Z" level=info msg="[164/207] processed rule" ruleID=dockerfile-00020
+time="2026-06-01T03:45:06Z" level=info msg="[165/207] processed rule" ruleID=dockerfile-00030
+time="2026-06-01T03:45:07Z" level=info msg="[166/207] processed rule" ruleID=mail-00000
+time="2026-06-01T03:45:07Z" level=info msg="[167/207] processed rule" ruleID=clustering-00000
+time="2026-06-01T03:45:07Z" level=info msg="[168/207] processed rule" ruleID=cra-weak-crypto-md5-01000
+time="2026-06-01T03:45:07Z" level=info msg="[169/207] processed rule" ruleID=cra-weak-crypto-blowfish-06000
+time="2026-06-01T03:45:07Z" level=info msg="[170/207] processed rule" ruleID=cra-weak-crypto-des-03000
+time="2026-06-01T03:45:07Z" level=info msg="[171/207] processed rule" ruleID=cra-weak-crypto-rc4-04000
+time="2026-06-01T03:45:07Z" level=info msg="[172/207] processed rule" ruleID=cra-weak-crypto-sha1-02000
+time="2026-06-01T03:45:07Z" level=info msg="[173/207] processed rule" ruleID=cra-insecure-tls-protocol-01000
+time="2026-06-01T03:45:07Z" level=info msg="[174/207] processed rule" ruleID=cra-insecure-tls-hostname-verify-04000
+time="2026-06-01T03:45:07Z" level=info msg="[175/207] processed rule" ruleID=cra-weak-crypto-ecb-05000
+time="2026-06-01T03:45:07Z" level=info msg="[176/207] processed rule" ruleID=cra-weak-crypto-password-hash-07000
+time="2026-06-01T03:45:07Z" level=info msg="[177/207] processed rule" ruleID=cra-hardcoded-credential-crypto-key-05000
+time="2026-06-01T03:45:07Z" level=info msg="[178/207] processed rule" ruleID=cra-hardcoded-credential-password-01000
+time="2026-06-01T03:45:07Z" level=info msg="[179/207] processed rule" ruleID=cra-insecure-random-math-02000
+time="2026-06-01T03:45:07Z" level=info msg="[180/207] processed rule" ruleID=cra-insecure-random-01000
+time="2026-06-01T03:45:07Z" level=info msg="[181/207] processed rule" ruleID=cra-insecure-random-threadlocal-03000
+time="2026-06-01T03:45:07Z" level=info msg="[182/207] processed rule" ruleID=cra-insecure-tls-trust-all-03000
+time="2026-06-01T03:45:08Z" level=info msg="[183/207] processed rule" ruleID=cra-hardcoded-credential-apikey-02000
+time="2026-06-01T03:45:08Z" level=info msg="[184/207] processed rule" ruleID=java-17-deprecate-security-manager-00000
+time="2026-06-01T03:45:08Z" level=info msg="[185/207] processed rule" ruleID=java-17-deprecate-security-manager-00010
+time="2026-06-01T03:45:08Z" level=info msg="[186/207] processed rule" ruleID=java-17-deprecate-security-manager-00030
+time="2026-06-01T03:45:08Z" level=info msg="[187/207] processed rule" ruleID=java-17-deprecate-security-manager-00040
+time="2026-06-01T03:45:08Z" level=info msg="[188/207] processed rule" ruleID=java-17-deprecate-applet-00000
+time="2026-06-01T03:45:08Z" level=info msg="[189/207] processed rule" ruleID=java-17-deprecate-security-manager-00020
+time="2026-06-01T03:45:08Z" level=info msg="[190/207] processed rule" ruleID=java-17-deprecate-security-manager-00050
+time="2026-06-01T03:45:08Z" level=info msg="[191/207] processed rule" ruleID=java-17-deprecate-security-manager-00060
+time="2026-06-01T03:45:08Z" level=info msg="[192/207] processed rule" ruleID=lombok-incompatibility-00001
+time="2026-06-01T03:45:09Z" level=info msg="[193/207] processed rule" ruleID=java-17-deprecate-security-manager-00070
+time="2026-06-01T03:45:09Z" level=info msg="[194/207] processed rule" ruleID=java-17-deprecate-unsafe-00000
+time="2026-06-01T03:45:09Z" level=info msg="[195/207] processed rule" ruleID=utf-8-by-default-00000
+time="2026-06-01T03:45:09Z" level=info msg="[196/207] processed rule" ruleID=utf-8-by-default-00010
+time="2026-06-01T03:45:09Z" level=info msg="[197/207] processed rule" ruleID=utf-8-by-default-00020
+time="2026-06-01T03:45:09Z" level=info msg="[198/207] processed rule" ruleID=azure-java-sdk-legacy-migration-01000
+time="2026-06-01T03:45:09Z" level=info msg="[199/207] processed rule" ruleID=utf-8-by-default-00030
+time="2026-06-01T03:45:09Z" level=info msg="[200/207] processed rule" ruleID=oracle2openjdk-00002
+time="2026-06-01T03:45:09Z" level=info msg="[201/207] processed rule" ruleID=java-17-deprecate-socket-00000
+time="2026-06-01T03:45:09Z" level=info msg="[202/207] processed rule" ruleID=oracle2openjdk-00006
+time="2026-06-01T03:45:10Z" level=info msg="[203/207] processed rule" ruleID=cra-hardcoded-credential-config-03000
+time="2026-06-01T03:45:10Z" level=info msg="[204/207] processed rule" ruleID=cra-hardcoded-credential-default-pwd-04000
+time="2026-06-01T03:45:10Z" level=info msg="[205/207] processed rule" ruleID=cra-insecure-tls-cipher-suite-05000
+time="2026-06-01T03:45:10Z" level=info msg="progressive report updated"
+time="2026-06-01T03:45:10Z" level=info msg="[206/207] processed rule" ruleID=eclipse-00002
+time="2026-06-01T03:45:12Z" level=info msg="[207/207] processed rule" ruleID=cra-insecure-tls-config-02000
+time="2026-06-01T03:45:12Z" level=info msg="RunRules completed"
+time="2026-06-01T03:45:12Z" level=info msg="creating and saving unified result"
+time="2026-06-01T03:45:12Z" level=info msg="Unified result saved to file" file=/tmp/workspace/haoozhang/spring-petclinic-microservices/.github/modernize/assessment/copilot/engines/appcat/result/report.json
+time="2026-06-01T03:45:12Z" level=info msg="unable to get dependency output. use source analysis result only"
+time="2026-06-01T03:45:12Z" level=info msg="skipping static report generation because of --skip-static-report flag"
+EXIT_CODE: 0

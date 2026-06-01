@@ -1,0 +1,68 @@
+[
+  {
+    "id": "CWE-543",
+    "name": "Use of Singleton Pattern Without Synchronization in a Multithreaded Context",
+    "status": "NOT_FOUND",
+    "category": "Concurrency & Synchronization",
+    "evidence": {
+      "files": [],
+      "explanation": ""
+    }
+  },
+  {
+    "id": "CWE-567",
+    "name": "Unsynchronized Access to Shared Data in a Multithreaded Context",
+    "status": "FOUND",
+    "category": "Concurrency & Synchronization",
+    "evidence": {
+      "files": [
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java"
+      ],
+      "explanation": "VisitsServiceClient is a Spring @Component singleton (lines 30-31). It stores mutable shared state in the instance field 'hostname' (line 34), reads it from getVisitsForPets() (lines 42-47), and writes it through setHostname() (lines 54-55) without any synchronization, volatile qualifier, or immutable design. In a multithreaded Spring request-processing context, concurrent reads/writes of this shared field can observe stale or inconsistent values."
+    }
+  },
+  {
+    "id": "CWE-662",
+    "name": "Improper Synchronization",
+    "status": "FOUND",
+    "category": "Concurrency & Synchronization",
+    "evidence": {
+      "files": [
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java"
+      ],
+      "explanation": "The singleton VisitsServiceClient bean exposes unsynchronized access to the shared 'hostname' field: request-handling threads use the field in getVisitsForPets() (lines 42-47) while setHostname() can modify it (lines 54-55). Because the shared resource is accessed from a singleton component without any synchronization mechanism, the code matches an improper synchronization pattern in concurrent execution."
+    }
+  },
+  {
+    "id": "CWE-667",
+    "name": "Improper Locking",
+    "status": "NOT_FOUND",
+    "category": "Concurrency & Synchronization",
+    "evidence": {
+      "files": [],
+      "explanation": ""
+    }
+  },
+  {
+    "id": "CWE-820",
+    "name": "Missing Synchronization",
+    "status": "FOUND",
+    "category": "Concurrency & Synchronization",
+    "evidence": {
+      "files": [
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java"
+      ],
+      "explanation": "VisitsServiceClient keeps mutable shared state in the 'hostname' field (line 34) inside a Spring singleton bean (lines 30-31). The field is accessed by getVisitsForPets() and mutated by setHostname() with no synchronized block, lock, volatile declaration, or thread-safe wrapper. This is a direct missing-synchronization pattern for shared concurrent state."
+    }
+  },
+  {
+    "id": "CWE-821",
+    "name": "Incorrect Synchronization",
+    "status": "NOT_FOUND",
+    "category": "Concurrency & Synchronization",
+    "evidence": {
+      "files": [],
+      "explanation": ""
+    }
+  }
+]
