@@ -1,0 +1,271 @@
+{
+  "version": "1.0.0",
+  "producer": "Java AppCAT CLI",
+  "metadata": {
+    "analysisStartTime": "2026-06-01T08:55:15.694Z",
+    "analysisEndTime": "2026-06-01T08:55:27.852Z",
+    "privacyMode": "Protected",
+    "privacyModeHelpUrl": "https://aka.ms/appmod-privacy-mode",
+    "targetIds": [
+      "azure-aks",
+      "azure-appservice",
+      "azure-container-apps"
+    ],
+    "targetDisplayNames": [
+      "Azure Kubernetes Service",
+      "Azure App Service",
+      "Azure Container Apps"
+    ],
+    "capabilities": [
+      "openjdk25"
+    ],
+    "os": [
+      "windows",
+      "linux"
+    ],
+    "id": "20260601085515",
+    "name": "Report_20260601085515",
+    "status": "completed",
+    "domains": [],
+    "mode": "issue-only",
+    "minimumCveSeverity": "critical"
+  },
+  "summary": {
+    "totalProjects": 1,
+    "totalIssues": 0,
+    "totalIncidents": 0,
+    "totalEffort": 0,
+    "charts": {
+      "severity": {
+        "mandatory": 0,
+        "optional": 0,
+        "potential": 0,
+        "information": 0
+      },
+      "category": {}
+    }
+  },
+  "projects": [
+    {
+      "path": ".",
+      "issues": 0,
+      "storyPoints": 0,
+      "properties": {
+        "appName": "spring-petclinic-microservices",
+        "jdkVersion": "17",
+        "frameworks": [
+          "Spring Boot",
+          "Spring Cloud",
+          "Spring"
+        ],
+        "languages": [
+          "Java",
+          "Dockerfile"
+        ],
+        "tools": [
+          "Maven"
+        ]
+      },
+      "incidents": []
+    }
+  ],
+  "rules": {},
+  "security": [
+    {
+      "id": "CVE-2026-43512",
+      "title": "Apache Tomcat - Digest authenticator will authenticate any unknown user",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-43512](https://github.com/advisories/GHSA-h6fc-48rj-7qqh): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.118\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.55\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.22\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-43512](https://github.com/advisories/GHSA-h6fc-48rj-7qqh): Apache Tomcat - Digest authenticator will authenticate any unknown user\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.118\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.55\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.22\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-43515",
+      "title": "Apache Tomcat - Security constraints not correctly applied",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-43515](https://github.com/advisories/GHSA-5m62-pw8w-7w9f): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.118\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.55\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.22\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-43515](https://github.com/advisories/GHSA-5m62-pw8w-7w9f): Apache Tomcat - Security constraints not correctly applied\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.118\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.55\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.22\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41293",
+      "title": "Apache Tomcat - HTTP/2 request headers not validated",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41293](https://github.com/advisories/GHSA-r29c-68gh-xp6x): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.118\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.55\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.22\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41293](https://github.com/advisories/GHSA-r29c-68gh-xp6x): Apache Tomcat - HTTP/2 request headers not validated\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.118\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.55\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.22\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-24813",
+      "title": "Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-24813](https://github.com/advisories/GHSA-83qj-6fr2-vhqg): Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.3\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.35\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.99\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml)\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-24813](https://github.com/advisories/GHSA-83qj-6fr2-vhqg): Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 11.0.3\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 10.1.35\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml) \u2192 upgrade to 9.0.99\n  - org.apache.tomcat.embed:tomcat-embed-core:10.1.34 (declared at pom.xml)\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2025-12383",
+      "title": "Eclipse Jersey has a Race Condition",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2025-12383](https://github.com/advisories/GHSA-7p63-w6x9-6gr7): Eclipse Jersey has a Race Condition\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.glassfish.jersey.core:jersey-client:3.1.9 (declared at pom.xml) \u2192 upgrade to 2.46\n  - org.glassfish.jersey.core:jersey-client:3.1.9 (declared at pom.xml) \u2192 upgrade to 3.0.17\n  - org.glassfish.jersey.core:jersey-client:3.1.9 (declared at pom.xml) \u2192 upgrade to 3.1.10\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2025-12383](https://github.com/advisories/GHSA-7p63-w6x9-6gr7): Eclipse Jersey has a Race Condition\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.glassfish.jersey.core:jersey-client:3.1.9 (declared at pom.xml) \u2192 upgrade to 2.46\n  - org.glassfish.jersey.core:jersey-client:3.1.9 (declared at pom.xml) \u2192 upgrade to 3.0.17\n  - org.glassfish.jersey.core:jersey-client:3.1.9 (declared at pom.xml) \u2192 upgrade to 3.1.10\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40982",
+      "title": "Spring Cloud Config vulnerable to Path Traversal",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40982](https://github.com/advisories/GHSA-6g23-24mc-hx6x): Spring Cloud Config vulnerable to Path Traversal\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33) \u2192 upgrade to 4.3.3\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33) \u2192 upgrade to 5.0.3\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-config-server/pom.xml:33"
+        ],
+        "explanation": "[CVE-2026-40982](https://github.com/advisories/GHSA-6g23-24mc-hx6x): Spring Cloud Config vulnerable to Path Traversal\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33)\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33) \u2192 upgrade to 4.3.3\n  - org.springframework.cloud:spring-cloud-config-server:4.2.0 (declared at spring-petclinic-config-server/pom.xml:33) \u2192 upgrade to 5.0.3\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-41901",
+      "title": "Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-41901](https://github.com/advisories/GHSA-c9ph-gxww-7744): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.5.RELEASE\n  - org.thymeleaf:thymeleaf-spring6:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.5.RELEASE\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-41901](https://github.com/advisories/GHSA-c9ph-gxww-7744): Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.5.RELEASE\n  - org.thymeleaf:thymeleaf-spring6:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.5.RELEASE\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40478",
+      "title": "Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40478](https://github.com/advisories/GHSA-xjw8-8c5c-9r79): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n  - org.thymeleaf:thymeleaf-spring6:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-40478](https://github.com/advisories/GHSA-xjw8-8c5c-9r79): Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n  - org.thymeleaf:thymeleaf-spring6:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CVE-2026-40477",
+      "title": "Improper restriction of the scope of accessible objects in Thymeleaf expressions",
+      "category": "CVE",
+      "severity": "mandatory",
+      "description": "[CVE-2026-40477](https://github.com/advisories/GHSA-r4v4-5mwr-2fwr): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n  - org.thymeleaf:thymeleaf-spring6:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n\nRecommended fix: Upgrade affected dependencies to patched versions.",
+      "evidence": {
+        "files": [
+          "pom.xml"
+        ],
+        "explanation": "[CVE-2026-40477](https://github.com/advisories/GHSA-r4v4-5mwr-2fwr): Improper restriction of the scope of accessible objects in Thymeleaf expressions\n\nSeverity: CRITICAL\n\nAffected dependencies:\n  - org.thymeleaf:thymeleaf:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n  - org.thymeleaf:thymeleaf-spring6:3.1.3.RELEASE (declared at pom.xml) \u2192 upgrade to 3.1.4.RELEASE\n\nRecommended fix: Upgrade affected dependencies to patched versions."
+      },
+      "storyPoint": 1
+    },
+    {
+      "id": "CWE-665",
+      "title": "Improper Initialization",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product does not initialize or incorrectly initializes a resource, which might leave the resource in an unexpected state when it is accessed or used.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java"
+        ],
+        "explanation": "In VectorStoreController.loadVetDataToVectorStoreOnStartup(), the return value of convertListToJsonResource(vets) at line 74 is passed directly to new JsonReader(vetsAsJson) at line 75 without a null check. The convertListToJsonResource() method (lines 94-110) explicitly returns null when a JsonProcessingException is caught (line 108). Passing null to the JsonReader constructor will cause a NullPointerException at runtime, leaving the vector store in an uninitialized state."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-772",
+      "title": "Missing Release of Resource after Effective Lifetime",
+      "category": "Code Quality",
+      "severity": "potential",
+      "description": "The product does not release a resource after its effective lifetime has ended, i.e., after the resource is no longer needed.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java"
+        ],
+        "explanation": "In VectorStoreController.loadVetDataToVectorStoreOnStartup() at line 86, a temporary file is created via Files.createTempFile(\"vectorstore\", \".json\", attr) and written to disk. The file is never deleted after use \u2014 no file.delete() or deleteOnExit() is called. Each application restart creates a new temp file that accumulates on the filesystem, leading to resource exhaustion over time."
+      },
+      "storyPoint": 3
+    },
+    {
+      "id": "CWE-567",
+      "title": "Unsynchronized Access to Shared Data in a Multithreaded Context",
+      "category": "Concurrency & Synchronization",
+      "severity": "potential",
+      "description": "The product does not properly synchronize shared data, such as static variables across threads, which can lead to undefined behavior and unpredictable data changes.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java"
+        ],
+        "explanation": "VisitsServiceClient is a Spring @Component singleton (line 30) with a mutable non-final instance field 'hostname' (line 34). The field has a package-private setter setHostname() (lines 54-56) that modifies the shared field without synchronization. In a multithreaded web environment, concurrent threads invoking getVisitsForPets() could read a stale or partially written 'hostname' value if setHostname() is called concurrently, leading to undefined behavior."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-259",
+      "title": "Use of Hard-coded Password",
+      "category": "Credentials & Secrets",
+      "severity": "optional",
+      "description": "The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-genai-service/src/main/resources/application.yml"
+        ],
+        "explanation": "In application.yml at line 25, the OpenAI API key property uses a hardcoded default value of 'demo': `api-key: ${OPENAI_API_KEY:demo}`. When the OPENAI_API_KEY environment variable is not set, the application will use 'demo' as the API key for outbound communication to the OpenAI API, constituting a hard-coded credential fallback."
+      },
+      "storyPoint": 5
+    },
+    {
+      "id": "CWE-798",
+      "title": "Use of Hard-coded Credentials",
+      "category": "Credentials & Secrets",
+      "severity": "optional",
+      "description": "The product contains hard-coded credentials, such as a password or cryptographic key.",
+      "evidence": {
+        "files": [
+          "spring-petclinic-genai-service/src/main/resources/application.yml"
+        ],
+        "explanation": "In application.yml at line 25, the OpenAI API key is configured with a hard-coded default value: `api-key: ${OPENAI_API_KEY:demo}`. The string 'demo' serves as a hard-coded fallback credential used for authenticating to the OpenAI API when the environment variable is absent. This hard-coded credential may be used unintentionally in environments where the variable is not set (e.g., developer machines or misconfigured deployments)."
+      },
+      "storyPoint": 5
+    }
+  ]
+}
