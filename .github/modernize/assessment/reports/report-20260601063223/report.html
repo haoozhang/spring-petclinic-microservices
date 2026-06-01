@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assessment - spring-petclinic-microservices</title>
+<style>
+:root {
+  --bg-primary: #ffffff;
+  --bg-card: #f8f9fa;
+  --bg-page: #f0f1f3;
+  --text-primary: #24292f;
+  --text-secondary: #57606a;
+  --text-muted: #6b7280;
+  --border-color: #d0d7de;
+  --border-light: #e1e4e8;
+  --link-color: #2563eb;
+  --color-mandatory: #E3008C;
+  --color-potential: #637CEF;
+  --color-optional: #A19F9D;
+  --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-family); font-size: 13px; color: var(--text-primary); background: var(--bg-primary); line-height: 1.5; margin: 0; padding: 0; }
+a { color: var(--link-color); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Page layout ───────────────────────────────────────────── */
+.main { margin: 0; padding: 24px 32px; background: var(--bg-primary); }
+.back-link { color: var(--text-muted); font-size: 13px; margin-bottom: 16px; display: block; }
+h1 { font-weight: 600; font-size: 20px; color: var(--text-primary); margin-bottom: 20px; }
+
+/* ── Report cards (matches VS Code .vscode-report-card) ──── */
+.report-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 4px; padding: 12px; margin-bottom: 20px; }
+.report-card h2 { font-size: 14px; font-weight: 600; margin: 0; color: var(--text-primary); }
+.report-card-body { margin-top: 16px; }
+
+/* ── Component Information (two-column) ────────────────── */
+.app-info-container { display: flex; gap: 8px; flex-wrap: wrap; }
+.app-info-column { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 8px; }
+.app-info-row { display: flex; align-items: baseline; }
+.app-info-label { width: 136px; flex-shrink: 0; font-weight: 600; color: var(--text-primary); }
+.app-info-value { flex: 1; color: var(--text-primary); }
+
+/* ── Issue Summary (pie charts + legend) ─────────────────── */
+.cards-container { display: flex; align-items: stretch; gap: 20px; flex-wrap: wrap; }
+.issue-summary-card { flex: 2; }
+.domain-summary-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; }
+.domain-summary-item { flex: 1; min-width: 120px; text-align: center; padding: 0 16px; border-right: 1px solid var(--border-light); }
+.domain-summary-item:last-child { border-right: none; }
+.domain-summary-item h3 { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-top: 8px; }
+.domain-summary-item .count { font-size: 12px; color: var(--text-secondary); }
+.criticality-legend { display: flex; flex-wrap: wrap; gap: 15px; padding-top: 12px; justify-content: center; }
+.criticality-legend .legend-item { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-secondary); }
+.legend-swatch { display: inline-block; width: 1em; height: 1em; border-radius: 2px; }
+
+/* ── Issue list tables ───────────────────────────────────── */
+.issue-section { margin-top: 20px; }
+.issue-section h2 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.issue-table { width: 100%; border-collapse: collapse; table-layout: fixed; min-width: 600px; }
+.issue-table th { text-align: left; text-transform: uppercase; font-weight: 600; font-size: calc(13px * 0.875); padding: 6px 8px; background: var(--bg-card); border-bottom: 1px solid var(--border-color); color: var(--text-secondary); position: sticky; top: 0; z-index: 1; }
+.issue-table td { padding: 12px 8px; border-bottom: 1px solid var(--border-light); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; }
+.col-issue { width: 55%; }
+.col-criticality { width: 25%; }
+.col-storypoint { width: 20%; }
+
+/* ── Target dropdown ─────────────────────────────────────── */
+.target-select-container { margin: 4px 0 16px 0; display: flex; align-items: center; gap: 8px; }
+.target-select-container label { font-weight: 600; color: var(--text-primary); font-size: 14px; }
+.target-select-container select { font-family: var(--font-family); font-size: 13px; padding: 4px 8px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary); cursor: pointer; }
+
+/* ── Filter bar ──────────────────────────────────────────── */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0 8px 0; align-items: center; }
+.multi-select { position: relative; display: inline-block; min-width: 140px; }
+.multi-select-btn { font-family: var(--font-family); font-size: 13px; padding: 4px 24px 4px 8px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary); cursor: pointer; width: 100%; text-align: left; position: relative; white-space: nowrap; }
+.multi-select-btn::after { content: '\25BE'; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--text-secondary); }
+.multi-select-dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 100%; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 100; margin-top: 2px; }
+.multi-select.open .multi-select-dropdown { display: block; }
+.multi-select-option { display: flex; align-items: center; gap: 6px; padding: 5px 10px; cursor: pointer; font-size: 13px; white-space: nowrap; }
+.multi-select-option:hover { background: var(--bg-secondary); }
+.multi-select-option input[type=checkbox] { margin: 0; cursor: pointer; }
+.clear-filters { font-size: 12px; color: var(--link-color); cursor: pointer; margin-left: 4px; }
+
+/* ── Criticality labels (colored square + text) ──────────── */
+.crit-label { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; white-space: nowrap; }
+.crit-square { display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.crit-square-mandatory { background: var(--color-mandatory); }
+.crit-square-potential { background: var(--color-potential); }
+.crit-square-optional { background: var(--color-optional); }
+
+/* ── Expandable rows ─────────────────────────────────────── */
+.expand-btn { background: none; border: none; cursor: pointer; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 11px; transition: transform 0.15s; padding: 0; vertical-align: middle; flex-shrink: 0; }
+.expand-btn.open { transform: rotate(90deg); }
+.issue-title-cell { display: flex; align-items: center; gap: 4px; }
+.detail-row td { padding: 0; border-bottom: 1px solid var(--border-light); white-space: normal; overflow: visible; text-overflow: clip; }
+.detail-content { display: flex; gap: 0; padding: 8px 8px 8px 32px; min-width: 0; }
+.file-list { flex: 0 0 50%; min-width: 0; overflow: hidden; }
+.file-list table { width: 100%; border-collapse: collapse; }
+.file-list th { font-size: calc(13px * 0.875); text-transform: uppercase; font-weight: 600; color: var(--text-secondary); padding: 6px 8px; border-bottom: 1px solid var(--border-color); text-align: left; height: 32px; }
+.file-list td { font-size: 13px; padding: 6px 8px; border-bottom: 1px solid var(--border-light); color: var(--text-primary); }
+.file-list .file-path { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 300px; display: block; }
+.file-list .position { font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); }
+.explanation-panel { flex: 1; padding-left: 16px; min-width: 0; overflow-wrap: break-word; word-wrap: break-word; }
+.explanation-panel h4 { font-size: calc(13px * 0.875); text-transform: uppercase; font-weight: 600; color: var(--text-secondary); padding: 6px 0; border-bottom: 1px solid var(--border-color); height: 32px; margin: 0; }
+.explanation-panel p { font-size: 13px; padding: 8px 0; color: var(--text-primary); line-height: 1.6; white-space: normal; word-break: break-word; }
+
+/* ── Experimental badge ──────────────────────────────────── */
+.badge-experimental { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: #fef9c3; color: #854d0e; vertical-align: middle; margin-left: 8px; cursor: default; }
+
+/* ── Footer ──────────────────────────────────────────────── */
+.footer { text-align: center; margin-top: 24px; color: var(--text-muted); font-size: 13px; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .main { padding: 16px; }
+  .app-info-container { flex-direction: column; }
+  .domain-summary-container { flex-direction: column; }
+  .domain-summary-item { border-right: none; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; }
+  .detail-content { flex-direction: column; }
+  .file-list { flex: none; width: 100%; }
+  .explanation-panel { padding-left: 0; padding-top: 8px; }
+}
+/* ── Tab navigation ──────────────────────────────────────── */
+.tab-nav { display: flex; gap: 0; border-bottom: 1px solid var(--border-color); margin-bottom: 28px; flex-wrap: wrap; }
+.tab-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 10px 18px; font-size: 13px; font-family: var(--font-family); color: var(--text-secondary); cursor: pointer; margin-bottom: -1px; white-space: nowrap; position: relative; }
+.tab-btn:hover { color: var(--text-primary); }
+.tab-btn.active { color: var(--link-color); border-bottom-color: var(--link-color); font-weight: 600; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── Tooltip on tab ──────────────────────────────────────── */
+.tab-btn[data-tooltip]::after { content: attr(data-tooltip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #24292f; color: #ffffff; font-size: 12px; font-weight: 400; padding: 6px 10px; border-radius: 4px; white-space: normal; width: max-content; max-width: 260px; text-align: center; pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 100; }
+.tab-btn[data-tooltip]:hover::after { opacity: 1; }
+
+/* ── Fact content — prose column ─────────────────────────── */
+.fact-content { max-width: 860px; margin: 0 auto; line-height: 1.75; color: var(--text-primary); font-size: 14px; }
+.fact-content h1 { font-size: 22px; font-weight: 700; margin: 0 0 6px 0; color: var(--text-primary); letter-spacing: -0.01em; }
+.fact-content h1 + p { margin-top: 6px; color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; }
+.fact-content h2 { font-size: 17px; font-weight: 700; margin: 36px 0 12px 0; padding-bottom: 6px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); letter-spacing: -0.01em; }
+.fact-content h3 { font-size: 14px; font-weight: 700; margin: 24px 0 8px 0; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.04em; font-size: 12px; color: var(--text-secondary); }
+.fact-content p { margin: 10px 0; color: var(--text-primary); }
+.fact-content ul, .fact-content ol { margin: 10px 0 10px 22px; }
+.fact-content li { margin: 5px 0; }
+.fact-content a { color: var(--link-color); }
+.fact-content a:hover { text-decoration: underline; }
+
+/* ── Fact tables ─────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+.fact-content table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 13px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-color); }
+.fact-content thead { background: var(--bg-card); }
+.fact-content th { text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding: 8px 14px; border-bottom: 1px solid var(--border-color); color: var(--text-secondary); }
+.fact-content td { padding: 9px 14px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-primary); }
+.fact-content tr:last-child td { border-bottom: none; }
+.fact-content tbody tr:hover { background: #f6f8fa; }
+
+/* ── Fact code ───────────────────────────────────────────── */
+.fact-content code { font-family: var(--font-mono); font-size: 12px; background: #f0f1f3; padding: 2px 6px; border-radius: 4px; color: #c7254e; }
+.fact-content pre { background: #f6f8fa; border: 1px solid var(--border-light); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 14px 0; }
+.fact-content pre code { background: none; color: var(--text-primary); padding: 0; border-radius: 0; }
+.fact-content hr { border: none; border-top: 1px solid var(--border-light); margin: 28px 0; }
+.fact-content strong { font-weight: 600; }
+.fact-content em { font-style: italic; }
+.fact-content blockquote { border-left: 3px solid var(--border-color); margin: 12px 0; padding: 4px 16px; color: var(--text-secondary); }
+.fact-unavailable { padding: 32px 0; }
+.fact-unavailable h3 { font-size: 16px; font-weight: 600; color: var(--text-primary); text-transform: none; letter-spacing: 0; margin: 0 0 12px 0; }
+.fact-unavailable p { margin: 0 0 8px 0; color: var(--text-secondary); }
+.fact-unavailable ol, .fact-unavailable ul { margin: 0 0 0 22px; color: var(--text-primary); }
+.fact-unavailable li { margin: 6px 0; }
+
+/* ── Mermaid diagram card ─────────────────────────────────── */
+.mermaid { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 24px 16px; margin: 20px 0; overflow-x: auto; text-align: center; cursor: pointer; position: relative; }
+.mermaid:hover { border-color: var(--border-color); }
+.mermaid svg { max-width: 100%; height: auto !important; display: inline-block; }
+.mermaid-zoom-hint { position: absolute; top: 8px; right: 10px; font-size: 11px; color: var(--text-muted); opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+.mermaid:hover .mermaid-zoom-hint { opacity: 1; }
+
+/* ── Diagram lightbox ────────────────────────────────────── */
+.diagram-lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.7); backdrop-filter: blur(2px); align-items: center; justify-content: center; cursor: zoom-out; padding: 48px 32px; }
+.diagram-lightbox.open { display: flex; }
+.diagram-lightbox-inner { background: #ffffff; border-radius: 10px; padding: 32px; width: 88vw; max-height: 88vh; overflow: hidden; cursor: default; box-shadow: 0 24px 64px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; }
+.diagram-lightbox-inner svg { width: 100% !important; height: auto !important; max-height: 76vh; display: block; }
+.diagram-lightbox-close { position: fixed; top: 20px; right: 24px; background: #ffffff; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-primary); box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 1001; }
+.diagram-lightbox-close:hover { background: var(--bg-card); }
+.diagram-lightbox-hint { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.55); color: #ffffff; font-size: 12px; padding: 6px 14px; border-radius: 20px; pointer-events: none; white-space: nowrap; z-index: 1001; }
+</style>
+<script>
+window.__mermaidPending = [];
+window.__mermaidReady = false;
+window.__renderMermaidIn = function(container) {
+  if (container) { window.__mermaidPending.push(container); }
+};
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false, theme: 'default', flowchart: { useMaxWidth: true }, sequence: { useMaxWidth: true } });
+
+window.__renderMermaidIn = function(container) {
+  var nodes = container ? container.querySelectorAll('.mermaid:not([data-processed])') : [];
+  if (nodes.length > 0) {
+    mermaid.run({ nodes: Array.from(nodes) }).then(function() {
+      nodes.forEach(function(node) {
+        if (!node.querySelector('.mermaid-zoom-hint')) {
+          var hint = document.createElement('span');
+          hint.className = 'mermaid-zoom-hint';
+          hint.textContent = 'Click to expand';
+          node.appendChild(hint);
+        }
+      });
+    });
+  }
+};
+
+var drained = new Set();
+(window.__mermaidPending || []).forEach(function(c) {
+  if (!drained.has(c)) { drained.add(c); window.__renderMermaidIn(c); }
+});
+window.__mermaidPending = [];
+window.__mermaidReady = true;
+
+function renderActivePanels() {
+  document.querySelectorAll('.tab-panel.active').forEach(function(p) {
+    if (!drained.has(p)) { drained.add(p); window.__renderMermaidIn(p); }
+  });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderActivePanels);
+} else {
+  renderActivePanels();
+}
+</script>
+</head><body>
+<div id="diagram-lightbox" class="diagram-lightbox" role="dialog" aria-modal="true">
+  <button class="diagram-lightbox-close" id="diagram-lightbox-close" aria-label="Close">&#x2715;</button>
+  <div class="diagram-lightbox-hint">Scroll to zoom &nbsp;&middot;&nbsp; Drag to pan &nbsp;&middot;&nbsp; Double-click to reset</div>
+  <div class="diagram-lightbox-inner" id="diagram-lightbox-inner"></div>
+</div>
+<div class="main">
+<h1>spring-petclinic-microservices</h1>
+<div class="report-card">
+  <h2>Component Information</h2>
+  <div class="report-card-body">
+    <div class="app-info-container">
+      <div class="app-info-column">
+        <div class="app-info-row"><span class="app-info-label">Component Name</span><span class="app-info-value">spring-petclinic-microservices</span></div>
+        <div class="app-info-row"><span class="app-info-label">Java Version</span><span class="app-info-value">17</span></div>
+        <div class="app-info-row"><span class="app-info-label">Effort</span><span class="app-info-value" id="effort-display">L (total story points: 83)</span></div>
+      </div>
+      <div class="app-info-column">
+        <div class="app-info-row"><span class="app-info-label">Build Tools</span><span class="app-info-value">Maven</span></div>
+        <div class="app-info-row"><span class="app-info-label">Frameworks</span><span class="app-info-value">Spring Boot, Spring Cloud, Spring</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="tab-issues" data-tooltip="Issues detected in the source code">Issues</button>
+</nav>
+<div id="tab-issues" class="tab-panel active">
+<div class="report-card">
+  <h2>Issue Summary</h2>
+  <div class="report-card-body">
+    <div class="domain-summary-container" id="donut-container">
+      <div class="domain-summary-item">
+<svg viewBox="0 0 100 100" width="100" height="100" style="display:block;margin:0 auto;transform:rotate(-90deg);">
+  <circle cx="50" cy="50" r="35" fill="none" stroke="var(--color-mandatory)" stroke-width="15" stroke-dasharray="130.45 219.91" stroke-dashoffset="-0.00"/>
+  <circle cx="50" cy="50" r="35" fill="none" stroke="var(--color-optional)" stroke-width="15" stroke-dasharray="86.46 219.91" stroke-dashoffset="-131.95"/>
+</svg>
+
+        <h3>Security</h3>
+        <div class="count">75 issues</div>
+      </div>
+    </div>
+    <div class="criticality-legend">
+      <div class="legend-item"><span class="legend-swatch" style="background:var(--color-mandatory)"></span>Mandatory</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:var(--color-potential)"></span>Potential</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:var(--color-optional)"></span>Optional</div>
+    </div>
+  </div>
+</div>
+<div class="filter-bar" id="filter-bar">
+  <div class="multi-select" id="criticality-ms">
+    <button class="multi-select-btn" onclick="toggleMultiSelect('criticality-ms')">Criticality</button>
+    <div class="multi-select-dropdown">
+      <label class="multi-select-option"><input type="checkbox" value="mandatory" onchange="onMultiSelectChange('criticality-ms','Criticality')"/> Mandatory</label>
+      <label class="multi-select-option"><input type="checkbox" value="optional" onchange="onMultiSelectChange('criticality-ms','Criticality')"/> Optional</label>
+    </div>
+  </div>
+  <a class="clear-filters" href="javascript:void(0)" onclick="clearAllFilters()">Clear all</a>
+</div>
+<div class="issue-section" data-domain="security">
+  <h2>Security <span class="badge-experimental" title="These issues were generated by AI and may contain inaccuracies or incomplete information. Please review carefully.">Experimental</span></h2>
+  <table class="issue-table">
+    <colgroup><col class="col-issue"/><col class="col-criticality"/><col class="col-storypoint"/></colgroup>
+    <thead><tr><th>Issue Category</th><th>Criticality</th><th>Story Point</th></tr></thead>
+    <tbody>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-0', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-0">&#x276F;</button> CVE-2024-47072: XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-0" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-hfq9-hggm-c56q" target="_blank" rel="noopener noreferrer">CVE-2024-47072</a>: XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - com.thoughtworks.xstream:xstream &lt; 1.4.21 (transitive dependency)<br/>    Recommended fix: upgrade to 1.4.21 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-1', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-1">&#x276F;</button> CVE-2026-42587: Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-1" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-f6hv-jmp6-3vwv" target="_blank" rel="noopener noreferrer">CVE-2026-42587</a>: Netty: HttpContentDecompressor maxAllocation bypass when Content-Encoding set to br/zstd/snappy leads to decompression bomb DoS</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec-http2 &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec-http &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later<br/>  - io.netty:netty-codec-http2 &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-2', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-2">&#x276F;</button> CVE-2026-42584: Netty has HttpClientCodec response desynchronization</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-2" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-57rv-r2g8-2cj3" target="_blank" rel="noopener noreferrer">CVE-2026-42584</a>: Netty has HttpClientCodec response desynchronization</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec-http &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-3', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-3">&#x276F;</button> CVE-2026-42583: Netty Lz4FrameDecoder is vulnerable to resource exhaustion </div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-3" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-mj4r-2hfc-f8p6" target="_blank" rel="noopener noreferrer">CVE-2026-42583</a>: Netty Lz4FrameDecoder is vulnerable to resource exhaustion </p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-compression &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-4', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-4">&#x276F;</button> CVE-2026-42579: Netty has a DNS Codec Input Validation Bypass (Encoder + Decoder)</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-4" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-cm33-6792-r9fm" target="_blank" rel="noopener noreferrer">CVE-2026-42579</a>: Netty has a DNS Codec Input Validation Bypass (Encoder + Decoder)</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-dns &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec-dns &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-5', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-5">&#x276F;</button> CVE-2026-33871: Netty HTTP/2 CONTINUATION Frame Flood DoS via Zero-Byte Frame Bypass</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-5" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-w9fj-cfpg-grvv" target="_blank" rel="noopener noreferrer">CVE-2026-33871</a>: Netty HTTP/2 CONTINUATION Frame Flood DoS via Zero-Byte Frame Bypass</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http2 &lt; 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.132.Final or later<br/>  - io.netty:netty-codec-http2 &gt;= 4.2.0.Alpha1, &lt; 4.2.10.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.11.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-6', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-6">&#x276F;</button> CVE-2026-33870: Netty: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-6" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-pwqr-wmgm-9rr8" target="_blank" rel="noopener noreferrer">CVE-2026-33870</a>: Netty: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &lt; 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.132.Final or later<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt; 4.2.10.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.10.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-7', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-7">&#x276F;</button> CVE-2025-55163: Netty affected by MadeYouReset HTTP/2 DDoS vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-7" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-prj3-ccx8-p6x4" target="_blank" rel="noopener noreferrer">CVE-2025-55163</a>: Netty affected by MadeYouReset HTTP/2 DDoS vulnerability</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http2 &gt;= 4.2.0.Alpha1, &lt;= 4.2.3.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.4.Final or later<br/>  - io.netty:netty-codec-http2 &lt;= 4.1.123.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.124.Final or later<br/>  - io.grpc:grpc-netty-shaded &lt; 1.75.0 (transitive dependency)<br/>    Recommended fix: upgrade to 1.75.0 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-8', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-8">&#x276F;</button> CVE-2025-24970: SslHandler doesn&#x27;t correctly validate packets which can lead to native crash when using native SSLEngine</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-8" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-4g8c-wm8x-jfhw" target="_blank" rel="noopener noreferrer">CVE-2025-24970</a>: SslHandler doesn&#x27;t correctly validate packets which can lead to native crash when using native SSLEngine</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - io.netty:netty-handler &gt;= 4.1.91.Final, &lt;= 4.1.117.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.118.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-9', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-9">&#x276F;</button> CVE-2026-41284: Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-9" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-gx5v-xp9w-j4cg" target="_blank" rel="noopener noreferrer">CVE-2026-41284</a>: Apache Tomcat: Unbounded read in WebDAV LOCK and  PROPFIND handling</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat-catalina &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-10', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-10">&#x276F;</button> CVE-2026-43512: Apache Tomcat - Digest authenticator will authenticate any unknown user</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-10" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-h6fc-48rj-7qqh" target="_blank" rel="noopener noreferrer">CVE-2026-43512</a>: Apache Tomcat - Digest authenticator will authenticate any unknown user</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat-catalina &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-11', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-11">&#x276F;</button> CVE-2026-43513: Apache Tomcat: LockOutRealm treats user names as case-sensitive</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-11" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-5mp6-jrq3-r938" target="_blank" rel="noopener noreferrer">CVE-2026-43513</a>: Apache Tomcat: LockOutRealm treats user names as case-sensitive</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat-catalina &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-12', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-12">&#x276F;</button> CVE-2026-43515: Apache Tomcat - Security constraints not correctly applied</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-12" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-5m62-pw8w-7w9f" target="_blank" rel="noopener noreferrer">CVE-2026-43515</a>: Apache Tomcat - Security constraints not correctly applied</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat-catalina &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-13', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-13">&#x276F;</button> CVE-2026-41293: Apache Tomcat - HTTP/2 request headers not validated</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-13" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-r29c-68gh-xp6x" target="_blank" rel="noopener noreferrer">CVE-2026-41293</a>: Apache Tomcat - HTTP/2 request headers not validated</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat-catalina &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-14', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-14">&#x276F;</button> CVE-2026-42498: Apache Tomcat - WebSocket authentication header exposure</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-14" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-fv25-8xcx-gqjc" target="_blank" rel="noopener noreferrer">CVE-2026-42498</a>: Apache Tomcat - WebSocket authentication header exposure</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later<br/>  - org.apache.tomcat:tomcat-catalina &lt; 9.0.118 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.118 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.55 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.55 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.22 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.22 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-15', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-15">&#x276F;</button> CVE-2026-34483: Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-15" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-rv64-5gf8-9qq8" target="_blank" rel="noopener noreferrer">CVE-2026-34483</a>: Apache Tomcat has an Improper Encoding or Escaping of Output vulnerability in the JsonAccessLogValve</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.40, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.54 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.54 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.21 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.21 or later<br/>  - org.apache.tomcat:tomcat &gt;= 9.0.40, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.54 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.54 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.21 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.21 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.40, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.54 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.54 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.21 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.21 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-16', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-16">&#x276F;</button> CVE-2026-34487: Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-16" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-x4m4-345f-5h5g" target="_blank" rel="noopener noreferrer">CVE-2026-34487</a>: Apache Tomcat vulnerable to Insertion of Sensitive Information into Log File</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.13, &lt; 9.0.117 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.117 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.54 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.54 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.21 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.21 or later<br/>  - org.apache.tomcat:tomcat &gt;= 9.0.13, &lt; 9.0.117 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.117 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.54 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.54 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.21 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.21 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.13, &lt; 9.0.117 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.117 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.54 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.54 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.21 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.21 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-17', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-17">&#x276F;</button> CVE-2026-24880: Apache Tomcat has an HTTP Request/Response Smuggling vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-17" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-563x-q5rq-57qp" target="_blank" rel="noopener noreferrer">CVE-2026-24880</a>: Apache Tomcat has an HTTP Request/Response Smuggling vulnerability</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 7.0.0, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 10.1.0-M1, &lt; 10.1.52 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.52 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 11.0.0-M1, &lt;= 11.0.18 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.20 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 7.0.0, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.52 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.52 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt;= 11.0.18 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.20 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-18', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-18">&#x276F;</button> CVE-2026-24734: Apache Tomcat has an Improper Input Validation vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-18" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-mgp5-rv84-w37q" target="_blank" rel="noopener noreferrer">CVE-2026-24734</a>: Apache Tomcat has an Improper Input Validation vulnerability</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 11.0.0-M1, &lt; 11.0.18 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.18 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 10.1.0-M7, &lt; 10.1.52 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.52 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 9.0.83, &lt; 9.0.115 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.115 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.18 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.18 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M7, &lt; 10.1.52 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.52 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.83, &lt; 9.0.115 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.115 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-19', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-19">&#x276F;</button> CVE-2026-24400: AssertJ has XML External Entity (XXE) vulnerability when parsing untrusted XML via isXmlEqualTo assertion</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-19" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-customers-service/pom.xml:110">spring-petclinic-customers-service/pom.xml:110</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-rqfh-9r24-8c9r" target="_blank" rel="noopener noreferrer">CVE-2026-24400</a>: AssertJ has XML External Entity (XXE) vulnerability when parsing untrusted XML via isXmlEqualTo assertion</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.assertj:assertj-core &gt;= 1.4.0, &lt;= 3.27.6 (declared at spring-petclinic-customers-service/pom.xml:110)<br/>    Recommended fix: upgrade to 3.27.7 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-20', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-20">&#x276F;</button> CVE-2025-55752: Apache Tomcat Vulnerable to Relative Path Traversal</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-20" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-wmwf-9ccg-fff5" target="_blank" rel="noopener noreferrer">CVE-2025-55752</a>: Apache Tomcat Vulnerable to Relative Path Traversal</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.11 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.11 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.45 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.45 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.11 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.11 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.45 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.45 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.11 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.11 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.45 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.45 or later<br/>  - org.apache.tomcat:tomcat &gt;= 9.0.0-M11, &lt; 9.0.109 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.109 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.0-M11, &lt; 9.0.109 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.109 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.0-M11, &lt; 9.0.109 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.109 or later<br/>  - org.apache.tomcat:tomcat &gt;= 8.5.6, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 8.5.6, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.6, &lt;= 8.5.100 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-21', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-21">&#x276F;</button> CVE-2025-48989: Apache Tomcat Improper Resource Shutdown or Release vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-21" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-gqp3-2cvr-x8m3" target="_blank" rel="noopener noreferrer">CVE-2025-48989</a>: Apache Tomcat Improper Resource Shutdown or Release vulnerability</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 11.0.0-M1, &lt; 11.0.10 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.10 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 10.1.0-M1, &lt; 10.1.44 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.44 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 9.0.0.M1, &lt; 9.0.108 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.108 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.10 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.10 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.44 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.44 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.0.M1, &lt; 9.0.108 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.108 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-22', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-22">&#x276F;</button> CVE-2025-53506: Apache Tomcat Coyote vulnerable to Denial of Service via excessive HTTP/2 streams</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-22" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-25xr-qj8w-c4vf" target="_blank" rel="noopener noreferrer">CVE-2025-53506</a>: Apache Tomcat Coyote vulnerable to Denial of Service via excessive HTTP/2 streams</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 11.0.0-M1, &lt; 11.0.9 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.9 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 10.1.0-M1, &lt; 10.1.43 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.43 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 9.0.0.M1, &lt; 9.0.107 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.107 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.0.M1, &lt; 9.0.107 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.107 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.43 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.43 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.9 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.9 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-23', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-23">&#x276F;</button> CVE-2025-52520: Apache Tomcat Catalina is vulnerable to DoS attack through bypassing of size limits</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-23" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-wr62-c79q-cv37" target="_blank" rel="noopener noreferrer">CVE-2025-52520</a>: Apache Tomcat Catalina is vulnerable to DoS attack through bypassing of size limits</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.9 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.9 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.43 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.43 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.0.M1, &lt; 9.0.107 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.107 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.9 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.9 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.43 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.43 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.0.M1, &lt; 9.0.107 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.107 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-24', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-24">&#x276F;</button> CVE-2025-48988: Apache Tomcat - DoS in multipart upload</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-24" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-h3gc-qfqq-6h8f" target="_blank" rel="noopener noreferrer">CVE-2025-48988</a>: Apache Tomcat - DoS in multipart upload</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt;= 11.0.7 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.8 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt;= 10.1.41 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.42 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.0.M1, &lt;= 9.0.105 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.106 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt;= 11.0.7 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.8 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt;= 10.1.41 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.42 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.0.M1, &lt;= 9.0.105 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.106 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-25', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-25">&#x276F;</button> CVE-2025-27820: Apache HttpClient disables domain checks</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-25" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-73m2-qfq3-56cx" target="_blank" rel="noopener noreferrer">CVE-2025-27820</a>: Apache HttpClient disables domain checks</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.apache.httpcomponents.client5:httpclient5 &gt;= 5.4-alpha1, &lt; 5.4.3 (transitive dependency)<br/>    Recommended fix: upgrade to 5.4.3 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-26', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-26">&#x276F;</button> CVE-2025-24813: Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-26" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-83qj-6fr2-vhqg" target="_blank" rel="noopener noreferrer">CVE-2025-24813</a>: Apache Tomcat: Potential RCE and/or information disclosure and/or information corruption with partial PUT</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.3 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.3 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.35 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.35 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.0.M1, &lt; 9.0.99 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.99 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.3 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.3 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.35 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.35 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.0.M1, &lt; 9.0.99 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.99 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-27', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-27">&#x276F;</button> CVE-2024-57699: Netplex Json-smart Uncontrolled Recursion vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-27" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-pq2g-wx69-c263" target="_blank" rel="noopener noreferrer">CVE-2024-57699</a>: Netplex Json-smart Uncontrolled Recursion vulnerability</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - net.minidev:json-smart &gt;= 2.5.0, &lt; 2.5.2 (transitive dependency)<br/>    Recommended fix: upgrade to 2.5.2 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-28', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-28">&#x276F;</button> CVE-2026-5598: Bouncy Castle Has Covert Timing Channel Vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-28" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-p93r-85wp-75v3" target="_blank" rel="noopener noreferrer">CVE-2026-5598</a>: Bouncy Castle Has Covert Timing Channel Vulnerability</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.bouncycastle:bcprov-jdk15to18 &gt;= 1.71, &lt; 1.84 (transitive dependency)<br/>    Recommended fix: upgrade to 1.84 or later<br/>  - org.bouncycastle:bcprov-jdk14 &gt;= 1.71, &lt; 1.84 (transitive dependency)<br/>    Recommended fix: upgrade to 1.84 or later<br/>  - org.bouncycastle:bcprov-jdk18on &gt;= 1.71, &lt; 1.84 (transitive dependency)<br/>    Recommended fix: upgrade to 1.84 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-29', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-29">&#x276F;</button> CVE-2025-12383: Eclipse Jersey has a Race Condition</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-29" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-7p63-w6x9-6gr7" target="_blank" rel="noopener noreferrer">CVE-2025-12383</a>: Eclipse Jersey has a Race Condition</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.glassfish.jersey.core:jersey-client = 2.45 (transitive dependency)<br/>    Recommended fix: upgrade to 2.46 or later<br/>  - org.glassfish.jersey.core:jersey-client = 3.0.16 (transitive dependency)<br/>    Recommended fix: upgrade to 3.0.17 or later<br/>  - org.glassfish.jersey.core:jersey-client = 3.1.9 (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.10 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-30', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-30">&#x276F;</button> CVE-2026-40973: Spring Boot accepts predictable temp directory without ownership verification</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-30" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-wwpq-f5c3-7hvx" target="_blank" rel="noopener noreferrer">CVE-2026-40973</a>: Spring Boot accepts predictable temp directory without ownership verification</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.boot:spring-boot &gt;= 4.0.0, &lt; 4.0.6 (transitive dependency)<br/>    Recommended fix: upgrade to 4.0.6 or later<br/>  - org.springframework.boot:spring-boot &gt;= 3.5.0, &lt; 3.5.14 (transitive dependency)<br/>    Recommended fix: upgrade to 3.5.14 or later<br/>  - org.springframework.boot:spring-boot &gt;= 3.4.0, &lt;= 3.4.15 (transitive dependency)<br/>  - org.springframework.boot:spring-boot &gt;= 3.3.0, &lt;= 3.3.18 (transitive dependency)<br/>  - org.springframework.boot:spring-boot &lt;= 2.7.32 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-31', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-31">&#x276F;</button> CVE-2026-40972: Spring Boot DevTools remote secret comparison is vulnerable to timing attacks</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-31" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-api-gateway/pom.xml:33">spring-petclinic-api-gateway/pom.xml:33</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-56v8-86gj-66jp" target="_blank" rel="noopener noreferrer">CVE-2026-40972</a>: Spring Boot DevTools remote secret comparison is vulnerable to timing attacks</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.boot:spring-boot-devtools &gt;= 4.0.0, &lt; 4.0.6 (declared at spring-petclinic-api-gateway/pom.xml:33)<br/>    Recommended fix: upgrade to 4.0.6 or later<br/>  - org.springframework.boot:spring-boot-devtools &gt;= 3.5.0, &lt; 3.5.14 (declared at spring-petclinic-api-gateway/pom.xml:33)<br/>    Recommended fix: upgrade to 3.5.14 or later<br/>  - org.springframework.boot:spring-boot-devtools &gt;= 3.4.0, &lt;= 3.4.15 (declared at spring-petclinic-api-gateway/pom.xml:33)<br/>  - org.springframework.boot:spring-boot-devtools &gt;= 3.3.0, &lt;= 3.3.18 (declared at spring-petclinic-api-gateway/pom.xml:33)<br/>  - org.springframework.boot:spring-boot-devtools &lt;= 2.7.32 (declared at spring-petclinic-api-gateway/pom.xml:33)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-32', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-32">&#x276F;</button> CVE-2026-22733: Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-32" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-api-gateway/pom.xml:43">spring-petclinic-api-gateway/pom.xml:43</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-customers-service/pom.xml:26">spring-petclinic-customers-service/pom.xml:26</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-genai-service/pom.xml:40">spring-petclinic-genai-service/pom.xml:40</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-vets-service/pom.xml:34">spring-petclinic-vets-service/pom.xml:34</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-visits-service/pom.xml:25">spring-petclinic-visits-service/pom.xml:25</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-mgvc-8q2h-5pgc" target="_blank" rel="noopener noreferrer">CVE-2026-22733</a>: Spring Boot has an Authentication Bypass under Actuator CloudFoundry endpoints</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.boot:spring-boot-starter-actuator &gt;= 4.0.0-M1, &lt; 4.0.4 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)<br/>    Recommended fix: upgrade to 4.0.4 or later<br/>  - org.springframework.boot:spring-boot-starter-actuator &gt;= 3.5.0, &lt; 3.5.12 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)<br/>    Recommended fix: upgrade to 3.5.12 or later<br/>  - org.springframework.boot:spring-boot-starter-actuator &gt;= 3.4.0, &lt;= 3.4.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)<br/>  - org.springframework.boot:spring-boot-starter-actuator &gt;= 3.0.0, &lt;= 3.3.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)<br/>  - org.springframework.boot:spring-boot-starter-actuator &lt;= 2.7.18 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-33', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-33">&#x276F;</button> CVE-2026-22731: Spring Boot has an Authentication Bypass under Actuator Health groups paths</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-33" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-api-gateway/pom.xml:43">spring-petclinic-api-gateway/pom.xml:43</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-customers-service/pom.xml:26">spring-petclinic-customers-service/pom.xml:26</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-genai-service/pom.xml:40">spring-petclinic-genai-service/pom.xml:40</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-vets-service/pom.xml:34">spring-petclinic-vets-service/pom.xml:34</span></td></tr>
+            <tr><td><span class="file-path" title="spring-petclinic-visits-service/pom.xml:25">spring-petclinic-visits-service/pom.xml:25</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-8hfc-fq58-r658" target="_blank" rel="noopener noreferrer">CVE-2026-22731</a>: Spring Boot has an Authentication Bypass under Actuator Health groups paths</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.boot:spring-boot-starter-actuator &gt;= 3.4.0, &lt;= 3.4.13 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)<br/>  - org.springframework.boot:spring-boot-starter-actuator &gt;= 3.5.0, &lt; 3.5.12 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)<br/>    Recommended fix: upgrade to 3.5.12 or later<br/>  - org.springframework.boot:spring-boot-starter-actuator &gt;= 4.0.0-M1, &lt; 4.0.4 (declared at spring-petclinic-vets-service/pom.xml:34, spring-petclinic-customers-service/pom.xml:26, spring-petclinic-api-gateway/pom.xml:43, spring-petclinic-genai-service/pom.xml:40, spring-petclinic-visits-service/pom.xml:25)<br/>    Recommended fix: upgrade to 4.0.4 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-34', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-34">&#x276F;</button> CVE-2025-22235: Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-34" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-rc42-6c7j-7h5r" target="_blank" rel="noopener noreferrer">CVE-2025-22235</a>: Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.boot:spring-boot &lt;= 2.7.24.2 (transitive dependency)<br/>  - org.springframework.boot:spring-boot &gt;= 3.1.0, &lt;= 3.1.15.2 (transitive dependency)<br/>  - org.springframework.boot:spring-boot &gt;= 3.2.0, &lt;= 3.2.13.2 (transitive dependency)<br/>  - org.springframework.boot:spring-boot &gt;= 3.3.0, &lt;= 3.3.10 (transitive dependency)<br/>    Recommended fix: upgrade to 3.3.11 or later<br/>  - org.springframework.boot:spring-boot &gt;= 3.4.0, &lt;= 3.4.4 (transitive dependency)<br/>    Recommended fix: upgrade to 3.4.5 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-35', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-35">&#x276F;</button> CVE-2026-40982: Spring Cloud Config vulnerable to Path Traversal</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-35" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-config-server/pom.xml:32">spring-petclinic-config-server/pom.xml:32</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-6g23-24mc-hx6x" target="_blank" rel="noopener noreferrer">CVE-2026-40982</a>: Spring Cloud Config vulnerable to Path Traversal</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 3.1.0, &lt;= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.1.0, &lt;= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.2.0, &lt;= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.3.0, &lt;= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 4.3.3 or later<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 5.0.0, &lt;= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 5.0.3 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-36', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-36">&#x276F;</button> CVE-2026-41002: Spring Cloud Config Server Susceptible To TOCTOU Attack</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-36" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-config-server/pom.xml:32">spring-petclinic-config-server/pom.xml:32</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-86wq-234q-r6wg" target="_blank" rel="noopener noreferrer">CVE-2026-41002</a>: Spring Cloud Config Server Susceptible To TOCTOU Attack</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 3.1.0, &lt;= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.1.0, &lt;= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.2.0, &lt;= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.3.0, &lt;= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 4.3.3 or later<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 5.0.0, &lt;= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 5.0.3 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-37', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-37">&#x276F;</button> CVE-2026-22739: Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-37" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-config-server/pom.xml:32">spring-petclinic-config-server/pom.xml:32</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-3qwq-q9vm-5j42" target="_blank" rel="noopener noreferrer">CVE-2026-22739</a>: Spring Cloud Config Server: Path Traversal via Profile Parameter Allows Arbitrary File Access</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.3.0, &lt; 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 4.3.2 or later<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 5.0.0-M1, &lt; 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 5.0.2 or later<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.2.0, &lt;= 4.2.4 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.0.0, &lt;= 4.1.7 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &lt;= 3.1.10 (declared at spring-petclinic-config-server/pom.xml:32)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-38', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-38">&#x276F;</button> CVE-2025-41253: Spring Cloud Gateway Server Webflux is vulnerable to Expression Language Injection</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-38" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-fwxx-wv44-7qfg" target="_blank" rel="noopener noreferrer">CVE-2025-41253</a>: Spring Cloud Gateway Server Webflux is vulnerable to Expression Language Injection</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.cloud:spring-cloud-gateway-server &gt;= 4.3.0, &lt; 4.3.2 (transitive dependency)<br/>    Recommended fix: upgrade to 4.3.2 or later<br/>  - org.springframework.cloud:spring-cloud-gateway-server &gt;= 4.2.0, &lt; 4.2.6 (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.6 or later<br/>  - org.springframework.cloud:spring-cloud-gateway-server &gt;= 4.0.0, &lt;= 4.1.9 (transitive dependency)<br/>  - org.springframework.cloud:spring-cloud-gateway-server &lt;= 3.1.10 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-39', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-39">&#x276F;</button> CVE-2025-41249: Spring Framework annotation detection mechanism may result in improper authorization</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-39" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-jmp9-x22r-554x" target="_blank" rel="noopener noreferrer">CVE-2025-41249</a>: Spring Framework annotation detection mechanism may result in improper authorization</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework:spring-core &gt;= 5.3.0, &lt;= 5.3.44 (transitive dependency)<br/>  - org.springframework:spring-core &gt;= 6.0.0, &lt;= 6.1.22 (transitive dependency)<br/>  - org.springframework:spring-core &gt;= 6.2.0, &lt;= 6.2.10 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.11 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-40', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-40">&#x276F;</button> CVE-2025-41235: Spring Cloud Gateway Server Forwards Headers from Untrusted Proxies</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-40" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-6j2q-c73v-97c5" target="_blank" rel="noopener noreferrer">CVE-2025-41235</a>: Spring Cloud Gateway Server Forwards Headers from Untrusted Proxies</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.cloud:spring-cloud-gateway-server &gt;= 4.2.0, &lt; 4.2.3 (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.3 or later<br/>  - org.springframework.cloud:spring-cloud-gateway-server &gt;= 4.1.0, &lt; 4.1.8 (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.8 or later<br/>  - org.springframework.cloud:spring-cloud-gateway-server &gt;= 4.0.0, &lt;= 4.0.9 (transitive dependency)<br/>  - org.springframework.cloud:spring-cloud-gateway-server &lt; 3.1.10 (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.10 or later<br/>  - org.springframework.cloud:spring-cloud-gateway-server-mvc &gt;= 4.1.7, &lt; 4.2.3 (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.3 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-41', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-41">&#x276F;</button> CVE-2025-22228: Spring Security Does Not Enforce Password Length</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-41" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-mg83-c7gq-rv5c" target="_blank" rel="noopener noreferrer">CVE-2025-22228</a>: Spring Security Does Not Enforce Password Length</p><p>Severity: HIGH</p><p>Affected dependencies:<br/>  - org.springframework.security:spring-security-crypto &gt;= 6.3.0, &lt; 6.3.8 (transitive dependency)<br/>    Recommended fix: upgrade to 6.3.8 or later<br/>  - org.springframework.security:spring-security-crypto &gt;= 6.4.0, &lt; 6.4.4 (transitive dependency)<br/>    Recommended fix: upgrade to 6.4.4 or later<br/>  - org.springframework.security:spring-security-crypto &gt;= 6.2.0, &lt;= 6.2.9 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.10 or later<br/>  - org.springframework.security:spring-security-crypto &gt;= 6.1.0, &lt;= 6.1.13 (transitive dependency)<br/>    Recommended fix: upgrade to 6.1.14 or later<br/>  - org.springframework.security:spring-security-crypto &gt;= 6.0.0, &lt;= 6.0.15 (transitive dependency)<br/>    Recommended fix: upgrade to 6.0.16 or later<br/>  - org.springframework.security:spring-security-crypto &gt;= 5.8.0, &lt;= 5.8.17 (transitive dependency)<br/>    Recommended fix: upgrade to 5.8.18 or later<br/>  - org.springframework.security:spring-security-crypto &lt;= 5.7.15 (transitive dependency)<br/>    Recommended fix: upgrade to 5.7.16 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-42', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-42">&#x276F;</button> CVE-2026-41901: Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-42" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-c9ph-gxww-7744" target="_blank" rel="noopener noreferrer">CVE-2026-41901</a>: Sandboxed Thymeleaf expressions vulnerable to improper recognition of unauthorized syntax patterns</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.thymeleaf:thymeleaf &lt;= 3.1.4.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.5.RELEASE or later<br/>  - org.thymeleaf:thymeleaf-spring5 &lt;= 3.1.4.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.5.RELEASE or later<br/>  - org.thymeleaf:thymeleaf-spring6 &lt;= 3.1.4.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.5.RELEASE or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-43', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-43">&#x276F;</button> CVE-2026-40478: Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-43" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-xjw8-8c5c-9r79" target="_blank" rel="noopener noreferrer">CVE-2026-40478</a>: Improper neutralization of specific syntax patterns for unauthorized expressions in Thymeleaf</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.thymeleaf:thymeleaf &lt;= 3.1.3.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.4.RELEASE or later<br/>  - org.thymeleaf:thymeleaf-spring5 &lt;= 3.1.3.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.4.RELEASE or later<br/>  - org.thymeleaf:thymeleaf-spring6 &lt;= 3.1.3.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.4.RELEASE or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="mandatory" onclick="toggleRow('row-security-44', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-44">&#x276F;</button> CVE-2026-40477: Improper restriction of the scope of accessible objects in Thymeleaf expressions</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-mandatory"></span>Mandatory</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-44" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-r4v4-5mwr-2fwr" target="_blank" rel="noopener noreferrer">CVE-2026-40477</a>: Improper restriction of the scope of accessible objects in Thymeleaf expressions</p><p>Severity: CRITICAL</p><p>Affected dependencies:<br/>  - org.thymeleaf:thymeleaf &lt;= 3.1.3.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.4.RELEASE or later<br/>  - org.thymeleaf:thymeleaf-spring5 &lt;= 3.1.3.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.4.RELEASE or later<br/>  - org.thymeleaf:thymeleaf-spring6 &lt;= 3.1.3.RELEASE (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.4.RELEASE or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-45', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-45">&#x276F;</button> CWE-259: Use of Hard-coded Password</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">5</td>
+    </tr>
+    <tr class="detail-row" id="row-security-45" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-genai-service/src/main/resources/application.yml">spring-petclinic-genai-service/src/main/resources/application.yml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p>The product contains a hard-coded password, which it uses for its own inbound authentication or for outbound communication to external components.</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-46', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-46">&#x276F;</button> CWE-798: Use of Hard-coded Credentials</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">5</td>
+    </tr>
+    <tr class="detail-row" id="row-security-46" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-genai-service/src/main/resources/application.yml">spring-petclinic-genai-service/src/main/resources/application.yml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p>The product contains hard-coded credentials, such as a password or cryptographic key.</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-47', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-47">&#x276F;</button> GHSA-72hv-8253-57qq: jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-47" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-72hv-8253-57qq" target="_blank" rel="noopener noreferrer">GHSA-72hv-8253-57qq</a>: jackson-core: Number Length Constraint Bypass in Async Parser Leads to Potential DoS Condition</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - tools.jackson.core:jackson-core &gt;= 3.0.0, &lt; 3.1.0 (transitive dependency)<br/>    Recommended fix: upgrade to 3.1.0 or later<br/>  - com.fasterxml.jackson.core:jackson-core &gt;= 2.0.0, &lt;= 2.18.5 (transitive dependency)<br/>    Recommended fix: upgrade to 2.18.6 or later<br/>  - com.fasterxml.jackson.core:jackson-core &gt;= 2.19.0, &lt; 2.21.1 (transitive dependency)<br/>    Recommended fix: upgrade to 2.21.1 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-48', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-48">&#x276F;</button> CVE-2025-11226: QOS.CH logback-core is vulnerable to Arbitrary Code Execution through file processing</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-48" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-25qh-j22f-pwp8" target="_blank" rel="noopener noreferrer">CVE-2025-11226</a>: QOS.CH logback-core is vulnerable to Arbitrary Code Execution through file processing</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - ch.qos.logback:logback-core &gt;= 1.4.0, &lt; 1.5.19 (transitive dependency)<br/>    Recommended fix: upgrade to 1.5.19 or later<br/>  - ch.qos.logback:logback-core &lt; 1.3.16 (transitive dependency)<br/>    Recommended fix: upgrade to 1.3.16 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-49', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-49">&#x276F;</button> CVE-2024-12798: QOS.CH logback-core Expression Language Injection vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-49" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-pr98-23f8-jwxv" target="_blank" rel="noopener noreferrer">CVE-2024-12798</a>: QOS.CH logback-core Expression Language Injection vulnerability</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - ch.qos.logback:logback-core &gt;= 1.4.0, &lt; 1.5.13 (transitive dependency)<br/>    Recommended fix: upgrade to 1.5.13 or later<br/>  - ch.qos.logback:logback-core &lt; 1.3.15 (transitive dependency)<br/>    Recommended fix: upgrade to 1.3.15 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-50', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-50">&#x276F;</button> CVE-2025-48924: Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-50" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-j288-q9x7-2f5v" target="_blank" rel="noopener noreferrer">CVE-2025-48924</a>: Apache Commons Lang is vulnerable to Uncontrolled Recursion when processing long inputs</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.apache.commons:commons-lang3 &gt;= 3.0, &lt; 3.18.0 (transitive dependency)<br/>    Recommended fix: upgrade to 3.18.0 or later<br/>  - commons-lang:commons-lang &gt;= 2.0, &lt;= 2.6 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-51', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-51">&#x276F;</button> CVE-2026-42585: Netty vulnerable to HTTP Request Smuggling due to malformed Transfer-Encoding</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-51" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-38f8-5428-x5cv" target="_blank" rel="noopener noreferrer">CVE-2026-42585</a>: Netty vulnerable to HTTP Request Smuggling due to malformed Transfer-Encoding</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec-http &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-52', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-52">&#x276F;</button> CVE-2026-42581: Netty HTTP/1.0 TE+CL Coexistence Bypasses Smuggling Sanitization</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-52" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-xxqh-mfjm-7mv9" target="_blank" rel="noopener noreferrer">CVE-2026-42581</a>: Netty HTTP/1.0 TE+CL Coexistence Bypasses Smuggling Sanitization</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec-http &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-53', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-53">&#x276F;</button> CVE-2026-42580: Netty vulnerable to HTTP Request Smuggling due to incorrect chunk size parsing</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-53" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-m4cv-j2px-7723" target="_blank" rel="noopener noreferrer">CVE-2026-42580</a>: Netty vulnerable to HTTP Request Smuggling due to incorrect chunk size parsing</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later<br/>  - io.netty:netty-codec-http &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-54', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-54">&#x276F;</button> CVE-2026-41417: Netty: Start-Line Injection in DefaultHttpRequest.setUri() Allows HTTP Request Smuggling and RTSP Request Injection</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-54" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-v8h7-rr48-vmmv" target="_blank" rel="noopener noreferrer">CVE-2026-41417</a>: Netty: Start-Line Injection in DefaultHttpRequest.setUri() Allows HTTP Request Smuggling and RTSP Request Injection</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &lt;= 4.1.132.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.133.Final or later<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt;= 4.2.12.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.13.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-55', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-55">&#x276F;</button> CVE-2025-67735: Netty has a CRLF Injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-55" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-84h7-rjj3-6jx4" target="_blank" rel="noopener noreferrer">CVE-2025-67735</a>: Netty has a CRLF Injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-http &gt;= 4.2.0.Alpha1, &lt; 4.2.8.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.8.Final or later<br/>  - io.netty:netty-codec-http &lt; 4.1.129.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.129.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-56', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-56">&#x276F;</button> CVE-2025-58057: Netty&#x27;s decoders vulnerable to DoS via zip bomb style attack</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-56" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-3p8m-j85q-pgmj" target="_blank" rel="noopener noreferrer">CVE-2025-58057</a>: Netty&#x27;s decoders vulnerable to DoS via zip bomb style attack</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.netty:netty-codec-compression &gt;= 4.2.0.Alpha1, &lt; 4.2.5.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.2.5.Final or later<br/>  - io.netty:netty-codec &lt; 4.1.125.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.125.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-57', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-57">&#x276F;</button> CVE-2025-25193: Denial of Service attack on windows app using Netty</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-57" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-389x-839f-4rhx" target="_blank" rel="noopener noreferrer">CVE-2025-25193</a>: Denial of Service attack on windows app using Netty</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.netty:netty-common &lt; 4.1.118.Final (transitive dependency)<br/>    Recommended fix: upgrade to 4.1.118.Final or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-58', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-58">&#x276F;</button> CVE-2026-45292: OpenTelemetry Java SDK has Unbounded Memory Allocation in W3C Baggage Propagation</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-58" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-rcgg-9c38-7xpx" target="_blank" rel="noopener noreferrer">CVE-2026-45292</a>: OpenTelemetry Java SDK has Unbounded Memory Allocation in W3C Baggage Propagation</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.opentelemetry:opentelemetry-api &lt;= 1.61.0 (transitive dependency)<br/>    Recommended fix: upgrade to 1.62.0 or later<br/>  - io.opentelemetry:opentelemetry-extension-trace-propagators &lt;= 1.61.0 (transitive dependency)<br/>    Recommended fix: upgrade to 1.62.0 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-59', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-59">&#x276F;</button> CVE-2025-22227: Reactor Netty HTTP is vulnerable to credential leaks during chained redirects</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-59" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-4q2v-9p7v-3v22" target="_blank" rel="noopener noreferrer">CVE-2025-22227</a>: Reactor Netty HTTP is vulnerable to credential leaks during chained redirects</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - io.projectreactor.netty:reactor-netty-http &gt;= 1.3.0-M1, &lt; 1.3.0-M5 (transitive dependency)<br/>    Recommended fix: upgrade to 1.3.0-M5 or later<br/>  - io.projectreactor.netty:reactor-netty-http &lt; 1.2.8 (transitive dependency)<br/>    Recommended fix: upgrade to 1.2.8 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-60', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-60">&#x276F;</button> CVE-2020-36843: Ed25519 Signature Malleability in ed25519-java Due to Missing Scalar Range Check</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-60" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-p53j-g8pw-4w5f" target="_blank" rel="noopener noreferrer">CVE-2020-36843</a>: Ed25519 Signature Malleability in ed25519-java Due to Missing Scalar Range Check</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - net.i2p.crypto:eddsa &lt;= 0.3.0 (transitive dependency)<br/>  - net.i2p:i2p &lt; 0.9.39 (transitive dependency)<br/>    Recommended fix: upgrade to 0.9.39 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-61', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-61">&#x276F;</button> CVE-2026-25854: Apache Tomcat has an Open Redirect vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-61" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-9m3c-qcxr-9x87" target="_blank" rel="noopener noreferrer">CVE-2026-25854</a>: Apache Tomcat has an Open Redirect vulnerability</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.53 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.53 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.20 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.20 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.53 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.53 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.20 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.20 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.53 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.53 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.20 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.20 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 8.5.30, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later<br/>  - org.apache.tomcat:tomcat &gt;= 8.5.30, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.30, &lt; 9.0.116 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.116 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-62', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-62">&#x276F;</button> CVE-2025-66614: Apache Tomcat - Client certificate verification bypass</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-62" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-fpj8-gq4v-p354" target="_blank" rel="noopener noreferrer">CVE-2025-66614</a>: Apache Tomcat - Client certificate verification bypass</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.15 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.15 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt; 10.1.50 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.50 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &lt; 9.0.113 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.113 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.15 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.15 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0-M1, &lt; 10.1.50 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.50 or later<br/>  - org.apache.tomcat:tomcat &lt; 9.0.113 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.113 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.15 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.15 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt; 10.1.50 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.50 or later<br/>  - org.apache.tomcat:tomcat-catalina &lt; 9.0.113 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.113 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-63', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-63">&#x276F;</button> CVE-2025-49124: Apache Tomcat installer for Windows has an untrusted search path vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-63" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-42wg-hm62-jcwg" target="_blank" rel="noopener noreferrer">CVE-2025-49124</a>: Apache Tomcat installer for Windows has an untrusted search path vulnerability</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt; 11.0.8 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.8 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0, &lt; 10.1.42 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.42 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.23, &lt; 9.0.106 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.106 or later<br/>  - org.apache.tomcat:tomcat &gt;= 11.0.0-M1, &lt; 11.0.8 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.8 or later<br/>  - org.apache.tomcat:tomcat &gt;= 10.1.0, &lt; 10.1.42 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.42 or later<br/>  - org.apache.tomcat:tomcat &gt;= 9.0.23, &lt; 9.0.106 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.106 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt; 11.0.8 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.8 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0, &lt; 10.1.42 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.42 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.23, &lt; 9.0.106 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.106 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-64', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-64">&#x276F;</button> CVE-2025-49125: Apache Tomcat - Security constraint bypass for pre/post-resources</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-64" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-wc4r-xq3c-5cf3" target="_blank" rel="noopener noreferrer">CVE-2025-49125</a>: Apache Tomcat - Security constraint bypass for pre/post-resources</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 11.0.0-M1, &lt;= 11.0.7 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.8 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 10.1.0-M1, &lt;= 10.1.41 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.42 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 9.0.0.M1, &lt;= 9.0.105 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.106 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M1, &lt;= 11.0.7 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.8 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.0-M1, &lt;= 10.1.41 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.42 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.0.M1, &lt;= 9.0.105 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.106 or later<br/>  - org.apache.tomcat:tomcat-catalina &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-65', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-65">&#x276F;</button> CVE-2025-31650: Apache Tomcat Denial of Service via invalid HTTP priority header</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-65" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-3p2h-wqq4-wf4h" target="_blank" rel="noopener noreferrer">CVE-2025-31650</a>: Apache Tomcat Denial of Service via invalid HTTP priority header</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 9.0.76, &lt;= 9.0.102 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.104 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 10.1.10, &lt; 10.1.40 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.40 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 11.0.0-M2, &lt; 11.0.6 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.6 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 9.0.76, &lt;= 9.0.102 (transitive dependency)<br/>    Recommended fix: upgrade to 9.0.104 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 10.1.10, &lt; 10.1.40 (transitive dependency)<br/>    Recommended fix: upgrade to 10.1.40 or later<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 11.0.0-M2, &lt; 11.0.6 (transitive dependency)<br/>    Recommended fix: upgrade to 11.0.6 or later<br/>  - org.apache.tomcat:tomcat-coyote &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)<br/>  - org.apache.tomcat.embed:tomcat-embed-core &gt;= 8.5.0, &lt;= 8.5.100 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-66', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-66">&#x276F;</button> CVE-2020-13956: Cross-site scripting in Apache HttpClient</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-66" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-7r82-7xv7-xcpj" target="_blank" rel="noopener noreferrer">CVE-2020-13956</a>: Cross-site scripting in Apache HttpClient</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.apache.httpcomponents:httpclient &lt; 4.5.13 (transitive dependency)<br/>    Recommended fix: upgrade to 4.5.13 or later<br/>  - org.apache.httpcomponents:httpclient &gt;= 5.0.0, &lt; 5.0.3 (transitive dependency)<br/>    Recommended fix: upgrade to 5.0.3 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-67', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-67">&#x276F;</button> CVE-2026-0636: Bouncy Castle has an LDAP injection</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-67" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-c3fc-8qff-9hwx" target="_blank" rel="noopener noreferrer">CVE-2026-0636</a>: Bouncy Castle has an LDAP injection</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.bouncycastle:bcprov-jdk14 &gt;= 1.74, &lt; 1.84 (transitive dependency)<br/>    Recommended fix: upgrade to 1.84 or later<br/>  - org.bouncycastle:bcprov-jdk15to18 &gt;= 1.74, &lt; 1.84 (transitive dependency)<br/>    Recommended fix: upgrade to 1.84 or later<br/>  - org.bouncycastle:bcprov-jdk18on &gt;= 1.74, &lt; 1.84 (transitive dependency)<br/>    Recommended fix: upgrade to 1.84 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-68', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-68">&#x276F;</button> CVE-2025-4949: Eclipse JGit XML External Entity (XXE) Vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-68" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-vrpq-qp53-qv56" target="_blank" rel="noopener noreferrer">CVE-2025-4949</a>: Eclipse JGit XML External Entity (XXE) Vulnerability</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.eclipse.jgit:org.eclipse.jgit &gt;= 7.2.0.202503040940-r, &lt; 7.2.1.202505142326-r (transitive dependency)<br/>    Recommended fix: upgrade to 7.2.1.202505142326-r or later<br/>  - org.eclipse.jgit:org.eclipse.jgit &gt;= 7.1.0.202411261347-r, &lt; 7.1.1.202505221757-r (transitive dependency)<br/>    Recommended fix: upgrade to 7.1.1.202505221757-r or later<br/>  - org.eclipse.jgit:org.eclipse.jgit &gt;= 7.0.0.202409031743-r, &lt; 7.0.1.202505221510-r (transitive dependency)<br/>    Recommended fix: upgrade to 7.0.1.202505221510-r or later<br/>  - org.eclipse.jgit:org.eclipse.jgit &gt;= 6.1.0.202203080745-r, &lt; 6.10.1.202505221210-r (transitive dependency)<br/>    Recommended fix: upgrade to 6.10.1.202505221210-r or later<br/>  - org.eclipse.jgit:org.eclipse.jgit &lt; 5.13.4.202507202350-r (transitive dependency)<br/>    Recommended fix: upgrade to 5.13.4.202507202350-r or later<br/>  - org.eclipse.jgit:org.eclipse.jgit &gt;= 6.0.0.202110060947-m1, &lt; 6.0.0.202111291000-r (transitive dependency)<br/>    Recommended fix: upgrade to 6.0.0.202111291000-r or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-69', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-69">&#x276F;</button> CVE-2026-41004: Spring Cloud Config Server Logged Sensitive Information</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-69" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-config-server/pom.xml:32">spring-petclinic-config-server/pom.xml:32</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-j6hh-h3cf-c2hf" target="_blank" rel="noopener noreferrer">CVE-2026-41004</a>: Spring Cloud Config Server Logged Sensitive Information</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 3.1.0, &lt;= 3.1.13 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.1.0, &lt;= 4.1.9 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.2.0, &lt;= 4.2.6 (declared at spring-petclinic-config-server/pom.xml:32)<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 4.3.0, &lt;= 4.3.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 4.3.3 or later<br/>  - org.springframework.cloud:spring-cloud-config-server &gt;= 5.0.0, &lt;= 5.0.2 (declared at spring-petclinic-config-server/pom.xml:32)<br/>    Recommended fix: upgrade to 5.0.3 or later</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-70', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-70">&#x276F;</button> CVE-2026-22745: Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-70" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-6p4f-wcwh-5vvm" target="_blank" rel="noopener noreferrer">CVE-2026-22745</a>: Spring MVC and WebFlux applications are vulnerable to Denial of Service attacks when resolving static resources</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.springframework:spring-webflux &gt;= 7.0.0, &lt;= 7.0.6 (transitive dependency)<br/>    Recommended fix: upgrade to 7.0.7 or later<br/>  - org.springframework:spring-webflux &gt;= 6.2.0, &lt;= 6.2.17 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.18 or later<br/>  - org.springframework:spring-webflux &gt;= 6.1.0, &lt;= 6.1.26 (transitive dependency)<br/>  - org.springframework:spring-webflux &lt;= 5.3.47 (transitive dependency)<br/>  - org.springframework:spring-webmvc &gt;= 7.0.0, &lt;= 7.0.6 (transitive dependency)<br/>    Recommended fix: upgrade to 7.0.7 or later<br/>  - org.springframework:spring-webmvc &gt;= 6.2.0, &lt;= 6.2.17 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.18 or later<br/>  - org.springframework:spring-webmvc &gt;= 6.1.0, &lt;= 6.1.26 (transitive dependency)<br/>  - org.springframework:spring-webmvc &lt;= 5.3.47 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-71', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-71">&#x276F;</button> CVE-2026-22737: Spring Framework Improper Path Limitation with Script View Templates</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-71" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-4773-3jfm-qmx3" target="_blank" rel="noopener noreferrer">CVE-2026-22737</a>: Spring Framework Improper Path Limitation with Script View Templates</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.springframework:spring-webmvc &gt;= 7.0.0-M1, &lt; 7.0.6 (transitive dependency)<br/>    Recommended fix: upgrade to 7.0.6 or later<br/>  - org.springframework:spring-webmvc &gt;= 6.2.0, &lt; 6.2.17 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.17 or later<br/>  - org.springframework:spring-webmvc &gt;= 6.0.0, &lt;= 6.1.21 (transitive dependency)<br/>  - org.springframework:spring-webmvc &gt;= 5.3.0, &lt;= 5.3.39 (transitive dependency)<br/>  - org.springframework:spring-webflux &gt;= 7.0.0-M1, &lt; 7.0.6 (transitive dependency)<br/>    Recommended fix: upgrade to 7.0.6 or later<br/>  - org.springframework:spring-webflux &gt;= 6.2.0, &lt; 6.2.17 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.17 or later<br/>  - org.springframework:spring-webflux &gt;= 6.0.0, &lt;= 6.1.21 (transitive dependency)<br/>  - org.springframework:spring-webflux &gt;= 5.3.0, &lt;= 5.3.39 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-72', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-72">&#x276F;</button> CVE-2025-41242: Spring Framework MVC Applications Path Traversal Vulnerability</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-72" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-r936-gwx5-v52f" target="_blank" rel="noopener noreferrer">CVE-2025-41242</a>: Spring Framework MVC Applications Path Traversal Vulnerability</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.springframework:spring-webmvc &gt;= 6.2.0, &lt; 6.2.10 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.10 or later<br/>  - org.springframework:spring-webmvc &gt;= 6.1.0, &lt;= 6.1.21 (transitive dependency)<br/>  - org.springframework:spring-webmvc &gt;= 6.0.0, &lt;= 6.0.29 (transitive dependency)<br/>  - org.springframework:spring-webmvc &gt;= 5.3.0, &lt;= 5.3.43 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-73', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-73">&#x276F;</button> CVE-2025-41234: Spring Framework vulnerable to a reflected file download (RFD)</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-73" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="pom.xml">pom.xml</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p><a href="https://github.com/advisories/GHSA-6r3c-xf4w-jxjm" target="_blank" rel="noopener noreferrer">CVE-2025-41234</a>: Spring Framework vulnerable to a reflected file download (RFD)</p><p>Severity: MEDIUM</p><p>Affected dependencies:<br/>  - org.springframework:spring-web &gt;= 6.2.0, &lt; 6.2.8 (transitive dependency)<br/>    Recommended fix: upgrade to 6.2.8 or later<br/>  - org.springframework:spring-web &gt;= 6.1.0, &lt; 6.1.21 (transitive dependency)<br/>    Recommended fix: upgrade to 6.1.21 or later<br/>  - org.springframework:spring-web &gt;= 6.0.5, &lt;= 6.0.23 (transitive dependency)</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="issue-row" data-criticality="optional" onclick="toggleRow('row-security-74', this)" style="cursor:pointer;">
+      <td style="white-space:normal;"><div class="issue-title-cell"><button class="expand-btn" id="btn-row-security-74">&#x276F;</button> CWE-477: Use of Obsolete Function</div></td>
+      <td class="crit-cell"><span class="crit-label"><span class="crit-square crit-square-optional"></span>Optional</span></td>
+      <td class="sp-cell">1</td>
+    </tr>
+    <tr class="detail-row" id="row-security-74" style="display:none;">
+      <td colspan="3">
+        <div class="detail-content">
+          <div class="file-list">
+            <table><thead><tr><th>File</th></tr></thead><tbody>
+            <tr><td><span class="file-path" title="spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Pet.java">spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Pet.java</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="explanation-panel">
+            <h4>Explanation</h4>
+            <div><p>The code uses deprecated or obsolete functions, which suggests that the code has not been actively reviewed or maintained.</p></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div><!-- #tab-issues -->
+<p class="footer">Your feedback is invaluable &mdash; <a href="https://aka.ms/ghcp-appmod/feedback">Share feedback</a></p>
+<script>
+function toggleRow(rowId, triggerRow) {
+  var detail = document.getElementById(rowId);
+  var btn = document.getElementById('btn-' + rowId);
+  if (!detail) return;
+  var visible = detail.style.display !== 'none';
+  detail.style.display = visible ? 'none' : 'table-row';
+  if (btn) btn.classList.toggle('open', !visible);
+}
+(function() {
+  var nav = document.querySelector('.tab-nav');
+  if (!nav) return;
+  nav.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    var panel = document.getElementById(targetId);
+    if (panel) {
+      panel.classList.add('active');
+      if (window.__mermaidReady) { window.__renderMermaidIn(panel); }
+    }
+  });
+})();
+
+// ── Diagram lightbox ────────────────────────────────────────
+(function() {
+  var lightbox = document.getElementById('diagram-lightbox');
+  var inner = document.getElementById('diagram-lightbox-inner');
+  var closeBtn = document.getElementById('diagram-lightbox-close');
+  if (!lightbox || !inner || !closeBtn) return;
+
+  var scale = 1;
+  var translateX = 0;
+  var translateY = 0;
+  var isDragging = false;
+  var dragStartX = 0;
+  var dragStartY = 0;
+
+  function applyTransform() {
+    var svg = inner.querySelector('svg');
+    if (svg) {
+      svg.style.transform = 'translate(' + translateX + 'px, ' + translateY + 'px) scale(' + scale + ')';
+      svg.style.transformOrigin = 'center center';
+      svg.style.transition = 'none';
+    }
+  }
+
+  function resetTransform() {
+    scale = 1; translateX = 0; translateY = 0;
+    applyTransform();
+  }
+
+  function openLightbox(svgEl) {
+    inner.innerHTML = svgEl.outerHTML;
+    var injected = inner.querySelector('svg');
+    if (injected) {
+      injected.removeAttribute('width');
+      injected.removeAttribute('height');
+      injected.style.cursor = 'grab';
+    }
+    resetTransform();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    inner.innerHTML = '';
+    document.body.style.overflow = '';
+    resetTransform();
+  }
+
+  inner.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var delta = e.deltaY > 0 ? 0.9 : 1.1;
+    scale = Math.min(Math.max(scale * delta, 0.3), 8);
+    applyTransform();
+  }, { passive: false });
+
+  inner.addEventListener('mousedown', function(e) {
+    if (e.button !== 0) return;
+    isDragging = true;
+    dragStartX = e.clientX - translateX;
+    dragStartY = e.clientY - translateY;
+    var svg = inner.querySelector('svg');
+    if (svg) { svg.style.cursor = 'grabbing'; }
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    translateX = e.clientX - dragStartX;
+    translateY = e.clientY - dragStartY;
+    applyTransform();
+  });
+
+  document.addEventListener('mouseup', function() {
+    if (!isDragging) return;
+    isDragging = false;
+    var svg = inner.querySelector('svg');
+    if (svg) { svg.style.cursor = 'grab'; }
+  });
+
+  inner.addEventListener('dblclick', function() { resetTransform(); });
+
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.mermaid');
+    if (!card) return;
+    if (e.target.closest('.diagram-lightbox-close')) return;
+    var svg = card.querySelector('svg');
+    if (svg) { openLightbox(svg); }
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) { closeLightbox(); }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeLightbox(); }
+  });
+})();
+
+var _currentTarget = '';
+
+function toggleMultiSelect(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  document.querySelectorAll('.multi-select.open').forEach(function(ms) { if (ms.id !== id) ms.classList.remove('open'); });
+  el.classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.multi-select')) {
+    document.querySelectorAll('.multi-select.open').forEach(function(ms) { ms.classList.remove('open'); });
+  }
+});
+
+function getMultiSelectValues(msId) {
+  var el = document.getElementById(msId);
+  if (!el) return [];
+  var checked = el.querySelectorAll('input[type=checkbox]:checked');
+  var vals = [];
+  for (var i = 0; i < checked.length; i++) vals.push(checked[i].value);
+  return vals;
+}
+
+function onMultiSelectChange(msId, label) {
+  var el = document.getElementById(msId);
+  if (!el) return;
+  var vals = getMultiSelectValues(msId);
+  var total = el.querySelectorAll('input[type=checkbox]').length;
+  var btn = el.querySelector('.multi-select-btn');
+  if (btn) {
+    btn.textContent = vals.length > 0 && vals.length < total ? label + ' (' + vals.length + ')' : label;
+  }
+  applyFilters();
+}
+
+function applyFilters() {
+  var selectedDomains = getMultiSelectValues('domain-ms');
+  var selectedCrits = getMultiSelectValues('criticality-ms');
+
+  var sections = document.querySelectorAll('.issue-section');
+  for (var i = 0; i < sections.length; i++) {
+    var domain = sections[i].getAttribute('data-domain');
+    sections[i].style.display = (selectedDomains.length === 0 || selectedDomains.indexOf(domain) >= 0) ? '' : 'none';
+  }
+
+  var rows = document.querySelectorAll('.issue-row');
+  for (var i = 0; i < rows.length; i++) {
+    var row = rows[i];
+    var section = row.closest('.issue-section');
+    if (section && section.style.display === 'none') {
+      row.style.display = 'none';
+      var next = row.nextElementSibling;
+      if (next && next.classList.contains('detail-row')) next.style.display = 'none';
+      continue;
+    }
+
+    var show = true;
+    if (_currentTarget && row.hasAttribute('data-targets')) {
+      var targetsStr = row.getAttribute('data-targets');
+      if (targetsStr && targetsStr !== '{}') {
+        try {
+          var targets = JSON.parse(targetsStr);
+          if (Object.keys(targets).length > 0 && !targets[_currentTarget]) {
+            show = false;
+          }
+        } catch(e) {}
+      }
+    }
+
+    if (show && selectedCrits.length > 0) {
+      var crit = row.getAttribute('data-criticality');
+      if (selectedCrits.indexOf(crit) < 0) show = false;
+    }
+
+    row.style.display = show ? '' : 'none';
+    var nextRow = row.nextElementSibling;
+    if (nextRow && nextRow.classList.contains('detail-row')) {
+      if (!show) nextRow.style.display = 'none';
+    }
+  }
+}
+
+function clearAllFilters() {
+  document.querySelectorAll('.multi-select input[type=checkbox]').forEach(function(cb) { cb.checked = false; });
+  var domainBtn = document.querySelector('#domain-ms .multi-select-btn');
+  if (domainBtn) domainBtn.textContent = 'Domain';
+  var critBtn = document.querySelector('#criticality-ms .multi-select-btn');
+  if (critBtn) critBtn.textContent = 'Criticality';
+  applyFilters();
+}
+
+function onTargetChange(targetId) {
+  _currentTarget = targetId;
+  var rows = document.querySelectorAll('.issue-row[data-targets]');
+  var totalEffort = 0;
+  var domainCrits = {};
+
+  for (var i = 0; i < rows.length; i++) {
+    var row = rows[i];
+    var targets = JSON.parse(row.getAttribute('data-targets'));
+    var section = row.closest('.issue-section');
+    var domain = section ? section.getAttribute('data-domain') : '';
+
+    if (!targets || Object.keys(targets).length === 0) {
+      var sp = parseFloat(row.querySelector('.sp-cell').textContent) || 0;
+      totalEffort += sp;
+      if (!domainCrits[domain]) domainCrits[domain] = {mandatory:0,potential:0,optional:0};
+      var crit = row.getAttribute('data-criticality') || 'optional';
+      domainCrits[domain][crit] = (domainCrits[domain][crit] || 0) + 1;
+      continue;
+    }
+
+    var override = targets[targetId];
+    if (!override) {
+      continue;
+    }
+
+    var newSeverity = (override.severity || row.getAttribute('data-default-severity') || '').toLowerCase();
+    row.setAttribute('data-criticality', newSeverity);
+    var critCell = row.querySelector('.crit-cell');
+    if (critCell) {
+      var critText = newSeverity === 'mandatory' ? 'Mandatory' : newSeverity === 'potential' ? 'Potential' : 'Optional';
+      var cssClass = newSeverity === 'mandatory' ? 'crit-square-mandatory' : newSeverity === 'potential' ? 'crit-square-potential' : 'crit-square-optional';
+      critCell.innerHTML = '<span class="crit-label"><span class="crit-square ' + cssClass + '"></span>' + critText + '</span>';
+    }
+
+    var newEffort = override.effort !== undefined ? override.effort : parseFloat(row.getAttribute('data-default-effort')) || 0;
+    var spCell = row.querySelector('.sp-cell');
+    if (spCell) spCell.textContent = newEffort;
+    totalEffort += newEffort;
+
+    if (!domainCrits[domain]) domainCrits[domain] = {mandatory:0,potential:0,optional:0};
+    domainCrits[domain][newSeverity] = (domainCrits[domain][newSeverity] || 0) + 1;
+  }
+
+  var secSection = document.querySelector('.issue-section[data-domain="security"]');
+  if (secSection) {
+    var secRows = secSection.querySelectorAll('.issue-row');
+    for (var j = 0; j < secRows.length; j++) {
+      if (!secRows[j].hasAttribute('data-targets') || secRows[j].getAttribute('data-targets') === '') {
+        var sp = parseFloat(secRows[j].querySelector('.sp-cell').textContent) || 0;
+        totalEffort += sp;
+        if (!domainCrits['security']) domainCrits['security'] = {mandatory:0,potential:0,optional:0};
+        var sc = secRows[j].getAttribute('data-criticality') || 'optional';
+        domainCrits['security'][sc] = (domainCrits['security'][sc] || 0) + 1;
+      }
+    }
+  }
+
+  var label = totalEffort < 20 ? 'S' : totalEffort < 50 ? 'M' : totalEffort < 100 ? 'L' : 'XL';
+  var effortEl = document.getElementById('effort-display');
+  if (effortEl) effortEl.textContent = label + ' (total story points: ' + totalEffort + ')';
+
+  updateDonuts(domainCrits);
+  applyFilters();
+}
+
+function updateDonuts(domainCrits) {
+  var container = document.getElementById('donut-container');
+  if (!container) return;
+  container.innerHTML = '';
+  var domainNames = {'cloud-readiness':'Cloud Readiness','java-upgrade':'Java Upgrade','dotnet-upgrade':'DotNET Upgrade','security':'Security'};
+  var domainOrder = ['cloud-readiness','java-upgrade','dotnet-upgrade','security'];
+  for (var d = 0; d < domainOrder.length; d++) {
+    var key = domainOrder[d];
+    var c = domainCrits[key];
+    if (!c || (c.mandatory + c.potential + c.optional) === 0) continue;
+    var total = c.mandatory + c.potential + c.optional;
+    var div = document.createElement('div');
+    div.className = 'domain-summary-item';
+    div.innerHTML = buildDonutSvg(c.mandatory, c.potential, c.optional) +
+      '<h3>' + domainNames[key] + '</h3>' +
+      '<div class="count">' + total + ' issue' + (total !== 1 ? 's' : '') + '</div>';
+    container.appendChild(div);
+  }
+}
+
+function buildDonutSvg(m, p, o) {
+  var total = m + p + o;
+  if (total === 0) return '<svg viewBox="0 0 100 100" width="100" height="100" style="display:block;margin:0 auto;"><circle cx="50" cy="50" r="35" fill="none" stroke="#d0d7de" stroke-width="15" opacity="0.5"/></svg>';
+  var r = 35, circ = 2 * Math.PI * r, offset = 0;
+  var svg = '<svg viewBox="0 0 100 100" width="100" height="100" style="display:block;margin:0 auto;transform:rotate(-90deg);">';
+  var segs = [{c:m,color:'var(--color-mandatory)'},{c:p,color:'var(--color-potential)'},{c:o,color:'var(--color-optional)'}];
+  for (var i = 0; i < segs.length; i++) {
+    if (segs[i].c === 0) continue;
+    var segLen = (segs[i].c / total) * circ;
+    var gap = total > segs[i].c ? 1.5 : 0;
+    var drawLen = Math.max(segLen - gap, 0.5);
+    svg += '<circle cx="50" cy="50" r="' + r + '" fill="none" stroke="' + segs[i].color + '" stroke-width="15" stroke-dasharray="' + drawLen.toFixed(2) + ' ' + circ.toFixed(2) + '" stroke-dashoffset="' + (-offset).toFixed(2) + '"/>';
+    offset += segLen;
+  }
+  svg += '</svg>';
+  return svg;
+}
+</script>
+</div></body></html>
